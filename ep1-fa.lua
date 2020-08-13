@@ -1,88 +1,89 @@
 mywear = obj {
-	nam = 'quilted jacket',
+	nam = 'کاپشن',
 	dsc = function(s)
 		if here() == stolcorridor then	
 			local st='.';
 			if not have('gun') then
 				st = ', شاتگانم زیرشه';
 			end
-			return 'در ضمن {کاپشن خلبانیم} رو جالباسیه'..st;
+			return 'در ضمن {کاپشن} خلبانیم رو جالباسیه'..st;
 		else
-			return 'On the nail in the pine door there\'s my {quilted jacket}.';
+			return 
+			'{کاپشنم} از میخ روی در چوب کاج آویزونه.';
 		end
 	end,
 	inv = 'زمستونه. من یه کاپشن خلبانی گرم تنمه.',
 	tak = function(s)
 		if here() == stolcorridor then
 			if have('alienwear') then
-				return 'I\'m already dressed... If I take my quilted jacket too, I\'ll look suspicious...', false;
+				return 'من لباسامو پوشیدم... اگه کاپشنم رو هم بردارم مشکوک به نظر می‌رسم...', false;
 			end
 			if me()._walked then
 				me()._walked = false;
 				inv():add('gun');
-				return 'But my quilted jacket is the best!';
+				return 'هیچی کاپشن خلبانی من نمی‌شه!';
 			end
-			return 'That would be too conspicuous... ', false;
+			return 'اونطوری خیلی تابلو می‌شه... ', false;
 		else
-			return 'I took my coat off the nail.';
+			return 'کتمو از رو آویز برداشتم.';
 		end
 	end, 
 	use = function(s, o)
 		if o == 'guy' then
-			return 'After a short delay you exchanged coats...';
+			return 'بعد یه مکث کوتاه کاپشن‌ها رو عوض کردین...';
 		end
 	end
 };
 
 money = obj {
-	nam = 'money',
+	nam = 'پول',
 	inv = 'پول گنده نکبته... همون بهتر که من پول چندانی ندارم...',
 	use = function(s, w)
 		if w == 'shopman' then
 			if shopman._wantmoney then
 				shopman._wantmoney = false;
-				return 'I pay to Vladimir.';
+				return 'پول ولادیمیر رو دادم.';
 			end
-			return 'I don\'t want to pay without reason...';
+			return 'نمی‌خوام همینطوری پول بودم...';
 		end
 	end
 };
 
 mybed = obj {
 	nam = 'bed',
-	dsc = 'There\'s a {bed} by the window.',
+	dsc = 'کنار پنجره یه {تخته}.',
 	act = 'وقتی برای خواب نیست.',
 };
 
 mytable = obj {
-	nam = 'table',
-	dsc = 'There\'s an oaken {table} with drawers in the left corner.',
+	nam = 'میز',
+	dsc = 'یه {میز} بلوط کشودار گوشه‌ی سمت چپه.',
 	act = function()
 		if not have(money) then
 			take('money');
-			return 'After rummaging in the drawers I found money.';
+			return 'بعد زیر و رو کردن کشو پول پیدا کردم.';
 		end
 		return 'میز... خودم ساختمش.';
 	end,
 };
 
 foto = obj {
-	nam = 'photo',
-	dsc = 'On the table there\'s a framed {photo}.',
+	nam = 'عکس',
+	dsc = 'یه {عکس} قاب شده روی میزه.',
 	tak = 'عکس رو برداشتم.',
 	inv = 'عکس من و باریسکه.',
 };
 
 gun = obj {
-	nam = 'shotgun',
-	dsc = 'There\'s a {shotgun} in the right corner of the cabin.',
+	nam = 'شاتگان',
+	dsc = 'گوشه‌ی راست کابین یه {شاتگانه}.',
 	tak = 'شاتگان رو برداشتم و انداختم پشتم.',
 	inv = function(s)
 		local st = '';
 		if s._obrez then
-			st = ' By the way, now it\'s a sawed-off shotgun.';
+			st = ' راستی! الان اون یه نصفه شاتگانه.';
 			if s._hidden then
-				st = st..' It\'s hidden inside my clothes.';
+				st = st..' تو لباسم قایمش کردم.';
 			end
 		end
 		if s._loaded then
@@ -95,36 +96,36 @@ gun = obj {
 		if not s._hidden then
 			if w == 'mywear' or w == 'alienwear' then
 				if not s._obrez then
-					return 'I tried to hide the shotgun in the clothes, but it was too long.'
+					return 'سعی کردم شاتگان رو تو لباسم قایم کنم ولی خیلی بزرگ بود..'
 				else
 					s._hidden = true;
-					return 'Now I can hide the sawed-off shotgun in the clothes!';
+					return 'الان دیگه می‌تونم شاتگان برش خورده رو تو لباسم قایم کنم!';
 				end
 			end
 		end
 		if not s._loaded then
-			return 'Not loaded...', false;
+			return 'خالیه...', false;
 		end
 		if w == 'guard' then
-			return 'Yes, they are scoundrels, but firstly they are humans too, and secondly it wouldn\'t help...', false;
+			return 'آره، اونا عوضی‌ان، اما عوضی‌ها هم آدمن. از این گذشته کمکی هم نمی‌کنه...', false;
 		end
 		if w == 'wire' then
-			return 'Too close... I need something like wire cutters...', false;
+			return 'خیلی نزدیکه... یه چیزی مثل سیمچین لازم دارم...', false;
 		end
 		if w == 'cam' and not cam._broken then
 			cam._broken = true;
 			s._loaded = false;
-			return 'I aimed at the camera and fired both barrels... The dull gunshot was drowned by gusts of the snowstorm...';
+			return 'دوربین رو نشونه گرفتم و هر دو لول رو خالی کردم روش... انعکاس صدای شلیک توی زوزه‌ی طوفان برف محو شد...';
 		end
 		if w == 'mycat' or w == 'shopman' or w == 'guy' then
-			return 'This isn\'t my thought...', false;
+			return 'فکر من این نبود...', false;
 		end
 	end
 };
 
 fireplace = obj {
 	nam = 'شومینه',	
-	dsc = 'یه {شومینه} سینه‌ی دیواره. شعله‌های لرزون اتاق رو روشن می‌کنن.',
+	dsc = 'یه {شومینه} سینه‌ی دیواره. شعله‌های لرزون آتیش اتاق رو روشن کردن.',
 	act = 'دوست دارم عصرهای طولانی زمستون رو کنار شومینه بگذرونم.',
 };
 
@@ -151,13 +152,13 @@ mycat = obj {
 		s._lflast = r;
 		return s.lf[r];
 	end,
-	desc = { [1] = 'My cat {Barsik} (“little snow leopard”) is sleeping by the fireplace cosily curled in a ball.',
-		 [2] = '{Barsik} scans the terrain around the cabin.',
-		 [3] = '{Barsik} is sitting on the front passenger seat.',
-		 [4] = '{Barsik} is studying something by the trash bins...',
-		 [5] = '{Barsik} snuggles up at my feet.',
+	desc = { [1] = 'گربه‌ی قشنگم کنار شومینه خودشو خیلی جون جونی لوله کرده و خوابیده. اسمش {باریسکه}، یعنی «پلنگ برفی کوچیک».',
+		 [2] = '{باریسک} داره محوطه اطراف کلبه رو چک می‌کنه.',
+		 [3] = '{باریسک} نشسته رو صندلی جلو.',
+		 [4] = '{باریسک} داره یه چیزی رو توی آشغالا با دقت وارسی می‌کنه...',
+		 [5] = '{باریسک} جستی می‌پره رو پاهای من',
 	},
-	inv = 'Barsik is in my bosom... My poor tomkitty... I\'ll save you!!! And the whole world...',
+	inv = 'باریسک بغلمه... پیشی کوچولوی من... هم تو رو نجاتت می دم هم همه دنیا رو!!!',
 	dsc = function(s)
 		local state
 		if here() == home then
@@ -177,56 +178,56 @@ mycat = obj {
 		if here() == escape3 then
 			take('mycat');
 			lifeon('mycat');
-			return 'I put Barsik in my bosom.';
+			return 'باریسک رو جا دادم بغلم.';
 		end
-		return 'I scratched Barsik behind the ears...';
+		return 'پشت گوش باریسک رو خاروندم...';
 	end,
 };
 
 inmycar = room {
 	nam = 'توی ماشین',
-	dsc = 'توی ماشینم هستم... اسب کاری من...',
+	dsc = 'توی ماشینم هستم... رخش پرقدرت من...',
 	pic = 'gfx/incar.png',
 	way = {'forest', 'village'},
 	enter = function(s, f)
-		local s = 'I open the car door.';
+		local s = 'در ماشین رو باز می‌کنم.';
 		if have('mybox') then
-			return 'I can\'t get into the car with this box...', false;
+			return 'با این جعبه نمی‌تونم بشینم تو ماشین...', false;
 		end
 		if seen('mycat') then
-			s = s..' Barsik jumps into the car.'
+			s = s..' باریسک می‌پره تو ماشینم.'
 			move('mycat','inmycar');
 		elseif not me()._know_where then
-			return 'No... First I have to find Barsik!', false
+			return 'نه... اول باید باریسک رو پیدا کنم!', false
 		end
 		if f == 'guarddlg' then
-			return 'Hmm... I\'ll have to come up with something...';
+			return 'عجب... باید یه راهی پیدا کنم...';
 		end
-		return cat(s, ' Well, time to go...');
+		return cat(s, ' خوب، دیگه وقت رفتنه...');
 	end,
 	exit = function(s, t)
 		local s=''
 		if seen('mycat') then
-			s = ' Barsik is the first to jump out of the car.';
+			s = ' اولین چیزی که از ماشین بیرون می‌پره باریسکه.';
 			move('mycat',t);
 		end
 		if ref(t) ~= from() then
 			from().obj:del('mycar');
 			move('mycar', t);
 			return [[
-The car starts reluctantly... After a long road I finally kill the engine and open the door...]]..s;
+ماشین به راحتی روشن می‌شه... بعد یه مسیر طولانی بالاخره موتور رو خاموش می‌کنم و در رو باز می‌کنم...]]..s;
 		end
-		return 'No... I think, I forgot something...'..s;
+		return 'نه... فکر کنم چیزی رو فراموش کردم...'..s;
 	end
 };
 
 mycar = obj {
 	nam = 'my car',
 	desc = {
-	[1] = 'In front of the cabin there is my old Toyota {pickup}.',
-	[2] = 'In the parking lot there is my old {pickup}.',
-	[3] = 'Near the checkpoint stands my {pickup}.',
-	[4] = 'Behind the corner stands my {pickup}.',
+	[1] = 'تویوتا {پیکاپ} قدیمیم جلوی در کابینه.',
+	[2] = 'تویوتا {پیکاپ} قدیمیم توی پارکینگه.',
+	[3] = '{پیکاپ} من نزدیک اتاقک نگهبانیه.',
+	[4] = '{پیکاپ} من سر نبشه.',
 	},
 	dsc = function(s)
 		local state
@@ -248,63 +249,63 @@ mycar = obj {
 
 iso = obj {
 	nam = 'insulating tape',
-	inv = 'A roll of insulating tape. Blue...',
+	inv = 'یه حلقه چسب عایق آبی...',
 	use = function(s, o)
 		if o == 'trap' and not trap._iso then
 			trap._iso = true;
-			return 'I insulated the trap with the tape.';
+			return 'تله رو با چسب عایق‌کاری کردم.';
 		end
 		if o == 'wire' then
-			return 'What for? I wouldn\'t go through the barbed wire. Besides, I can\'t insulate it — I\'d be struck by electricity!';
+			return 'چرا? من توی سیم‌خاردار نمی‌رم. در ضمن من نمی‌تونم عایق‌کاریش بکنم، برق منو می‌گیره!';
 		end
 	end
 };
 
 trap = obj {
 	nam = 'trap',
-	dsc = 'There\'s a {steel trap} in the snow.', -- !!!!
-	tak = 'Damned poachers! I\'m taking the trap with me.',
+	dsc = 'یه {تله فلزی} توی برفه.', -- !!!!
+	tak = 'شکارچی‌های غیرقانونی لعنتی! تله‌ها رو با خودم می‌برم.',
 	inv = function(s)
 		if s._salo then
-			return 'Big mousetrap! Insulated too.';
+			return 'تله‌ی موش بزرگ! عایق‌کاری شد.';
 		end
 		if s._iso then
-			return 'Steel. Very sharp. Insulated with the tape.';
+			return 'استیله. و خیلی تیز. عایق‌کاری هم شده.';
 		else
-			return 'Steel. Very sharp.';
+			return 'استیله. و خیلی تیز.';
 		end
 	end,
 	use = function(s, o)
 		if o == 'wire' and not wire._broken then 
 			if not s._iso then
-				return 'The trap is metallic... I\'d be knocked by  electricity and that\'s all...';
+				return 'تله از فلزه... برق منو می‌گیره و ختم ماجرا...';
 			end
 			wire._broken = true;
 			onwall.way:add('eside');
-			return 'I bring the primed trap to the wire... As I thought the trap breaks the wire!';
+			return 'تله ساده رو میارم سر سیم خاردار... آخه فکر کردم که تله ممکنه سیم‌خاردار رو قطع بکنه!';
 		end
 	end
 };
 
 deepforest = room {
 	i = 0,
-	nam = 'deep forest',
+	nam = 'جنگل انبوه',
 	pic = 'gfx/deepforest.png',
 	dsc = function(s)
-		local st = 'I\'m deep in the woods... ';
+		local st = 'تو دل جنگلم... ';
 		if s._i == 1 then
-			return st..'Pines and firs... Nothing else...';
+			return st..'کاج و سرخس... و دیگر هیچ...';
 		elseif s._i == 2 then
-			return st..'Beautiful birches — trying not to get lost...';
+			return st..'درخت‌های توس زیبا — سعی می‌کنم گم نشم...';
 		elseif s._i == 3 then
-			return st..'Impassable thicket... I don\'t understand — am I lost?..';
+			return st..'بیشه‌ی غیرقابل رسوخ... سردرنمیارم. یعنی گم شدم؟..';
 		elseif s._i == 4 then
-			return st..'Beautiful lake... Yes... Should I go back?';
+			return st..'یه دریاجه زیبا... آره... باید برگردم؟';
 		elseif s._i == 5 then
 			s._trap = true;
-			return st..'Some bushes... Bushes... Bushes...';
+			return st..'مقدار بته... بازم بته... و بازهم بته...';
 		else
-			return st..'Stump... What a beautiful stump...';
+			return st..'کنده درخت... چه کنده درخت قشنگی...';
 		end
 	end, 
 	enter = function(s,f)
@@ -324,13 +325,13 @@ deepforest = room {
 			s.way:add('forest');
 		end
 		if f == 'forest' and inv():srch('trap') then
-			return [[Thanks, i\'ve already went for a walk in the forest...]], false;
+			return [[مرسی, من قبلا یه چرخی تو جنگل زدم...]], false;
 		end
 		if f == 'deepforest' then
-			return 'Hmm... Let\'s see...';
+			return 'عجب... بذار ببینم...';
 		end
-		return [[Into the wild woods, afoot?
-Hm... Why not — that's my job after all... Would drive away some poachers...]], true;
+		return [[به طرف جنگل، اونم پای پیاده؟
+خوب... چرا که نه — هرچی نباشه شغلم اینه... حداقل باثت پریدن چند تا شکارچی غیرقانونی می‌شم...]], true;
 --Я пол часа бродил по лесу, когда наткнулся на капкан...
 --Проклятые браконьеры! Я взял капкан с собой.]], false;
 	end,
@@ -348,8 +349,7 @@ forest = room {
 	nam = 'جلوی کلبه',
 	pic = 'gfx/forest.png',
 	dsc = [[
-	جلوی کلبه روی همه چیز رو امواجی از برف گرفته. راه شهر پوشیده از برفه.
-In front of the cabin everything is covered with drifting snow. Wild wood surrounds the cabin. The road to town is covered with snow.]],
+	جلوی کلبه روی همه چیز رو امواجی از برف گرفته. راه شهر پوشیده از برفه. اطراف کاپین جنگل وحشیه. جاده شهر هم پوشیده از برفه.]],
 	way = { 'home', 'deepforest', 'road' },
 	obj = { 'mycar' },
 };
@@ -366,12 +366,12 @@ home = room {
 	من ده سال تو این کلبه گذروندم. ده سال پیش خودم ساختمش. کمی کوچیکه، ولی دنجه.
 	]],
 	obj = { 'fireplace', 'mytable', 'foto', 'mycat', 'gun', 
-	vobj(1,'window', 'The cabin has a single {window}.'), 
+	vobj(1,'window', 'کلبه یه تک {پنجره} داره.'), 
 	'mybed', 'mywear' },
 	way = { 'forest' },
 	act = function(s,o)
 		if o == 1 then
-			return 'بیرون همه چی سفیده...';
+			return 'بیرون همه چی یه دست سفیده...';
 		end
 	end,
 	exit = function()
@@ -388,45 +388,45 @@ home = room {
 };
 ---------------- here village begins
 truck = obj {
-	nam = 'black car',
-	dsc = 'There\'s a black {car} with tinted windows sy the shop.',
-	act = 'Hm... It\'s a van... Armored body, it\'s evident by the wheel load...',
+	nam = 'ماشین سیاه',
+	dsc = 'یه {ماشین} سیاه با شیشه‌های دودی جلوی مغازه است.',
+	act = 'عجب... یه ونه... بدنه تقویت شده، از روی فرورفتگی لاستیک‌ها می‌شه فهمید...',
 };
 
 guydlg = dlg {
 	pic = 'gfx/guy.png',
-	nam = 'conversation with a bum',
-	dsc = 'I walked to him... He turned back and glanced at me — a shortish man in a worn cap and tattered quilted jacket.',
+	nam = 'گفتگو با کارتن‌خواب',
+	dsc = 'رفتم طرفش... برگشت و نگاهم کرد — یه مرد قدکوتاه با یه کلاه کهنه و یه کت پاره پوره.',
 	obj = {
-		[1] = phr('Hi! Cold, isn\'t it?', 'Yes... Somewhat...'),
-		[2] = phr('How come you\'ve got to be out in the street?', 
-[[I used to work toward getting a Ph.D... I was writing a thesis about the structure of matter... But... Overstrained my brain... I tried to calm down and... Now I'm here...]]),
-		[3] = phr('What\'s your name?', 'Eduard...'),
-		[4] = _phr('When I left, there was a cat next to you... Where is it?', 'Hm...', 'pon(5)'),
-		[5] = _phr('Yes... A tomcat. Ordinary tomcat roaming the snow around the dumpster.', 'So, that was your cat? Emmm...', 'pon(6)');
-		[6] = _phr('Yes... That was my Barsik! Tell me!', 
-'... Mmm... I think that man took it... Mmm... — a chill ran down my spine...', 'pon(7)'),
-		[7] = _phr('Where, where did he go?', 'Sorry, brother, I haven\'t seen...', 'shopdlg:pon(4); pon(8);'),
-		[8] = phr('Ok... Doesn\'t matter...', '...', 'pon(8); back()'),
+		[1] = phr('سلام! سرده مگه نه؟', 'آره... یه جورایی...'),
+		[2] = phr('چی شد سر از خیابونا درآوردی؟', 
+[[یه زمانی دنبال گرفتن دکترام بودم...داشتم تزم رو در مورد ساختار ماده می‌نوشتم... اما...خیلی به مخم فشار آوردم... و سعی کردم آروم بگیرم... و حالا اینجام...]]),
+		[3] = phr('اسمت چیه؟', 'ادوارد...'),
+		[4] = _phr('وقتی که ترکت کردم، یه ماشین کنارت بود... الان کجاست؟', 'عجب...', 'pon(5)'),
+		[5] = _phr('آره... یه گربه نر. یه گربه نر معمولی که داره دور رو بر آشغال‌ها پرسه می‌زنه.', 'پس اون گربه‌ی تو بود؟ عحب...', 'pon(6)');
+		[6] = _phr('آره... اون باریسک من بود! بگو بگو!', 
+'... اوهوم... فکر کنم اون مرد گرفتش... اوهوم... — استخونهام تیر کشید...', 'pon(7)'),
+		[7] = _phr('کجا، کجا رفت؟', 'شرمنده داداش، ندیدم...', 'shopdlg:pon(4); pon(8);'),
+		[8] = phr('باشه... مهم نیست...', '...', 'pon(8); back()'),
 	},
 	exit = function()
 		pon(1);
-		return 'He turned back and continued rummaging in the dumpster bins...';
+		return 'برگشت و رفت سروقت گشتن سطل‌های زباله...';
 	end
 };
 
 guy = obj {
 	nam = 'bum',
-	dsc = 'A {bum} is rummaging in the dumpster bins.',
+	dsc = 'یه {کارتن‌خواب} داره تو سطل‌های زباله رو می‌گرده.',
 	act = function()
 		return walk('guydlg');
 	end,
 	used = function(s, w)
 		if w == 'money' then
 			return [[
-I approached him and offered some money... “I don't need other people's money...” he said.]];
+رفتم طرفش رو یه کم پول بهش تعارف زدم... گفت: «من به پول بقیه نیازی ندارم».]];
 		else
-			return 'What would he need this for?';
+			return 'به چه دردش می‌خوره؟';
 		end
 	end,
 };
@@ -434,7 +434,7 @@ I approached him and offered some money... “I don't need other people's money.
 nomoney = function()
 	pon(1,2,3,4,5);
 	shopdlg:pon(2);
-	return cat('This is when I remember, that I\'ve got no money... None at all...^',back());
+	return cat('اینجا بود که یادم اومد من اصلا پولی ندارم... حتی یه قرون...^',back());
 end
 
 ifmoney ='if not have("money") then return nomoney(); end; shopman._wantmoney = true; ';
@@ -448,13 +448,14 @@ dshells = obj {
 		-- only 1 form, I commented it out. 
 		-- Uncomment and use form-number combinations
 		-- appropriate for your language 
-		-- if here()._dshells > 4 then
-			return 'Under my feet there are '..here()._dshells..' empty shotgun {shells}...';
-		-- else 
+		if here()._dshells > 1 then
+			return 'زیر پاهام یه {پوکه فشنگ} افتاده...';
+		else 
+			return 'زیر پاهام '..here()._dshells..' تا {پوکه فشنگ} افتاده...';
 			-- return 'Under my feet there are '..here()._dshells..' empty shotgun {shells}...';
-		-- end
+		end
 	end,
-	act = 'Those are my shells... I don\'t need them anymore...';
+	act = 'اینا پوکه‌هامن... دیگه لازمشون ندارم...';
 };
 
 function dropshells()
@@ -471,35 +472,35 @@ end
 
 shells = obj {
 	nam = 'cartridges',
-	inv = 'Shotgun cartridges. I rarely use those, mostly against poachers.',
+	inv = 'خشاب شاتگان. به ندرت ازش استفاده می‌کنم، معمولا علیه شکارچی‌های غیرقانونی.',
 	use = function(s, on)
 		if on == 'gun' then
 			if gun._loaded then
-				return 'Already loaded...';
+				return 'پره...';
 			end
 			if gun._loaded == false then
 				gun._loaded = true;
 				dropshells();
-				return 'I open the shotgun, drop two shells and reload the shotgun.';
+				return 'شاتگان رو باز می‌کنم و دو تا فشنگ داخل می‌کنم و شاتگان رو می‌بندم.';
 			end
 			gun._loaded = true;
-			return 'I take two cartridges and load them into the twin barrels of the shotgun...';
+			return 'دو تا خشاب برمی‌دارم و می‌ذارمشون توی لول‌های شاتگان دو لولم...';
 		end
 	end
 };
 
 news = obj {
-	nam = 'newspaper',
+	nam = 'روزنامه',
 	inv = [[
-Fresh newspaper... <<quantum mechanics institute recently built in taiga vigorously refutes its connection with any anomalous events>>.. Hm...]],
+روزنامه جدید... <<موسسه مکانیک کوانتوم که اخیرا در تایگا ساخته شده است قویا هر ارتباطی با حوادث مشکوک را رد می‌کند.>>.. عجب...]],
 	used = function(s, w)
 		if w == 'poroh' then
 			if have('trut') then
-				return 'I\'ve already got a tinder.';
+				return 'آتش‌زنه از قبل دارم.';
 			end
 			inv():add('trut');
 			inv():del('poroh');
-			return 'I pour gunpowder on the piece of the newspaper, I\'ve torn off...';
+			return 'روی تیکه روزنامه‌ای که پار کردم مقداری باروت می‌ریزم...';
 		end
 	end,
 };
@@ -508,26 +509,26 @@ hamb = obj {
 	nam = 'hamburger',
 	inv = function()
 		inv():del('hamb');
-		return 'I\'ve had a snack. Junk food...';
+		return 'یه اسنک خوردم. غذا بود...';
 	end
 };
 
 zerno = obj {
 	nam = 'groats',
-	inv = 'Just a buckwheat. Buckwheat groats...',
+	inv = 'فقط یه گندم سیاه. دونه‌های گندم سیاه...',
 };
 
 shop2 = dlg {
 	nam = 'buy',
 	pic = 'gfx/shopbuy.png',
 	obj = { 
-	[1] = phr('Shotgun cartridges... I need ammunition...', 'All right... Price as usual', ifmoney..'inv():add("shells")'),
-	[2] = phr('Groats...', 'Good... ', ifmoney..'inv():add("zerno")'),
-	[3] = phr('And a hamburger...', 'Ok..', ifmoney..'inv():add("hamb")'),
-	[4] = phr('Fresh press...', 'Of course...', ifmoney..'inv():add("news")'),
-	[5] = phr('A roll of insulating tape...', 'Yes. Here.', ifmoney..'inv():add("iso")'),
-	[6] = phr('Nothing else...', 'As you wish.', 'pon(6); back()'),
-	[7] = _phr('Also I need a ladder and wire cutters...', 'Sorry, I don\'t have those — Vladimir shakes his head'), 
+	[1] = phr('خشاب شاتگان... مهمات لازم دارم...', 'رو چشم... قیمت مثل همیشه', ifmoney..'inv():add("shells")'),
+	[2] = phr('گندم...', 'خوبه... ', ifmoney..'inv():add("zerno")'),
+	[3] = phr('و یه همبرگر...', 'باشه..', ifmoney..'inv():add("hamb")'),
+	[4] = phr('روزنامه‌ی تازه...', 'البته...', ifmoney..'inv():add("news")'),
+	[5] = phr('یه حقله چسب عایق...', 'بله. بفرمایید.', ifmoney..'inv():add("iso")'),
+	[6] = phr('چیز دیگه‌ای لازم ندارم...', 'هر طور شما بفرمایید.', 'pon(6); back()'),
+	[7] = _phr('ضمنا یه نردبون و سیمچین لازم دارم...', 'شرمنده، این چند قلم جنس رو نداریم — ولادیمیر سرش رو تکون می‌ده'), 
 	},
 	exit = function(s)
 		if have('news') then
@@ -537,64 +538,64 @@ shop2 = dlg {
 };
 
 shopdlg = dlg {
-	nam = 'conversation with the salesman',
+	nam = 'گفتگو با فروشنده',
 	pic = 'gfx/shopman.png',
-	dsc = 'Little eyes drill me with an oily stare.',
+	dsc = 'چشم‌های ریز من رو با یه نگاه تیز ورانداز می‌کنن.',
 	obj = {
-	[1] = phr('Hello, Vladimir! How\'s it going?', 'Hello, '..me().nam..'... So-so... - Vladimir smiles slyly.', 'pon(2)'),
-	[2] = _phr('I want to make a few purchases.', 'Ok... Let\'s see, what do you need?', 'pon(2); return walk("shop2")'),
-	[3] = phr('Bye then!...', 'Yeah... Good luck!', 'pon(3); return back();'),
-	[4] = _phr('A man just was here — who is he?', 'Hm? — Vladimir\'s thin eyebrows rise a bit...','pon(5)'),
-	[5] = _phr('For some reason he took my cat... Probably thought he\'s homeless... Who\'s that man in a gray coat?',
+	[1] = phr('سلام ولادیمیر! اوضاع چطوره؟', 'سلام, '..me().nam..'... بد نیست... - ولادیمیر یه لبخند موذیانه می‌زنه.', 'pon(2)'),
+	[2] = _phr('چند قلم جنس لازم دارم.', 'باشه... بذار ببینیم، چی لازم داری؟', 'pon(2); return walk("shop2")'),
+	[3] = phr('پس خداحافظ!...', 'آره... بخت یارت!', 'pon(3); return back();'),
+	[4] = _phr('یه مردی الان اینجا بود — کی هست؟', 'اوهوم؟ — ابروهای نازک ولادیمیر کمی بالا می‌رن...','pon(5)'),
+	[5] = _phr('معلوم نیست جرا گربه‌ی من رو برداشه... احتمالا فکر کرده ولگرده... اون مردی که کت خاکستری پوشیده کیه؟',
 [[
-Actually, he's some boss... - Vladimir scratches his unshaved chin. — In that new institute, which has been built in our backwoods a year ago...
- — Vladimir's pince-nez twitched as he spoke — he often comes to our shop, 
-doesn't like crowds — those physicists — you know... Odd bunch, — Vladimir shrugged...]],'pon(6)'),
-	[6] = _phr('Where is this institute located?', 
-'Kilometer marker 127... But well, you know — Vladimir lowered his voice — there are rumours about his institute...', 'me()._know_where = true; inmycar.way:add("inst");pon(7)'),
-	[7] = _phr('I\'m just going to get back my cat...', 'Take care... If I was in you shoes... — Vladimir shakes his head. — By the way, I think his name is Belin. I\'ve seen his credit card... Even though, as you know, I don\'t accept them — Vladimir moved his lips, his monocle stirred slyly'),
+راستش، یه جور رئیسه... - ولادیمیر چونه‌ی نتراشیدش رو می‌خارونه. — تو اون مؤسسه جدیده، همون که سال پیش پشت جنگلمون ساختن...
+ — همینطور که ولادیمیر حرف می‌زد عینک دماغیش تکون تکنون می‌خورد — مرتب میاد به مغازه‌ی ما،
+از شلوغی خوشش نمیاد — این فیزینکدانا — می‌دونی که... عجیبن, — ولادیمیر شونه بالا انداخت...]],'pon(6)'),
+	[6] = _phr('این موسسه‌هه کجاست؟', 
+'کیلومتر ۱۲۷... خوب، می‌دونی که — ولادیمیر صداش رو آورد پایین — در مورد این مؤسسه شایعاتی هست...', 'me()._know_where = true; inmycar.way:add("inst");pon(7)'),
+	[7] = _phr('من فقط می‌رم گربه‌ام رو پس بگیرم...', 'مواظب خودت باش... اگه جای تو بودم... — ولادیمیر سر تکون می‌ده. — ضمنا، فکر کنم اسمش بلینه. کارت اعتباریش رو دیدم... هرچند، می‌دونی که من قبولشون نمی‌کنم. — ولادیمیر لبهاش رو کمی می‌جنبونه و مونوکلش یه جور موذیانه‌ای حرکت می‌کنه'),
 	},
 };
 
 shopman = obj {
 	nam = 'salesman',
-	dsc = 'There\'s a {salesman} behind the counter. His wide face with stubble is complemented by a monocle.',
+	dsc = 'یه {فروشنده} پشت پیشخونه. صورت پهن ته‌ریش دارش با یه مونوکل تکمیل شده.',
 	act = function()
 		return walk('shopdlg');
 	end
 };
 
 shop = room {
-	nam = 'shop',
+	nam = 'مغازه',
 	pic = 'gfx/inshop.png',
 	enter = function(s, f)
 		if village.obj:look('truck') then
 			village.obj:del('truck');
 			village.obj:del('mycat');
 			return [[
-When I entered the shop, I almost ran into an unpleasant man in a grey coat and broad-brimmed hat... He apologized in a sort of hissing voice and feighned raising his hat... White teeth flashed from under the brim... When I reached the counter, I heard the engine starting.]];
+وقتی وارد مغازه شدم چیزی نمونده بود بخورم به یه مرد بگی نگی نچسب با کت خاکستری و کلاه شاپو... با یه صدای هیس مانندی عذرخواهی کرد و کلاهش رو تصنعی بلند کرد... از زیر لبه‌ی کلاهش دندونای سفیدش برق زدن... وقتی به پیشخون رسیدم صدای روشن شدن موتور ماشین به گوشم خورد.]];
 		end
 	end, 
 	act = function(s,w)
 		if w == 1 then
-			return 'There\'s only my car left in the parking lot.';
+			return 'فقط ماشین من تو پارکینگه.';
 		end
 	end,
 	dsc = [[
-The store is somewhat unusual... Here you can find ironware, food, even ammunition... No wonder, since it's the only store in a 100 km area...]],
+این مغازه کمی غیرعادیه... اینجا می‌تونی آهن‌آلات و غذا و حتی مهمات پیدا کنی... تعجبی هم نداره، چون این تنها مغازه تو شعاع صد کیلومتری اینجاست...]],
 	way = { 'village' },
-	obj = {'shopman',vobj(1, 'окно', 'Through the {window} the parking lot is visible.') },
+	obj = {'shopman',vobj(1, 'окно', 'از {پنجره} می‌شه پارکینگ رو دید.') },
 	exit = function(s, t)
 		if t ~= 'village' then
 			return;
 		end
 		if shopman._wantmoney then
-			return 'I was going to step outside, when I was stopped by Vlsdimir\'s quiet semicough... Of course, I forgot to pay...', false;
+			return 'داشتم می‌رفتم بیرون که با صدای سرفه‌ی خفیف ولادیمیر وایستادم... خوب معلومه، یادم رفته پولش رو بدم...', false;
 		end
 		if not have('news') then
 			shop2.obj[4]:disable();
 			inv():add('news');
-			return 'I was going to leave, when Vladimir\'s voice stopped me. — Take the fresh newspaper — it\'s free for you. I walk back, take the paper and leave.';
+			return 'داشتم می‌رفتم که صدای ولادیمیر جلوم رو گرفت. — روزنامه‌ی جدید رو بردار. — برای تو مجانیه. برمی‌گردم و روزنامه رو برمی‌دارم و می‌رم.';
 		end
 	end
 };
@@ -603,64 +604,64 @@ carbox = obj {
 	_num = 0,
 	nam = function(s)
 		if s._num > 1 then
-			return 'boxes in the car';
+			return 'جعبه‌های توی ماشین';
 		else
-			return 'a box in the car';
+			return 'جعبه‌ی توی ماشین';
 		end
 	end,
 	act = function(s)
 		if inv():srch('mybox') then
-			return 'I\'ve already got a box in my hands...';
+			return 'فعلا یه جعبه توی دستمه...';
 		end
 		s._num = s._num - 1;
 		if s._num == 0 then
 			mycar.obj:del('carbox');
 		end
 		take('mybox');
-		return 'I took a box from the car.';
+		return 'یه جعبه از تو ماشین برداشتم.';
 	end,
 	dsc = function(s)
 		if s._num == 0 then
 			return;
 		elseif s._num == 1 then
-			return 'There is one {box} in the cargo body of my car.';
+			return 'یه {جعبه} پشت ماشین منه.';
 		-- Again not needed, since "boxes" stays the same for all numerals
 		-- elseif s._num < 5 then
 		--	return 'There are '..tostring(s._num)..' {boxes} in the cargo body of my car.';
 		else	
-			return 'There are '..tostring(s._num)..' {boxes} in the cargo body of my car..';
+			return ''..tostring(s._num)..' تا {جعبه} پشت ماشینمه.';
 		end
 	end,
 };
 
 mybox = obj {
 	nam = 'a box',
-	inv = 'I am holding a wooden box... A soundly built thing! Might come in handy.',
+	inv = 'یه جعبه چوبی دستمه... خیلی خوش ساخته! شاید بدرد بخوره.',
 	use = function(s, o)
 		if o == 'boxes' then
 			inv():del('mybox');
-			return 'I put the box back...';
+			return 'جعبه رو گذاشتم سر جاش...';
 		end
 		if o == 'mycar' then
 			inv():del('mybox');
 			mycar.obj:add('carbox');
 			carbox._num = carbox._num + 1;
-			return 'I put the box in the cargo body of my car...';
+			return 'جعبه رو گذاشتم پشت وانتم...';
 		end
 		if o == 'ewall' or o == 'wboxes' then
 			if not cam._broken then
-				return 'The camera won\'t let me...';
+				return 'دوربین نمی‌ذاره...';
 			end
 			if wboxes._num > 7 then
-				return "It's enough I think..."
+				return "فکر کنم بسه دیگه..."
 			end
 			inv():del('mybox');
 			ewall.obj:add('wboxes');
 			wboxes._num = wboxes._num + 1;
 			if wboxes._num > 1 then
-				return 'I put another box on top of the previous one...';
+				return 'یه جعبه گذاشتم روی یه جعبه دیگه...';
 			end
-			return 'I put the box next to the wall...';
+			return 'جعبه رو گذاشتم پای دیوار...';
 		end
 	end
 };
@@ -668,7 +669,7 @@ mybox = obj {
 boxes = obj {
 	nam = 'ящики',
 	desc = {
-		[1] = 'Near the parking lot there are many empty wooden {boxes} that once held tins.',
+		[1] = 'نزدیک پارکینگ کلی {جعبه} چوبی هست که یه زمانی قلع داخلشون بوده.',
 	},
 	dsc = function(s)
 		local state = 1;
@@ -676,28 +677,28 @@ boxes = obj {
 	end,
 	act = function(s, t)
 		if carbox._num >= 5 then
-			return 'Maybe I\'ve got enough boxes already?...';
+			return 'یه درصد احتمالش نیست که جعبه به تعداد کافی برداشته باشم؟...';
 		end
 		if inv():srch('mybox') then
-			return 'I\'m holding one box already...';
+			return 'فعلا یه جعبه تو دستمه...';
 		end
 		take('mybox');
-		return 'I took a box.';
+		return 'یه جعبه برداشتم.';
 	end,
 };
 
 village = room {
-	nam = 'parking lot in front of the store',
-	dsc = 'A familiar place in front of the store. The parking lot. All covered with snow...',
+	nam = 'پارکینگ جلوی مغازه',
+	dsc = 'یه جای آشنا جلوی مغازه. پارکینگ. سرتاسر پوشیده از برف...',
 	pic = 'gfx/shop.png',
 	act = function(s, w)
 		if w == 1 then
-			return 'Ordinary bins... White snow covers the garbage...';
+			return 'سطل‌های معمولی... برف سفید روی آشغال‌ها رو می‌پوشنه...';
 		end	
 	end,
 	exit = function(s, t)
 		if t == 'shop' and seen('mycat') then
-			return 'I called Barsik, but he was too busy with the dumpster... OK, it won\'t take long...';
+			return 'باریسک رو صدا کردم ولی به شدت با آشغالدونی سرگرم بود... خوب... زیاد طول نمی‌کشه...';
 		end
 	end,
 	enter = function(s, f)
@@ -711,11 +712,11 @@ village = room {
 			set_music("mus/revel.s3m");
 			guydlg:pon(4);
 			guydlg:poff(8);
-			return 'I glanced over the parking lot and called — Barsik! Barsik! — Where did my cat disappear?';
+			return 'یه نگاهی به سرتاسر پارکینگ انداختم و داد زدم — باریسک! باریسک! — یعنی گربه‌ام کجا غیبش زد؟';
 		end
 	end,
 	way = { 'road', 'shop' },
-	obj = { 'truck', vobj(1,'bins', 'Rusty dumpster {bins} are covered with snow.'), 'guy','boxes' },
+	obj = { 'truck', vobj(1,'bins', '{سطل‌های} آشغال بزرگ پوشیده از برف.'), 'guy','boxes' },
 };
 ----------- trying to go over wall
 function guardreact()
@@ -730,71 +731,71 @@ function guardreact()
 end
 
 guarddlg = dlg {
-	nam = 'guard',
+	nam = 'نگهبان',
 	pic = 'gfx/guard.png',
-	dsc = [[I can see the angular face of the guard. His eyes look archly, but corners of his mouth are turned down, discouraging any conversation...]],
+	dsc = [[صورت استخونی نگهبان رو می‌تونم ببینم. چشم‌هاش مرموز به نظر می‌رسه اما گوشه‌های رو به پایین دهنش فکر گپ زدن باهاش رو از سرت می‌پرونه...]],
 	obj = {
-	[1] = phr('One of the institute staff took my cat by mistake — I need to get in.','— Show the pass...', 'poff(2); pon(3);'),
-	[2] = phr('I forgot my pass — may I come in?','— No...', 'poff(1); pon(3);'),
-	[3] = _phr('Do you know Belin? He\'s got my cat — I need to take it...', '— No pass?', 'pon(4)'),
-	[4] = _phr('I just came to get back my cat! Give me Belin\'s number.', 
-[[The guard's eyes change their color. The corners of his lips move up. — Mister, as I understand you have no pass. Walk out of here while you still can...]], 'pon(5, 6)'),
-	[5] = _phr('I\'m gonna hit your face...', 'The guard\'s hand moves to his submachine gun. ', 'poff(6); return guardreact();'), 
-	[6] = _phr('OK, I\'m leaving...', '— Don\'t hurry, — the guard no longer hides his smile — I don\'t like you...','poff(5); return guardreact()'),
-	[7] = _phr('Now I\'m gonna shotgun you all...', 'This time the guard doesn\'t even answer. His bloodshot eyes speak louder than any words.','return guardreact()'),
+	[1] = phr('یکی از پرسنل مؤسسه گربه من رو به اشتباه گرفته. — باید برم داخل.','— کارت عبورتون رو نشون بدین...', 'poff(2); pon(3);'),
+	[2] = phr('کارتم رو فراموش کردم. — ممکنه بیام داخل؟','— نه...', 'poff(1); pon(3);'),
+	[3] = _phr('بلین رو می‌شناسین؟ گربه‌ام رو گرفته. — باید پسش بگیرم...', '— کارت ندارین؟', 'pon(4)'),
+	[4] = _phr('من فقط اومدم گربه‌ام رو پس بگیرم. شماره بلین رو بهم بدین!', 
+[[رنگ چشم‌های نگهبان عوض شد. کنج لب‌هاش رفت بالا. — آقای محترم، طوری که متوجه شدم شما کارت عبور ندارین. الان که هنوز امکانش رو دارین اینجا رو ترک کنید...]], 'pon(5, 6)'),
+	[5] = _phr('می‌زنم صورتت رو داغون می‌کنم...', 'دست‌های نگهبان رفت طرف مسلسلش. ', 'poff(6); return guardreact();'), 
+	[6] = _phr('باشه باشه، من می‌رم...', '— عجله نکن، — نگهبان دیگه لبخندش رو پنهان نمی‌کنه — ازت خوشم نمیاد...','poff(5); return guardreact()'),
+	[7] = _phr('همتون رو با شاتگان سوراخ سوراخ می‌کنم...', 'نگهبان اینبار اصلا جواب نمی‌ده. صدای چشم‌های پرخونش از هر کلامی بلندتره.','return guardreact()'),
 	},
 };
 guard = obj {
 	nam = 'guards',
 	dsc = [[
-There are {guards} in the kiosk. Looks like they are armed with Kalashnikov submachine guns.
+چند نفر {نگهبان} تو باجه هستن. ظاهرا همگی مسلح به کلاشینکوفن.
 ]],
 	act = function(s)
 		return walk('guarddlg');
 	end,
 };
 kpp = room {
-	nam = 'checkpoint',
+	nam = 'باجه نگهبانی',
 	pic = 'gfx/kpp.png',
-	dsc = [[The checkpoint leaves no doubt that strangers are not welcome in the institute. Lift gate. Latticed kiosk. And silence.
+	dsc = [[باجه نگهبانی هیچ شکی به جا نمی‌ذاره که غریبه‌ها جاشون توی مؤسسه نیست... گیت کنترل تردد... نرده‌های محافظ روی اتاقک... و سکوت.
 ]],
 	obj = { 'guard' },
 	way = { 'inst' }
 };
 inst = room {
-	nam = 'institute',
+	nam = 'مؤسسه',
 	pic = 'gfx/inst.png',
 	dsc = [[
-The building rises over the empty field of snow. Its sinister outline looks more like a jail rather than a research institute. There are railways  behind the building. ]],
+ساختمون تو یه محوطه‌ی برفی خالی از دل زمین بیرون زده. هیبت مهیبش بیشتر خبر از یک زندان می‌ده تا یک مؤسسه‌ی تحقیقاتی. پشت ساختون ریل راه‌آهن هست.]],
 	act = function(s, w)
 		if w == 1 then  
-			return 'The wall is 5 meters high. Moreover, there is barbed wire on its top, and I suppose it\'s alive...';
+			return 'ارتفاع دیوار پنج متره. از این گذشته، روی دیوار سیم‌خاردار هست که فکر کنم بهش برق وصله...';
 		end
 		if w == 2 then
-			return 'Yes, Vladimir was right... It\'s some sort of a military headquaters...';
+			return 'آره، ولادیمیر درست می‌گفت... شبیه یه جور پادگان نظامیه...';
 		end
 		if w == 3 then	
-			return 'Yes — this looks like the van in which the man in gray coat took away my Barsik.';
+			return 'آره — این شبیه ون مرد کت خاکستریه که باریسک من رو گرفته برده.';
 		end
 	end,
 	used = function(s, w, b)
 		if b == 'mybox' and w == 1 then
-			return 'I think the guards will notice me at once.';
+			return 'فکر کنم نگهبان‌ها فورا متوجه حضورم بشن.';
 		end
 		if w == 2 and b == 'gun' and gun._loaded then
-			return 'I\'d get canned for that... Or just beaten... The guards are quite near.';
+			return 'بخاطرش می‌اندازنم بیرون... یا می‌گیرنم به باد کتک... نگهبان‌ها خیلی نزدیکن.';
 		end
 		if w == 3 and b == 'gun' and gun._loaded then
-			return 'I need the cat, not destruction...';
+			return 'من دنبال گربه‌ام هستم نه ویرانگری...';
 		end
 	end,
-	obj = {vobj(1, 'wall', 'The institute building is surrounded by a heavy concrete {wall}. There\'s a checkpoint at the centre.'),
-		vobj(2, 'cameras', 'Survelliance {cameras} watch the area from the towers.'),
-		vobj(3, 'van', 'Behind the gate I can see the black {van}.')},
+	obj = {vobj(1, 'wall', 'ساختمون مؤسسه با یه {دیوار} بتنی محصور شده. یه اتاقک نگهبانی اون وسطه.'),
+		vobj(2, 'cameras', '{دوربین‌های} حراست از برجک‌ها اطراف رو می‌پان.'),
+		vobj(3, 'van', '{ون} مشکی رو می‌تونم پشت دروازه ببینم.')},
 	way = { 'road', 'kpp' },
 	exit = function(s, t)
 		if have('mybox') and t ~= 'inmycar' then
-			return 'I won\'t walk around with the box...', false;
+			return 'بان اون جعبه نمی‌تونم اینور اونور برم...', false;
 		end
 	end,
 };
@@ -803,46 +804,46 @@ cam = obj {
 	nam = 'surveillance camera',
 	dsc = function(s)
 		if not s._broken then
-			return 'One of the surveillance {cameras} isn\'t far from here. I press myself to the wall to stay unnoticed.';
+			return 'یکی از {دوربین‌ها} فاصله‌ی چندانی از اینجا نداره. می‌چسبم به دیوار تا کسی متوجه من نشه.';
 		end
-		return 'The shards of the surveillance {camera} are lying around. They\'re already dusted by snow.';
+		return 'خورده‌های {دوربین} پخش شده رو زمین. هیچ نشده برف روشون رو گرفته.';
 	end,
 	act = function(s)
 		if not s._broken then
-			return 'Damned camera...';
+			return 'دوربین لعنتی...';
 		end
-		return 'Ha... You\'ve had it coming, damned mechanism, hadn\'t you? I wonder when will the guards come...';
+		return 'هع... می‌دونستی که اینطوری می‌شه، مکانیزم لعنتی، نمی‌دونستی؟ تو این فکرم که نگهبان‌ها کی سر و کله‌شون پیدا می‌شه...';
 	end,
 };
 
 wire = obj {
-	nam = 'barbed wire',
+	nam = 'سیم‌خاردار',
 	dsc = function(s)
 		if s._broken then
-			return 'I can see the shreds of barbed {wire}.';
+			return 'خورده‌های {سیم‌خاردار} رو می‌تونم ببینم.';
 		end
-		return 'I can see barbed {wire}.';
+		return '{سیم‌خاردار} رو می‌تونم ببینم.';
 	end,
 	act = function(s)
 		if s._broken then
-			return 'Now it\'s safe! I can get inside...';
+			return 'نه، امنه. می‌تونم برم تو...';
 		end
-		return 'What if it\'s alive?';
+		return 'اگه بهش برق وصل باشه چی؟';
 	end,
 };
 
 onwall = room {
 	pic = 'gfx/onwall.png',
-	nam = 'on the wall',
-	dsc = 'I am standing atop the boxes, my head is on the wall top level. It\'s cold.',
+	nam = 'بالای دیوار',
+	dsc = 'روی جعبه‌ها وایستادم، سرم همسطح بالای دیواره. سرده.',
 	enter = function(s)
 		if have('mybox') then
-			return 'I cannot climb the wall with a box in my hands.', false;
+			return 'با یه جعبه تو دستم نمی‌تونم از دیوار برم بالا.', false;
 		end
 		if wboxes._num < 5 then
-			return 'I try to climb the wall... But it\'s still to high...',false;
+			return 'سعی می‌کنم از دیوار بالا برم... اما خیلی بلنده...',false;
 		end
-		return 'I climb the wall over the boxes.';
+		return 'از رو جعبه‌ها از دیوار بالا می‌رم.';
 	end,
 	obj = { 'wire' },
 	way = { 'backwall' }
@@ -852,9 +853,9 @@ wboxes = obj {
 	_num = 0,
 	nam = function(s)
 		if (s._num > 1) then
-			return 'boxes by the wall';
+			return 'جعبه‌های سینه‌ی دیوار.';
 		end
-		return 'a box by the wall';
+		return 'یه جعبه پای دیوار.';
 	end,
 	act = function(s)
 		return walk('onwall');
@@ -863,25 +864,25 @@ wboxes = obj {
 		if s._num == 0 then
 			return;
 		elseif s._num == 1 then
-			return 'There is one {box} by the wall.';
+			return 'یه {جعبه} پای دیواره.';
 		-- And again only one plural form
 		-- elseif s._num < 5 then
 		--	return 'There are '..tostring(s._num)..' {boxes}, stacked by the wall.';
 		else	
-			return 'There are '..tostring(s._num)..' {boxes}, stacked by the wall.';
+			return ''..tostring(s._num)..' تا {جعبه} چیده شدن پای دیوار.';
 		end
 	end,
 };
 
 ewall = obj {
-	nam = 'wall',
-	dsc = 'Here {the wall} is 4 meters high. The howling snowdrift tosses snowflakes to its bottom.',
+	nam = 'دیوار',
+	dsc = 'ارتفاع {دیوار} اینجا چهار متره. بوران زوزه‌کشان دونه‌های برف رو می‌پاشه پای دیوار.',
 	act = function(s)
 		if not s._ladder then
 			s._ladder = true;
 			shop2:pon(7);
 		end
-		return 'Too high... I\'ll need a ladder.';
+		return 'زیادی بلنده... یه نردبون لازم دارم.';
 	end
 };
 
@@ -891,23 +892,23 @@ backwall = room {
 		local st = '';
 		if ewall._stolen then
 			ewall._stolen = false;
-			st = 'Oho!!! Somebody has stolen my box!!!';
+			st = 'ای بابا!!! یه نفر جعبه‌ی من رو دزدیده!!!';
 		end
 		if f == 'inmycar'  then
-			return 'Great... Looks like I managed to get here unnoticed...'..' '..st;
+			return 'ایول... ظاهرا تونستم بدون جلب توجه برسم اینجا...'..' '..st;
 		end
 		if f == 'onwall' then
 			return
 		end
-		return 'Rambling through the snowfield I got to the back wall.'..' '..st;
+		return 'پرسه‌زنان توی دشت برفی رسیدم به دیوار پشتی.'..' '..st;
 	end,
-	nam = 'eastern wall of the institute',
-	dsc = 'I am at the back side of the institute.',
+	nam = 'دیوار شرقی مؤسسه',
+	dsc = 'پشت مؤسسه هستم.',
 	obj = { 'ewall', 'cam' },
 	way = { 'inst', },
 	exit = function(s, t)
 		if have('mybox') and t ~= 'inmycar' then
-			return 'I won\'t walk around with the box in my hands...', false;
+			return 'با این جعبه تو دستم اینور اونور نمی‌رم...', false;
 		end
 	end,
 };

@@ -20,11 +20,15 @@ main = room {
 Outside my cabin the snow is white again. The wood crackles in the fireplace just like that day... It's the third winter already.
 Two winters have passed, but the events I want to tell about are in front of my eyes as if it was yesterday...^^
 
-I've been working as a forest warden over ten years. Over ten years I lived in my cabin in the woods, gathering poachers' traps and going to a nearby town once in a week or two... After a Sunday service in the local church I went to a shop to buy the stuff I needed: shotgun ammunition, groats, bread, medicaments...^^
+I've been working as a forest warden over ten years. Over ten years I lived in my cabin in the woods, gathering poachers' traps
+ and going to a nearby town once in a week or two... After a Sunday service in the local church I went to a shop to buy the stuff
+  I needed: shotgun ammunition, groats, bread, medicaments...^^
 
-I used to be a quite good IT specialist... But that doesn't matter anymore... I hadn't seen a computer screen for a decade and didn't regret it.^^
+I used to be a quite good IT specialist... But that doesn't matter anymore... 
+I hadn't seen a computer screen for a decade and didn't regret it.^^
 
-Now I understand that the root of those events lies as far as the early thirties... But I'd better tell everything step by step...^^
+Now I understand that the root of those events lies as far as the early thirties... 
+But I'd better tell everything step by step...^^
 
 It was a cold February day, and I was preparing to go to the town as usual...]],
 obj = { vobj(1,'Next','{Next}.') },
