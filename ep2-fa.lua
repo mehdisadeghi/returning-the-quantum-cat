@@ -1,45 +1,45 @@
 ------------- now got inside!!! -----------------------
 napil = obj {
-	nam = 'rasp',
-	dsc = 'There\'s a {rasp} lying under the gates.',
-	inv = 'A rusty thing...',
-	tak = 'I took the rasp.',
+	nam = 'سوهان',
+	dsc = 'یه {سوهان} افتاده زیر دروازه.',
+	inv = 'یه چیز زنگ زده...',
+	tak = 'سوهان رو برداشتم.',
 	use = function(s, w)
 		if w == 'knife' and not knife._oster then
 			knife._oster = true;
-			return 'I\'m sharpening the knife... Now it\'s sharp!';
+			return 'دارم چاقو رو تیز می‌کنم... حالا تیزه!';
 		elseif w == 'gun' and not gun._obrez then
 			if here() == wside or here() == sside then
-				return 'There are people around here!';
+				return 'یه عده این دور و بر هستن!';
 			end
 			gun._obrez = true;
-			return 'I took a seat and sawed off the shotgun barells.';
+			return 'نشستم و لوله‌های شاتگان رو بریدم.';
 		else
-			return 'No, sawing is useless here...';
+			return 'نه، بریدن اینجا بی‌فایده است...';
 		end
 	end
 };
 
 eside = room {
 	pic = 'gfx/eside.png',
-	nam = 'behind the institute',
-	dsc = [[ I am at the back wall of the institute building. There's a railway here.]],
+	nam = 'پشت مؤسسه',
+	dsc = [[ دیواره پشتی ساختمون مؤسسه هستم. یه راه‌آهن اینجاست.]],
 	act = function(s,w)
 		if w == 1 then
-			return 'The machine guns are turned to the south side of the institute perimeter. It\'s better to stay far from them.';
+			return 'مسلسل‌ها محوطه جنوبی مؤسسه رو نشونه گرفتن. بهتره تا می‌تونم ازشون فاصله بگیرم.';
 		end
 		if w == 2 then
-			return 'The gates are iron made. And they are locked from the inside.';
+			return 'دروازه‌ها فلزی هستن و از داخل قفل شدن.';
 		end
 	end,
 	obj = {
-	vobj(1,'gun towers', 'The railway entrance is guarded by the {towers} with machine guns...'),
-	vobj(2,'the gates', 'The rails flow near the big iron {gates}. It seems they are used for supply.'),	
+	vobj(1,'gun towers', 'ورودی راه‌آهن توسط مسلسل‌های بالای {برجک‌ها} محافظت می‌شه'),
+	vobj(2,'the gates', 'ریل‌ها از کنار {دروازه} بزرگ فلزی رد می‌شن. ظاهرا برای تدارکات استفاده می‌شن.'),	
 	'napil',
 	},
 	exit = function(s, t)
 		if t == 'sside' then
-			return 'The machine guns on the south side make me nervous. Too risky.'
+			return 'مسلسل‌های جنوبی مظطربم می‌کنن. خیلی خطرناکه.'
 				, false
 		end
 	end,
@@ -68,22 +68,22 @@ eside = room {
 };
 
 card = obj {
-	nam = 'pass',
-	inv = [[It's a someone's pass - an electronic smartcard with a photo of some heavy-metal guy. The label says: Alexey Podkovin — Level: 3, Category: The Matter. Hmmm...]],
+	nam = 'کارت عبور',
+	inv = [[ کارت عبور یه آدمیه - یه کارت هوشمند الکترونیکی که عکس یه مرد با قیافه‌ی هوی‌متال روشه. روش نوشتخ: الکسی پُدکُوین — طبقه: ۳, رسته: ماده. عجب...]],
 };
 
 alienwear = obj {
 	xnam = {'denim jacket', 'red jacket', 'overcoat', 'jacket', 'white jacket', 
 	'coat', 'black leather jacket', 'sport jacket',},
 	xinv = {
-		'A cold clothes for this season, but has a certain style!',
-		'Nice look on snowy background.',
-		'A long coat - some kind of retro!',
-		'I\'m the Terminator!',
-		'Make peace, not war!',
-		'It suits me',
-		'"And nothing else matters!.."',
-		'There were days I liked mountaineering!',
+		'برای این فصل لباس سردیه، اما استیل خاصی داره!',
+		'با پس‌زمینه برفی قشنگ به نظر می‌رسه.',
+		'یه کت بلند - یه جورایی رِترو به نظر می‌رسه!',
+		'من نابودگرم!',
+		'صلح کن، نه جنگ!',
+		'بهم میاد.',
+		'"و هیچ چیز دیگری مهم نیست!"',
+		'یه زمانی کوهنوردی دوست داشتم!',
 	},
 	nam = function(s)
 		return s.xnam[s._num];
@@ -91,30 +91,30 @@ alienwear = obj {
 	inv = function(s)
 		if s._num == 7 and not have('card') then
 			inv():add('card');
-			return 'I\'ve examined the pockets of the leather jacket and found some card.';
+			return 'جیب‌های کت چرمی رو گشتم و یه کارت پیدا کردم.';
 		end
 		return s.xinv[s._num];
 	end,
 };
 
 garderob = obj {
-	nam = 'wardrobe',
-	dsc = 'There is a {wardrobe} with visitors outerwear on the right.',
+	nam = 'جالباسی',
+	dsc = 'سمت راست یه {جالباسیه} با لباس‌های مراجعه‌کننده‌ها.',
 	act = function(s, w)
 		if have('mywear') or have('alienwear') then
-			return 'There are too much people here. I don\'t think I can change clothes without being noticed.';
+			return 'اینجا خیلی آدم هست. فکر نمی‌کنم بتونم بدون جلب توجه لباسم رو عوض کنم.';
 		elseif tonumber(w) and tonumber(w) > 0 and tonumber(w) <= 8 then
 			if not me()._walked then
-				return 'It will be too noticeable if I do it now...';
+				return 'الان که خیلی تابلوئه...';
 			end
 			alienwear._num = w;
 			inv():add('alienwear');
 			ref(s.obj[w]):disable();
 			me()._walked = false;
 			inv():add('gun');
-			return 'Feeling confidently I take someone else\'s clothes and put it on... I take my shotgun with me.';
+			return 'با اعتمادبنفس لباس یکی دیگه رو برمی‌دارم و تنم می‌کنم... شاتگانم رو هم برمی‌دارم.';
 		else
-			return 'I should make a decision...';
+			return 'باید تصمیم بگیرم...';
 		end
 	end,
 	used = function(s, w)
@@ -122,41 +122,41 @@ garderob = obj {
 			garderob.obj:add('mywear');
 			inv():del('mywear');
 			inv():del('gun');
-			return 'I take off my quilted jacket. I need to leave my shotgun in it.';
+			return 'کاپشن خلبانیم رو درمیارم. باید شاتگانم رو توش جا بذارم.';
 		end
 		if w == 'alienwear' then
 			local v = alienwear._num;
 			ref(s.obj[v]):enable();
 			inv():del('alienwear');
 			inv():del('gun');
-			return 'I put someone else\'s clothes back to wardrobe. I hide the shotgun in my quilted jacket.';
+			return 'لباس یکی دیگه رو برمی‌گردونم به جالباسی. شاتگانم رو تو کاپشن خلبانیم پنهان می‌کنم.';
 		end
 	end,
 	obj = {
-		vobj(1,'denim jacket','{A denim jacket}.'),
-		vobj(2,'red jacket','{A red-coloured jacket}.'),
-		vobj(3,'overcoat','{An overcoat}.'),
-		vobj(4,'terminator jacket', "{A jacket} with \"I\'ll be back\"."),
-		vobj(5,'jacket with daisies', "{A white jacket} with daisies."),
-		vobj(6,'coat', "{A wool jacket}."),
-		vobj(7,'leather jacket','{A cool black leather jacket}.'),
-		vobj(8,'sport jacket', "{An orange sport jacket}."),
+		vobj(1,'denim jacket','{یه کت دِنیم}.'),
+		vobj(2,'red jacket','{یه کت قرمز}.'),
+		vobj(3,'overcoat','{یه اُورکت}.'),
+		vobj(4,'terminator jacket', "یه {کت} با یادداشت »الان برمی‌گردم»."),
+		vobj(5,'jacket with daisies', "یه {کت سفید} گل‌گلی."),
+		vobj(6,'coat', "یه {کت پشمی}."),
+		vobj(7,'leather jacket','یه {کت چرم مشکی باحال}.'),
+		vobj(8,'sport jacket', "یه {کت ورزشی نارنجی}."),
 	}
 };
 portrait = obj {
-	nam = 'portraits',
-	dsc = 'There are big {portraits} in wooden frames on the walls.',
-	act = 'Hmm... There is the same face on all portraits! The cold-smiled face of a fourty-aged man with an empty chilling sight.',
+	nam = 'پرتره‌ها',
+	dsc = 'روی دیوارها {پرتره‌های} بزرگ توی قاب‌های چوبی قرار گرفتن.',
+	act = 'عجب... یه صورت یکسان توی تمام پرتره‌هاست! صورت یه مرد چهل و چند ساله با یه لبخند بی‌روح و یه نگاه تهی.',
 };
 
 salo = obj {
-	nam = 'lard',
-	inv = 'This piece of lard is too hard to eat...',
+	nam = 'پیه گراز',
+	inv = 'این پیه برای خوردن خیلی سفته...',
 	use = function(s, w)
 		if w == 'trap' and not trap._salo then
 			inv():del('salo');
 			trap._salo = true;
-			return 'Hmm... I think I\'ve made a mousetrap!';
+			return 'همم... فکر کنم یه تله‌موش ساختم!';
 		end
 	end
 };
@@ -165,74 +165,74 @@ food = obj {
 	nam = 'food',
 	inv = function (s) 
 		inv():del('food');
-		return 'I\'m so hungry, so I eat all this yummy food just right now without even taking a seat. Wow... Then I take the tray with empty plates to the washers.';
+		return 'بدجور گشنمه، پس همه این غذاهای خوشمزه رو بدون اینکه بشینم می‌خورم. به به... بعدش سینی ظرف‌های خالی رو تحویل می‌دم به پرسنل شست و شو.';
 	end
 };
 
 knife = obj {
-	nam = 'knife',
-	dsc = 'I observe {a knife} on the tray.',
+	nam = 'چاقو',
+	dsc = 'یه {چاقو} تو سینی می‌بینم.',
 	inv = function(s)
 		if s._oster then
-			return 'A steel knife. Very sharp.';
+			return 'یه چاقوی فولادی. بسیار تیز.';
 		end
-		return 'A steel knife. Too blunt.';
+		return 'یه چاقوی فولادی. بسیار کند.';
 	end,
 	use = function(s, w)
 		if w == 'shells' then
 			if not s._oster then
-				return 'The knife is not sharp enough to be used.';
+				return 'چاقو به اندازه کافی تیز نیست که به درد بخوره.';
 			end
 			if have('poroh') then
-				return 'I have the gunpowder already.';
+				return 'باروت از قبل دارم.';
 			end
 			inv():add('poroh');
-			return 'I crack one of the shells and take the gunpowder out.';
+			return 'یکی از فشنگ‌ها رو باز می‌کنم و باروتش رو بیرون میارم.';
 		end
 	end,
 	tak = function(s)
 		if have('knife') then
-			return 'I\'ve already got one...', false
+			return 'یکی از قبل دارم...', false
 		end
-		return 'I think I\'ll take it with me.';
+		return 'فکر کنم برش دارم.';
 	end
 };
 
 ostatki = obj {
-	nam = 'food leftovers',
-	dsc = '{The leftovers of food} are evenly distributed on the plates.',
+	nam = 'غذای باقیمانده',
+	dsc = '{باقیمانده‌ی غذاها} توی ظرف‌ها به طور مساوی پخش شدن.',
 	tak = function(s)
 		if food._num ~= 2 or have('salo') then
-			return 'Nothing useful...', false;
+			return 'چیز بدردبخوری نیست...', false;
 		else 
 			take('salo');
-			return 'A piece of lard!', false;
+			return 'یه تیکه پیه!', false;
 		end
 	end
 };
 
 podnos = obj {
-	nam = 'tray',
-	dsc = 'There is my {tray} on the table.',
+	nam = 'سینی',
+	dsc = '{سینی} من روی میزه.',
 	act = function(s, w)
 		if w == 1 then
-			return 'A fork like a fork... Not ideally clean.';
+			return 'یه چاقو شبیه چاقو... اونطورها هم تمیز نیست.';
 		end
 		if w == 2 then
-			return 'The design of this spoon has no remarkable features.';
+			return 'دیزاین این قاشق حرف خاصی برای گفتن نداره.';
 		end
-		return 'Blue plastic. A little oily by touch.';
+		return 'پلاستیک آبی. لمسش کنی می‌فهمه کمی چربه.';
 	end,
 	obj = { 'ostatki',
-		vobj(1, 'fork', 'A {fork} and'), 
-		vobj(2, 'spoon', 'a {spoon} lie beside.') 
+		vobj(1, 'fork', 'یه {چنگال} و'), 
+		vobj(2, 'spoon', 'و یه {قاشق} اون کناره.') 
 	},
 };
 
 moika = room {
-	nam = 'dish washing',
+	nam = 'پیشخوان شست و شو',
 	enter = function()
-		return cat('I take the tray to the dish washing area.^^', walk('kitchen')), false;
+		return cat('سینی رو می‌برم به بخش شست و شو.^^', walk('kitchen')), false;
 	end
 };
 
@@ -246,11 +246,11 @@ eating = room {
 			return walk('kitchendlg'), false;
 		end
 		if f ~= 'kitchendlg' then
-			return 'I take a seat at a free table and have some meal.';
+			return 'رو یه صندلی دور یه میز خالی می‌شینم و غذام رو می‌خورم.';
 		end
 	end,
-	nam = 'at the table',
-	dsc = 'I feel a plain surface of the table under my hands.',
+	nam = 'دور میز',
+	dsc = 'سطح صاف میز رو زیر دست‌هام حس می‌کنم..',
 	obj = { 'podnos' },
 	way = { 'moika' },
 	exit = function(s)
@@ -264,19 +264,19 @@ gotfood = function(w)
 end
 
 invite = obj {
-	nam = 'invitation',
-	inv = 'The invitation to the lecture of Belin: Level:4, Hall:2... Hmmm... I need to get there... He has my Barsik.',
+	nam = 'دعوتنامه',
+	inv = 'دعوتنامه برای سخنرانی بلین: طبقه: ۴، سالن: ۲... همم... باید برم اونجا... باریسک من پیش اونه.',
 }
 
 povardlg = dlg {
-	nam = 'in the kitchen',
+	nam = 'تو آشپزخونه',
 	pic = 'gfx/povar.png',
-	dsc = 'I see the tired fat face of the service woman in a white cap...',
+	dsc = 'صورت تپل و خسته‌ی زن خدمتکار رو که یه کلاه سفید سرشه می‌بینم...',
 	obj = {
-	[1] = phr('Please, give me these green... Yeah - and beans!', 'Here you are!', [[pon(1); return gotfood(1);]]),
-	[2] = phr('Potatoes with bacon, please!', 'Bon appetite!', [[pon(2); return gotfood(2);]]),
-	[3] = phr('Two garlic soups!!!', 'Nice choice!', [[pon(3);return gotfood(3);]]),
-	[4] = phr('Please, something not hard. I have an ulcer...', 'Oatmeal!', [[pon(4); return gotfood(4);]]),
+	[1] = phr('لطفا کمی ازین سبزیجات... بله - و لوبیا!', 'بفرمائید!', [[pon(1); return gotfood(1);]]),
+	[2] = phr('سیب‌زمینی با بیکن لطفا!', 'نوش جان!', [[pon(2); return gotfood(2);]]),
+	[3] = phr('دو تا سوپ سیر!!!', 'چه انتخاب خوبی!', [[pon(3);return gotfood(3);]]),
+	[4] = phr('یه چیزی که سفت نباشه لطفا. زخم معده دارم...', 'بلغور جو دوسر!', [[pon(4); return gotfood(4);]]),
 	},
 };
 kitchendlg = dlg {
