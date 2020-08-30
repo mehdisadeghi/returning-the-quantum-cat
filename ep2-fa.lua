@@ -280,50 +280,50 @@ povardlg = dlg {
 	},
 };
 kitchendlg = dlg {
-	nam = 'talking to employee',
+	nam = 'صحبت با کارمند',
 	pic = 'gfx/ilya.png',
-	dsc = 'I took my tray and sat at a free table. A minute later some guy tried to join my table with a question: "Occupied?"',
+	dsc = 'سینی‌ام رو برداشتم رو دور یک میز خالی نشستم. یه دقیقه بعد یکی سوالی کرد و خواست که سر میز بشینه: «جای کسیه؟»',
 	obj = {
-	[1] = phr('No, not occupied...', '— Thanks. How\'s it going? What unit are you from?', [[pon(3,4,5); poff(2);]]),
-	[2] = phr('Occupied...', '— Ha-ha! Nice joke! What unit are you from?', [[pon(3,4,5); poff(1);]]),
-	[3] = _phr('Hmm... Space Curvatures...', '— Oh, that\'s an old stuff!', [[pon(6);poff(4,5)]]),
-	[4] = _phr('E-er... Quantum Jumps...', '- Hmm? Haven\'t heard about it.', [[pon(6);poff(3,5)]]),
-	[5] = _phr('Oh... The Department of Quasispace Research!', '— Wow! Cool!', [[pon(6);poff(3,4)]]),
-	[6] = _phr('Hmm... ', '— And what is your security level?', [[pon(7,8)]]),
-	[7] = _phr('Super-secret!', '— Wow! ... ', [[poff(8); pon(9)]]),
-	[8] = _phr('Anonymous.', '— Really? Haven\'t heard about it. Maybe it\'s even more classified than mine...', 
+	[1] = phr('نه، خالیه...', '— مرسی. چه خبرا؟ از کدوم دپارتمانی؟', [[pon(3,4,5); poff(2);]]),
+	[2] = phr('جای کسیه...', '— هاها! چه بامزه! از کدوم دپارتمانی؟', [[pon(3,4,5); poff(1);]]),
+	[3] = _phr('همم... انحناهای فضایی...', '— عجب، خیلی قدیمیه!', [[pon(6);poff(4,5)]]),
+	[4] = _phr('ععع... جهش‌های کوانتومی...', '- همم؟ در موردش چیزی نشنیدم.', [[pon(6);poff(3,5)]]),
+	[5] = _phr('آها... دپارتمان تحقیقات شبه‌فضایی!', '— آها! چه باحال!', [[pon(6);poff(3,4)]]),
+	[6] = _phr('همم... ', '— و رده امنتیت چیه؟', [[pon(7,8)]]),
+	[7] = _phr('فوق محرمانه!', '— آها! ... ', [[poff(8); pon(9)]]),
+	[8] = _phr('ناشناس.', '— واقعا؟ چیزی راجع بهش نشنیدم. شاید حتی از من هم طبقه‌بندی‌شده‌تره...', 
 [[poff(7); pon(9)]]),
-	[9] = _phr('Mmm...', '— I\'m Ilya... — the guy reaches his thin hand — And what\'s your name?', [[pon(10, 11, 12)]]),
-	[10] = _phr('Pp.. Pk... Pupkin... Vasily Pupkin.', '— Oh, a rare last name!', [[poff(11,12); pon(13)]]),
-	[11] = _phr('Sergey.', '— Give me five, man!', [[poff(10,12); pon(13)]]),
-	[12] = _phr('George...', '— Ok, nice to meet you, Gosha!', [[poff(10,11); pon(13)]]),
-	[13] = _phr('Hmm...', 
-[[— You're some kind weird... But it doesn't matter. We are all here... — Ilya made an expressive face -... I'm distributing invitations to the classified lecture of Belin... Only for friends... I think I like you. And your security level is high enough... So...]], [[pon(14)]]),
+	[9] = _phr('همم...', '— من ایلیا هستم... — یارو دست لاغرش رو دراز می‌کنه — و اسم شما چیه؟?', [[pon(10, 11, 12)]]),
+	[10] = _phr('پ.. پ... پوپکین... واسیلی پوپکین.', '— آها، اسم فامیل خیلی نادریه!', [[poff(11,12); pon(13)]]),
+	[11] = _phr('سرگِی.', '— بزن قدش مرد!', [[poff(10,12); pon(13)]]),
+	[12] = _phr('گئورگ...', '— باشه، از ملاقاتت خوشحال شدم گوشا!', [[poff(10,11); pon(13)]]),
+	[13] = _phr('همم...', 
+[[— یه جورایی عجیبی... اما مهم نیست. ما همه اینجا هستیم... — ایلیا قیافه‌ی معنی‌داری به خودش گرفت -... من دارم برای سخنرانی طبقه‌بندی شده‌ی بلین دعوتنامه پخش می‌کنم... فقط برای رفقا... به گمونم ازت خوشم میاد. و رده‌ی امنیتیت هم به اندازه کافی بالاست... پس...]], [[pon(14)]]),
 
-	[14] = _phr('Where is he?... Hmm.. Where the lecture will take place?', 
+	[14] = _phr('کجاست؟... همم.. سخنرانی کجا برگزار می‌شه؟', 
 
-[[— Security level 4. Hall 2. So, be there! It's a good opportunity to get close to... — Ilya gave a look at one of the portraits on the wall. — Oh, I almost forgot! — he gave me a piece of white plastic — Well, see ya!... — Uhhh...]],[[inv():add('invite');return walk('eating');]]), 
+[[— رده امنیتی ۴. سالن ۲. پس اونجا باش! فرصت خوبیه برای نزدیک شدن به... —ایلیا یه نگاهی به یکی از پرتره‌های روی دیوار انداخت. — آها اصلا داشت یاد می‌رفت! — یه تیکه پلاستیک سفید بهم داد — پس می‌بینمت!... — ععع...]],[[inv():add('invite');return walk('eating');]]), 
 	}
 };
 kitchen = room {
-	nam = 'canteen',
+	nam = 'غذاخوری',
 	pic = 'gfx/kitchen.png',
-	dsc = 'A small canteen.',
+	dsc = 'یه غذاخوری کوچک.',
 	act = function(s, w)
 		if w == 4 then
-			return 'I see someone\'s hands taking trays with used plates to somewhere inside...';
+			return 'دست یکی رو می‌بینم که سینی بشقاب‌های استفاده شده رو می‌بره یه جایی داخل...';
 		end
 		if w == 1 then
 			if not have('food') then
-				return 'I took a seat at a free table. Ok, got some rest - now it\'s time to go!';
+				return 'دور یه میز خالی نشستم. خوب، کمی استراحت کردم - حالا وقت رفتنه!';
 			end
 			return walk('eating');
 		end
 		if w == 2 then
-			return 'They sound like a hive of bees...';
+			return 'شبیه یه کندوی زنبورن...';
 		end
 		if w == 3 and not have('food') then
-			return cat([[I joined the queue... I took a tray, cutlery and wipes. Time flows painfully slowly. At last I make an order...^^]], walk('povardlg'));
+			return cat([[تو صف وایستادم... یه سینی برداشتم، قاشق و چنگال و دستمال. زمان بدجور آروم می‌گذره. بالاخره سفارش می‌دم...^^]], walk('povardlg'));
 		end
 	end,
 	used = function(s, w, ww)
@@ -339,43 +339,43 @@ kitchen = room {
 	end, 
 	exit = function(s, t)
 		if have('food') and t ~= 'eating' then
-			return 'Just leave with a tray in my hands? No.', false;
+			return 'همینجوری با یه سینی تو دستم پاشم برم؟ نه.', false;
 		end
 		if t == 'stolcorridor' then
 			set_music('mus/ice.s3m');
 		end
 	end,
 	obj = { 'portrait', 
-		vobj(1, 'tables', '{Tables} for 4 and 8 persons are placed evenly in the hall.'), 
-		vobj(2, 'people', 'The canteen is full of {people}.'),
-		vobj(3, 'queue', 'The {queue} of hungry people waiting for their food moves fast enough.'),
-		vobj(4, 'dish washing', 'In the corner there\'s a {slot} for disposal of used trays and washing-up.'), 
+		vobj(1, 'tables', '{میزهای} چهار و پنج نفره به شکل یکنواختی توی سالن توزیع شدن.'), 
+		vobj(2, 'people', 'غذاخوری پر از {آدمه}.'),
+		vobj(3, 'queue', 'صف {افراد} گرسنه و منتظر غذا به سرعت جلو می‌ره.'),
+		vobj(4, 'dish washing', 'گوشه‌ی سالن یه {دریچه} برای پس دادن سینی و شست و شو هست.'), 
 	},
 	way = { 'stolcorridor' },
 };
 
 stolcorridor = room {
-	nam = 'canteen entrance',
+	nam = 'ورودی غذاخوری',
 	pic = 'gfx/kitchencor.png',
-	dsc = 'The long and narrow corridor is illuminated by fluorescent light.',
+	dsc = 'راهروی بلند و باریک با نور مهتابی روشن شده.',
 	act = function(s, w)
 		if w == 1 then
-			return 'Yeah, these people came here to eat...';
+			return 'آره، این آدم‌ها برای غذا خوردن اینجا اومدن...';
 		end
 	end,
-	obj = {'garderob', vobj(1,'люди', '{People} walk back and forth along the corridor.')},
+	obj = {'garderob', vobj(1,'люди', '{افراد} تو راهرو بالا و پایین می‌رن.')},
 	way = {'sside', 'kitchen'},
 	exit = function(s, t)
 		if t == 'sside' and not have('mywear') and not have('alienwear') then
 
-			return 'It\'s cold outside... I won\'t go there without a coat... No...', 
+			return 'بیرون سرده... بدون یه ژاکت بیرون نمی‌رم... نع...', 
 				false;
 		end
 	end,
 	enter = function(s)
 		-- generate garderob
 		if have('gun') and not gun._hidden then
-			return 'I\'m afraid there will be some questions to me if I go inside with a shotgun...', false;
+			return 'شرمنده، اما اگه با یه شاتگان برم داخل احتمالا یه سوالاتی پیش میاد...', false;
 		end
 		local i
 		for i=1, 8 do
@@ -394,152 +394,152 @@ stolcorridor = room {
 };
 
 sside = room {
-	nam = 'south side',
+	nam = 'ضلع جنوبی',
 	pic = 'gfx/sside.png',
-	dsc = [[I am at the south wall of the institute building. ]],
+	dsc = [[دیوار ضلع جنوبی ساختمان مؤسسه هستم. ]],
 	act = function(s, w)
 		if w == 1 then
 			ways():add('stolcorridor');
-			return "I came across the entrance and saw a label - 'Canteen'. Hmm... Maybe go inside?";
+			return "نزدیک ورودی شدم و یه پلاک دیدم - «غذاخوری». همم... شاید برم تو بدنباشه؟";
 		end
 		if w == 2 then
-			return 'The ones who walk out seem to be more pleased than others...';
+			return 'اونها که بیرون میان به نظر راضی‌تر از اونهایی می‌رسن که می‌رن داخل...';
 		end
 	end,
 	way = {'eside','wside'},
-	obj = { vobj(1, "entrance", "There's an {entrance} near the east corner."),
-		vobj(2, "people", "The entrance door opens from time to time letting {people} in and out.")},
+	obj = { vobj(1, "entrance", "نزدیک گوشه‌ی شرقی یه «ورودی» هست."),
+		vobj(2, "people", "در ورودی گه‌گاه باز می‌شه و {جمعیت} وارد و خارج می‌شن.")},
 	exit = function(s, t)
 		if t == 'eside' then
-			return 'If I go there I will be a good target for machine guns.', false
+			return 'اگه برم اونجا سیبل خوبی برای مسلسل‌ها می‌شم.', false
 		end
 	end
 };
 
 nside = room {
-	nam = 'north side',
+	nam = 'ضلع شمالی',
 	pic = 'gfx/nside.png',
-	dsc = 'I am at the north wall of the institute building.',
+	dsc = 'دیوار ضلع شمالی مؤسسه هستم.',
 	way = {'eside','wside' },
 	act = function(s, w)
 		if w == 1 then
-			return 'Yeah — a drainpipe... Seems strong enough. But I doubt I can climb it up.';
+			return 'بله — یه ناودون... به اندازه کافی قوی به نظر میاد. اما فکر نکنم بتونم ازش بالا برم.';
 		end
 	end,
-	obj = { vobj(1, 'tube', 'A {drainpipe} flows along the east corner.')},
+	obj = { vobj(1, 'tube', 'یه {ناودون} در امتداد گوشه شرقی کشیده شده.')},
 };
 
 
 wside = room {
-	nam = 'front side',
+	nam = 'جلوی مؤسسه',
 	pic = 'gfx/wside.png',
-	dsc = 'The front side of the institute.',
+	dsc = 'ضلع اصلی مؤسسه.',
 	way = {'entrance', 'nside','sside' },
 	act = function(s, w)
 		if w == 1 then
-			return 'The van my story began with...';
+			return 'ونی که قضه من از اونجا شروع شد...';
 		end
 		if w == 5 then
-			return 'It starts too high to reach. Also it\'s locked. Maybe it may be of some use during fire, but I really doubt about it...'
+			return 'بلندتر از اونیه که دستم بهش برسه. ضمنا قفله. شاید موقع آتش‌سوزی بدرد بخوره ولی من که شک دارم...'
 		end
 		if w == 2 then
-			return 'The guards will recognize me for sure. I\'d better save my Barsik first.';
+			return 'نگهبان‌ها حتما منو می‌شناسن. بهتره اول باریسکم رو نجات بدم.';
 		end
 		if w == 3 then
-			return 'Nice entrance... But I can\'t get rid of an idea that the institute eats people.';
+			return 'یه ورودی مرتب... اما فکر اینکه این مؤسسه آدم‌ها رو می‌خوره از سرم نمی‌پره.';
 		end
 		if w == 4 then
-			return 'It\'s almost dark outside, but people still keep going inside...';
+			return 'بیرون تقریبا تارکه، اما افراد همچنان وارد مؤسسه می‌شن...';
 		end
 	end,
-	obj = { vobj(3, 'entrance', 'The main {entrance} has a big rotating door'),
-		vobj(4, 'people', ' letting {people} in and out.'), 
-		vobj(1, 'van', 'There\'s a black {van} in front of the door.'),
-		vobj(2, 'checkpoint', 'Sixty meters further I can hardly distinguish a {checkpoint}.'),
-		vobj(5, 'ladder', 'I see a fire-escape {ladder} on the south part of the wall. The ladder stretches from the second to the fifth floor.' ),
+	obj = { vobj(3, 'entrance', '{دروازه اصلی} یه در گردان بزرگ فلزی داره.'),
+		vobj(4, 'people', ' می‌ذاره {مردم} داخل و خارج بشن.'), 
+		vobj(1, 'van', 'یه {ون} سیاه جلوی دره.'),
+		vobj(2, 'checkpoint', 'شصت متر اونورتر من به صختی می‌تونم {اتاقک نگهبانی} رو ببینم.'),
+		vobj(5, 'ladder', 'رو ضلع جنوبی دیوار یه {نردبون} اضطراری برای فرار از آتش‌سوزی می‌بینم. نردبون از طبقه دوم تا پنجم کشیده شده.' ),
 	}
 };
 
 turn1 = obj {
 	nam = 'tourniquet',
-	dsc = 'Shiny steel {tourniquets} block the passage to the elevators. The green indicators show the message: <<All levels and categories>>.',
+	dsc = '{گیت‌های چرخان فولادی} راهروی منتهی به آسانسورها رو سد کردن. نمایشگر سبز پیامی نشون می‌ده: <<همه سطوح و رده‌ها>>.',
 	act = function(s, w)
 		if s._inside then
 			s._inside = false;
 			here().way:del('lift');
-			return 'I approach the tourniquets, use the card and go out from the restricted area.';
+			return 'می‌رم طرف گیت‌ها،کارتم رو می‌کشم و از منطقه حفاظت‌شده خارج می‌شم.';
 		end
 		if s._unlocked then
 			s._inside = true;
 			here().way:add('lift');
-			return 'I approach the tourniquets, use the card and and in a moment I\'m at the elevators.';
+			return 'می‌رم طرف گیت‌ها، کارت رو می‌کشم و تو یه چشم به هم زدن جلوی آسانسورها هستم.';
 		end
-		return 'I approach a tourniquet, but I see a red X sign shining. Bad idea to go further.';
+		return 'می‌رم طرف یه گیت، اما یه علامت X قرمز می‌بینم. از این جلوتر رفتن عاقلانه نیست.';
 	end,
 	used = function(s,w)
 		if w == 'card' then
 			s._unlocked = true;
 			s._inside = true;
 			here().way:add('lift');
-			return 'I apply the card to a tourniquet and see a green light. The passage is clear. I go to the elevators.';
+			return 'کارت رو می‌کشم روی یه گیت و یه چراغ سبز می‌بینم. راه بازه. می‌رم طرف آسانسورها.';
 		end
 	end
 };
 
 lustra = obj {
-	nam = 'chandeliers',
-	dsc = 'Big shiny {chandeliers} hang over my head.',
-	act = 'I can\'t help watching them... I think they are made of crystal.';
+	nam = 'چلچراغ',
+	dsc = '{چلچراغ‌های} بزرگ براق بالای سرم آویزون هستن.',
+	act = 'نمی‌تونم دست از تماشای اونها بکشم... به گمونم از کریستال ساخته شدن.';
 
 };
 
 divan = obj {
-	nam = 'sofa',
-	dsc = 'In the corner there\'s a {sofa} for guests placed opposite to the guard table.',
+	nam = 'کاناپه',
+	dsc = 'گوشه لابی روبروی صندلی نگهبان یه {کاناپه} برای مراجعین هست.',
 	act = function(s)
-		return 'Black-leathered, very soft sofa.';
+		return 'یه کاناپه خیلی نرم با روکش چرم مشکی.';
 	end,
 };
 
 entrance = room {
-	nam = 'main entrance',
+	nam = 'ورودی اصلی',
 	pic = 'gfx/entrance.png', 
-	dsc = 'The first floor of the institute is shocking by its magnificence.',
+	dsc = 'عظمت طبقه اول مؤسسه حیرت‌آوره.',
 	act = function(s, w)
 		if w == 2 then
-			return 'A big padlock hangs on the gates.';
+			return 'یه قفل بزرگ روی گیت‌ها آویزونه.';
 		end
 		if w == 3 then
 			if not turn1._inside then
-				return 'The tourniquets block my way to the elevators.';
+				return 'گیت‌ها راه من رو به آسانسور سد کردن.';
 
 			end
-			return 'Four elevators seem not enough for all institute employees.';
+			return 'به نظر نمی‌رسه چهار تا آسانسور بتونه جواب همه پرسنل مؤسسه رو بده.';
 		end
 		if w == 4  then
-			return 'A table made from glass or crystal. There\'s a terminal beyond the table.'; 
+			return 'یه میز از جنس شیشه یا کریستال. بعد از میز یه ترمینال هست.'; 
 		end
 		if w == 5 then
-			return 'It would be better for me if he doesn\'t see me once again.'; 
+			return 'به نفع منه که دیگه من رو نبینه.'; 
 		end
 		if w == 6 then
-			return 'People... It\'s very unusual for me to see so many people.';
+			return 'آدم... دیدن این همه آدم برای من خیلی غیرعادیه.';
 		end
 	end,
 	obj = {
 		'lustra',
-		vobj(2, 'gates', 'Iron {gates} to railways occupy all space of east wall.'),
-		vobj(3, 'elevators', 'In the middle of the hall there are {elevators}.'),
+		vobj(2, 'gates', '{گیت‌های آهنی} به طرف راه‌آهن همه فضای دیوار شرقی رو اشغال کردن.'),
+		vobj(3, 'elevators', '{آسانسورها} وسط سالن هستن.'),
 		'turn1',
-		vobj(4, 'table', 'There\'s a {table} before tourniquets.'),
-		vobj(5, 'guard', 'The {guard} sits at the table.'),
-		vobj(6, 'people', '{People} come and go in and out making a queue near the elevators.'),
+		vobj(4, 'table', 'قبل از گیت‌ها یه {میزه}.'),
+		vobj(5, 'guard', '{نگهبان} پشت میز نشسته.'),
+		vobj(6, 'people', '{جمعیتی} که وارد و خارج می‌شن یه صف جلوی آسانسورها تشکیل دادن.'),
 		'divan',
 	},
 	way = { 'wside' },
 	enter = function(s, f)
 		if have('gun') and f == 'wside' and not gun._hidden then
-			return 'I think there will be many questions about my shotgun if I take it inside with me... I should hide it somewhere', false;
+			return 'به نظرم اگه شاتگانم رو ببرم داخل سوالات زیادی در موردش پیش بیاد... باید جایی پنهانش کنم', false;
 		end
 	end,
 	exit = function(s, t)
@@ -558,30 +558,30 @@ pinlift = obj {
 		return 'people';
 	end,
 	act = function(s)
-		return 'Empty and depressed sights... Painful silence.';
+		return 'منظره‌ی خالی و محزون... سکوت دردآور.';
 	end,
 	dsc = function(s)
 		if s._num == 1 then
-			return 'The elevator is full of {people}.';
+			return 'آسانسور پر از {آدمه}.';
 		end
 		if s._num == 2 then
-			return 'There are several {men} in the elevator.';
+			return 'چندین {مرد} داخل آسانسور هستن.';
 		end
 		if s._num == 3 then
-			return 'The elevator is empty.'
+			return 'آسانسور خالیه.'
 		end
 	end
 };
 
 lift = room {
-	nam = 'elevator',
+	nam = 'آسانسور',
 	pic = 'gfx/lift.png',
-	dsc = 'It must be bright and comfortably in the elevator. But I am tormented by claustrophobia. I see buttons on the panel:',
+	dsc = 'داخل آسانسور باید روشن و راحت باشه. ولی کلاستروفوبیا من رو غذاب می‌ده. دگمه‌های روی پنل رو می‌بینم:',
 	enter = function(s, t)
 		if here() == entrance then
 			s._from = 1;
 			pinlift._num = 1;
-			return 'I wait for one of the elevators and go inside.';
+			return 'منتظر یکی از آسانسورها می‌شم و می‌رم داخل';
 		end
 		pinlift._num = rnd(3);
 		if here() == floor2 then
@@ -593,7 +593,7 @@ lift = room {
 		elseif here() == floor5 then
 			s._from = 5;
 		end
-		return 'I press an elevator call button and wait. After some time I go inside an elevator.';
+		return 'دگمه‌ی احضار یکی از آسانسورها رو فشار می‌دم و منتظرم می‌شم. بعد مدتی می‌رم داخل آسانسور.';
 	end,
 	act = function(s, w)
 		local to,st
@@ -601,42 +601,42 @@ lift = room {
 			return
 		end
 		if w == s._from then
-			return cat('No!!! The claustrophobia forces me out of the elevator.^^', 
+			return cat('نه!!! کلاستروفوبیا مجبورم می‌کنه از آسانسور بزنم بیرون.^^', 
 				back());
 		end
 		if w == 8 then
 			st = '';
 			if galstuk._wear then
-				st = ' By the way, I have a tie.';
+				st = ' راستی، من یه کراوات دارم.';
 			end
 			if me()._brit then
-				return 'I look in the mirror and see the tired but smoothly shaved face. This is me.' .. st;
+				return 'تو آیینه نگاه می‌کنم و یه صورت خسته اما تراشیده می‌بینم. این منم.' .. st;
 			end
-			return 'I look in the mirror and see tired and bearded face. This is me.'..st;
+			return 'تو آیینه نگاه می‌کنم و یه صورت خسته و نتراشیده می‌بینم. این منم.'..st;
 		end
 		if w == 6 or w == 7 then
-			return 'I\'m nervous... But I should not take nervous decisions.';
+			return 'بی‌قرارم... اما نباید شتابزده تصمیم بگیرم.';
 		end
 		if w == 1 then
 			to = 'entrance';
 		else 
 			to = 'floor'..w;
 		end
-		return cat('I press the button and wait. Claustrophobia almost knocks me down, but I\'m waiting... Ukhh... Trip done at last!^^',
+		return cat('دگمه رو فشار می‌دم و منتظر می‌مونم. کلاستروفوبیا تقریبا ناکارم می‌کنه، اما منتظر می‌مونم... آخ... بالاخره رسیدم!^^',
 			walk(to));
 	end,
 	exit = function()
-		return 'Elevator doors close behind me.';
+		return 'درهای آسانسور پشت سرم بسته می‌شن.';
 	end,
 	obj = {
-		vobj(1,'1', '{1},'),
-		vobj(2,'2', '{2},'),
-		vobj(3,'3', '{3},'),
-		vobj(4,'4', '{4},'),
-		vobj(5,'5', '{5},'),
-		vobj(6,'stop','{stop}'),
-		vobj(7,'go','и {go}.'),
-		vobj(8,'mirror', 'The elevator back wall is a {mirror}.'),
+		vobj(1,'1', '{۱},'),
+		vobj(2,'2', '{۲},'),
+		vobj(3,'3', '{۳},'),
+		vobj(4,'4', '{۴},'),
+		vobj(5,'5', '{۵},'),
+		vobj(6,'stop','{توقف}'),
+		vobj(7,'go','и {حرکت}.'),
+		vobj(8,'mirror', 'دیواره‌ی پشتی آسانسور یه {آینه} است.'),
 		'pinlift',
 	},
 };
