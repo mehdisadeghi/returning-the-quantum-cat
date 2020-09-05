@@ -248,7 +248,7 @@ mycar = obj {
 };
 
 iso = obj {
-	nam = 'insulating tape',
+	nam = 'نوارچسب عایق',
 	inv = 'یه حلقه چسب عایق آبی...',
 	use = function(s, o)
 		if o == 'trap' and not trap._iso then
@@ -262,7 +262,7 @@ iso = obj {
 };
 
 trap = obj {
-	nam = 'trap',
+	nam = 'تله',
 	dsc = 'یه {تله فلزی} توی برفه.', -- !!!!
 	tak = 'شکارچی‌های غیرقانونی لعنتی! تله‌ها رو با خودم می‌برم.',
 	inv = function(s)
@@ -416,7 +416,7 @@ guydlg = dlg {
 };
 
 guy = obj {
-	nam = 'bum',
+	nam = 'کارتن‌خواب',
 	dsc = 'یه {کارتن‌خواب} داره تو سطل‌های زباله رو می‌گرده.',
 	act = function()
 		return walk('guydlg');
@@ -440,7 +440,7 @@ end
 ifmoney ='if not have("money") then return nomoney(); end; shopman._wantmoney = true; ';
 
 dshells = obj {
-	nam = 'shells',
+	nam = 'پوکه',
 	dsc = function(s)
 		-- Note for translators: 
 		-- this block picks the appropriate plural form 
@@ -471,7 +471,7 @@ function dropshells()
 end
 
 shells = obj {
-	nam = 'cartridges',
+	nam = 'خشاب',
 	inv = 'خشاب شاتگان. به ندرت ازش استفاده می‌کنم، معمولا علیه شکارچی‌های غیرقانونی.',
 	use = function(s, on)
 		if on == 'gun' then
@@ -492,7 +492,8 @@ shells = obj {
 news = obj {
 	nam = 'روزنامه',
 	inv = [[
-روزنامه جدید... <<موسسه مکانیک کوانتوم که اخیرا در تایگا ساخته شده است قویا هر ارتباطی با حوادث مشکوک را رد می‌کند.>>.. عجب...]],
+	روزنامه جدید... «موسسه مکانیک کوانتوم که اخیرا در تایگا ساخته شده است قویا هر ارتباطی با حوادث مشکوک را رد می‌کند»... عجب...
+	]],
 	used = function(s, w)
 		if w == 'poroh' then
 			if have('trut') then
@@ -506,7 +507,7 @@ news = obj {
 };
 
 hamb = obj {
-	nam = 'hamburger',
+	nam = 'همبرگر',
 	inv = function()
 		inv():del('hamb');
 		return 'یه اسنک خوردم. غذا بود...';
@@ -514,12 +515,12 @@ hamb = obj {
 };
 
 zerno = obj {
-	nam = 'groats',
+	nam = 'بلغور',
 	inv = 'فقط یه گندم سیاه. دونه‌های گندم سیاه...',
 };
 
 shop2 = dlg {
-	nam = 'buy',
+	nam = 'خرید',
 	pic = 'gfx/shopbuy.png',
 	obj = { 
 	[1] = phr('خشاب شاتگان... مهمات لازم دارم...', 'رو چشم... قیمت مثل همیشه', ifmoney..'inv():add("shells")'),
@@ -542,7 +543,7 @@ shopdlg = dlg {
 	pic = 'gfx/shopman.png',
 	dsc = 'چشم‌های ریز من رو با یه نگاه تیز ورانداز می‌کنن.',
 	obj = {
-	[1] = phr('سلام ولادیمیر! اوضاع چطوره؟', 'سلام, '..me().nam..'... بد نیست... - ولادیمیر یه لبخند موذیانه می‌زنه.', 'pon(2)'),
+	[1] = phr('سلام ولادیمیر! اوضاع چطوره؟', 'سلام، '..me().nam..'... بد نیست... - ولادیمیر یه لبخند موذیانه می‌زنه.', 'pon(2)'),
 	[2] = _phr('چند قلم جنس لازم دارم.', 'باشه... بذار ببینیم، چی لازم داری؟', 'pon(2); return walk("shop2")'),
 	[3] = phr('پس خداحافظ!...', 'آره... بخت یارت!', 'pon(3); return back();'),
 	[4] = _phr('یه مردی الان اینجا بود — کی هست؟', 'اوهوم؟ — ابروهای نازک ولادیمیر کمی بالا می‌رن...','pon(5)'),
@@ -558,7 +559,7 @@ shopdlg = dlg {
 };
 
 shopman = obj {
-	nam = 'salesman',
+	nam = 'فروشنده',
 	dsc = 'یه {فروشنده} پشت پیشخونه. صورت پهن ته‌ریش دارش با یه مونوکل تکمیل شده.',
 	act = function()
 		return walk('shopdlg');
@@ -635,7 +636,7 @@ carbox = obj {
 };
 
 mybox = obj {
-	nam = 'a box',
+	nam = 'یه جعبه',
 	inv = 'یه جعبه چوبی دستمه... خیلی خوش ساخته! شاید بدرد بخوره.',
 	use = function(s, o)
 		if o == 'boxes' then
@@ -725,9 +726,9 @@ function guardreact()
 		inst.obj:del('mycar');
 		inmycar.way:add('backwall');
 		inst.way:add('backwall');
-		return cat([[Four people with submachine guns escorted me to my car. I had to start the engine and drive away from the institute. I drove a dozen kilometers before the military jeep with the seeing-off guards disappeared from the rear-view mirror... ]], walk('inmycar'));
+		return cat([[چهار نفر مسلح به مسلسل تا ماشینم همراهیم کردن. مجبور بودم موتور رو روشن کنم و محوطه موسسه رو ترک کنم. ده دوازده کیلومتر رانندگی کردم تا وقتی که جیپ نظامی نگهبان‌ها از آینه عقب محو شد... ]], walk('inmycar'));
 	end
-	return cat([[Four armed people throw me out of the check-point.^^]], walk('inst'));
+	return cat([[چهار فرد مسلح من رو از باجه نگهبانی پرت کردن بیرون.^^]], walk('inst'));
 end
 
 guarddlg = dlg {
@@ -746,7 +747,7 @@ guarddlg = dlg {
 	},
 };
 guard = obj {
-	nam = 'guards',
+	nam = 'نگهبان‌ها',
 	dsc = [[
 چند نفر {نگهبان} تو باجه هستن. ظاهرا همگی مسلح به کلاشینکوفن.
 ]],
@@ -801,7 +802,7 @@ inst = room {
 };
 
 cam = obj {
-	nam = 'surveillance camera',
+	nam = 'دوربین مداربسته',
 	dsc = function(s)
 		if not s._broken then
 			return 'یکی از {دوربین‌ها} فاصله‌ی چندانی از اینجا نداره. می‌چسبم به دیوار تا کسی متوجه من نشه.';

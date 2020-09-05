@@ -69,12 +69,12 @@ eside = room {
 
 card = obj {
 	nam = 'کارت عبور',
-	inv = [[ کارت عبور یه آدمیه - یه کارت هوشمند الکترونیکی که عکس یه مرد با قیافه‌ی هوی‌متال روشه. روش نوشتخ: الکسی پُدکُوین — طبقه: ۳, رسته: ماده. عجب...]],
+	inv = [[ کارت عبور یه آدمیه - یه کارت هوشمند الکترونیکی که عکس یه مرد با قیافه‌ی هوی‌متال روشه. روش نوشتخ: الکسی پُدکُوین — طبقه: ۳	 رسته: ماده. عجب...]],
 };
 
 alienwear = obj {
-	xnam = {'denim jacket', 'red jacket', 'overcoat', 'jacket', 'white jacket', 
-	'coat', 'black leather jacket', 'sport jacket',},
+	xnam = {'کت جین', 'کت قرمز', 'اورکت', 'ژاکت', 'ژاکت سفید', 
+	'کت', 'کت چرمی سیاه', 'کاپشن ورزشی',},
 	xinv = {
 		'برای این فصل لباس سردیه، اما استیل خاصی داره!',
 		'با پس‌زمینه برفی قشنگ به نظر می‌رسه.',
@@ -136,7 +136,7 @@ garderob = obj {
 		vobj(1,'denim jacket','{یه کت دِنیم}.'),
 		vobj(2,'red jacket','{یه کت قرمز}.'),
 		vobj(3,'overcoat','{یه اُورکت}.'),
-		vobj(4,'terminator jacket', "یه {کت} با یادداشت »الان برمی‌گردم»."),
+		vobj(4,'terminator jacket', "یه {کت} با یادداشت «الان برمی‌گردم»."),
 		vobj(5,'jacket with daisies', "یه {کت سفید} گل‌گلی."),
 		vobj(6,'coat', "یه {کت پشمی}."),
 		vobj(7,'leather jacket','یه {کت چرم مشکی باحال}.'),
@@ -162,7 +162,7 @@ salo = obj {
 };
 
 food = obj {
-	nam = 'food',
+	nam = 'غذا',
 	inv = function (s) 
 		inv():del('food');
 		return 'بدجور گشنمه، پس همه این غذاهای خوشمزه رو بدون اینکه بشینم می‌خورم. به به... بعدش سینی ظرف‌های خالی رو تحویل می‌دم به پرسنل شست و شو.';
@@ -265,7 +265,7 @@ end
 
 invite = obj {
 	nam = 'دعوتنامه',
-	inv = 'دعوتنامه برای سخنرانی بلین: طبقه: ۴، سالن: ۲... همم... باید برم اونجا... باریسک من پیش اونه.',
+	inv = 'دعوتنامه برای سخنرانی بلین: طبقه: ۴ سالن: ۲ همم... باید برم اونجا... باریسک من پیش اونه.',
 }
 
 povardlg = dlg {
@@ -407,7 +407,7 @@ sside = room {
 		end
 	end,
 	way = {'eside','wside'},
-	obj = { vobj(1, "entrance", "نزدیک گوشه‌ی شرقی یه «ورودی» هست."),
+	obj = { vobj(1, "entrance", "نزدیک گوشه‌ی شرقی یه {ورودی} هست."),
 		vobj(2, "people", "در ورودی گه‌گاه باز می‌شه و {جمعیت} وارد و خارج می‌شن.")},
 	exit = function(s, t)
 		if t == 'eside' then
@@ -642,70 +642,70 @@ lift = room {
 };
 
 floor2 = room {
-	nam = '2nd floor site',
+	nam = 'محوطه طبقه دوم',
 	pic = 'gfx/floor2.png',
-	dsc = "There are no windows on the second floor. Low ceiling and grey-green walls. It's cold and silent here.",
+	dsc = "طبقه دوم هیچ پنجره‌ای نداره. سقف کوتاه و دیوارهای خاکسری-سبز. اینجا سرد و آرومه.",
 	act = function(s, w)
 		if w == 1 then
-			return 'The door seems to be made of lead... I do not see any possibility to get in there. And it\'s for good. There\'s a label under the sign which says: <<Level: 2, Category: Nuclear Energy>>.';
+			return 'در ظاهرا از سرب ساخته شده... گمان نمی‌کنم به هیچ طریقی بتونم برم داخل. که البته دلیل خوبی داره. زیر تابلو که برچسب که روش نوشته: <<سطح: ۲, رده: انرژی اتمی>>.';
 		end
 		if w == 2 then
-			return 'Yeah, one of these elevators brought me to this damned place...';
+			return 'آره، یکی از همین آسانسورها من رو آورد به این محل لعنتی...';
 		end
 	end,
 	obj = { 
-		vobj(1, 'door', 'I see a massive {door} with the sign <<Beware! High Radiation!!!>>'),
-		vobj(2, 'elevators', 'It seems the four elevator slots are watching for me gloomily.'),
+		vobj(1, 'در', 'یه {در} عظیم می‌بینم با این علامت:  <<هشدار! تشعشع زیاد!!!>>'),
+		vobj(2, 'آسانسورها', 'انگار که هر چهار آسانسور به طرز غم‌انگیزی به من نگاه می‌کنن.'),
 	},
 	way = { 'lift' },
 };
 
 resh = obj {
-	nam = 'bars',
+	nam = 'نرده',
 	dsc = function(s)
 		if not s._unscrew then
-			return 'The hole is protected by the iron-bar {lattice}.';
+			return 'حفره توسط یک {توری} فلزی محافظت شده.';
 		end
 		if vent._off then
-			return 'In the hole I can distinguish blades of a big airing fan. The {lattice} lies on the floor.';
+			return 'داخل حفره می‌تونم پره‌های یک فن بزرگ تهویه هوا رو تشخیص بدم. {توری} روی زمین افتاده.';
 		end
-		return 'The blades of the big airing fan are rotating. The {lattice} lies on the floor.';
+		return 'پره‌های فن بزرگ تهویه هوا دارن می‌چرخن. {توری} افتاده روی زمین.';
 	end,
 	act = function(s)
 		if s._unscrew then
-			return 'This is what can be done with a blunt knife if you have enough patience and skill!';
+			return 'این کاریه که می‌شه با یه چاقوی کند انجام داد به شرطی که مهارت به خرج بدی و صبور باشی!';
 		end
 		if not stoly._moved then
-			return 'Cannot reach...';
+			return 'دستم بهش نمی‌رسه...';
 		end
-		return 'The lattice is screwed tightly with 12 screws...';
+		return 'توری توسط دوازده پیچ حسابی محکم شده...';
 	end,
 	used = function(s, w)
 		if w == 'knife' and not s._unscrew and stoly._moved then
 			s._unscrew = true;
-			return 'I climb the table and try to unscrew the screws with a knife. This takes me much time. But at last I make it. The lattice falls down on the floor. I get down from the table.';
+			return 'از میز بالا می‌رم و سعی می‌کنم با چاقو پیچ‌ها رو باز کنم. یه کم طول می‌کشه. ولی بالاخره انجامش می‌دم. توری می‌افته روی زمین. از میز پایین میام.';
 		end
 		if w ~= 'stol' then
-			return 'No way...';
+			return 'راه نداره...';
 		end
 	end,
 };
 
 vent = obj {
-	nam = 'airing hole',
-	dsc = 'In the middle of the ceiling there is a big square {hole} for airing.',
+	nam = 'حفره‌ی تهویه هوا',
+	dsc = 'وسط سقف یه {سوراخ} بزرگ تهویه هوا هست',
 	act = function(s)
 		if not stoly._moved then
-			return 'I cannot reach it...';
+			return 'نمی‌تونم بهش برسم...';
 		end
 		if not resh._unscrew then
-			return 'I step on the table and examine the hole. It is covered by the lattice... Being disappointed I get down.';
+			return 'می‌رم روی میز و حفره رو وارسی می‌کنم. با توری فلزی پوشونده شده... از رو می‌رم و میام پایین.';
 		end
 		if not s._off then
-			return 'I climb the table and watch the sharp blades of the fan. I\'m afraid it is too dangerous...';
+			return 'میرم بالای میز و پره‌های تیز فن رو تماشا می‌کنم. به نظرم خیلی خطرناکه...';
 		end
 		if not s._trap then
-			return 'I climb the table. Holding the edges of the hole I\'m trying to get in... It\'s dark and wet there. I\'m almost in when I see red eyes and teeth of a big rat... No!!! I fall back on the table and then hit the floor.';
+			return 'از میز بالا می‌رم. در حالی که لبه‌های سوراخ رو گرفتم سعی می‌کنم برم داخل... اینجا تاریک و خیسه. تقریبا داخل شدم که چشم‌های قرمز و دندونهای یک موش رو می‌بینم... نع!!! به پشت می‌افتم روی میز و بعد می‌خورم زمین';
 		end
 -- here we go!
 		return walk('toilet');
@@ -716,25 +716,25 @@ vent = obj {
 			return
 		end
 		if not stoly._moved  then
-			return 'I can\'t reach the hole...';
+			return 'به حفره نمی‌رسم...';
 		end
 		if not resh._unscrew then
-			return 'The hole is covered by the lattice...';
+			return 'حفره با توری پوشونده شده...';
 		end
 		if not s._off then
-			return 'I can\'t because of the fan blades...';
+			return 'به خاطر پره‌های فن نمی‌تونم...';
 		end
 		if w == 'gun' and not s._trap then
 			gun._loaded = false;
-			return 'I climb the table and point the shotgun to the hole. Both barells shot simultaneously with deep sound. I listen. The hole is silent... I get down. I think it\'s useless...';
+			return 'می‌رم بالای میز و شاتگان رو به طرف حفره نشونه می‌رم. با یه صدای بم هر دو لول شلیک می‌کنن. گوش می‌دم. حفره ساکته... میام پایین. به نظرم بی‌فایده است...';
 		end
 		if w == 'trap' then
 			if not trap._salo then
-				return 'I set the trap on the edge of the hole. Waiting. But the rat is not a fool. I take the trap back. I need some bait.';
+				return 'تله رو روی لبه‌ی سوراخ کار می‌ذارم. منتظر می‌شم. اما موشه احمق نیست. تله رو دوباره برمی‌دارم. طعمه لازم دارم.';
 			end
 			inv():del('trap');
 			vent._trap = true;
-			return 'I climb the table and set the baited trap on the edge of the hole... I need not wait for too long... The clash sound and the last scream of the rat make me know that the work is done!';
+			return 'می‌رم بالای میز و تله‌ی طعمه‌گذاری شده رو روی لبه‌ی حفره جاسازی می‌کنم... لازم نیست مدت زیادی صبر کنم... صدای چفت شدن و آخرین جیع موش کافیه که بفهمم کار انجام شده!';
 		end
 	end,
 	obj = {
@@ -743,37 +743,37 @@ vent = obj {
 };
 
 stol = obj {
-	nam = 'table',
-	inv = 'I hold the corner of one of the tables. Seems made from oak.',
+	nam = 'میز',
+	inv = 'کنج یکی از میزها رو می‌گیرم. ظاهرا از چوب بلوط ساخته شده.',
 	use = function(s, w)
 		if w == 'vent' or w == 'resh' then
 			inv():del('stol');
 			stoly._moved = true;
-			return 'I strained myself and moved one of the tables to the center of the room.';
+			return 'زور زدم و یکی از میزها رو کشیدم وسط اتاق.';
 		end
 	end
 };
 
 stoly = obj {
-	nam = 'tables',
+	nam = 'میزها',
 	dsc = function(s, w)
 		if not s._moved then
-			return 'Four oak {tables} take their places in the four room corners respectively.';
+			return 'در چهار گوشه‌ی اتاق {چهار میز} از جنس چوب بلوط به ترتیب قرار گرفتن.';
 		end
-		return 'Three oak {tables} reside in the room corners. One table is moved to the center.';
+		return '{سه میز} از جنس چوب بلوط گوشه‌های اتاق قرار دارن. یک میز به وسط اتاق کشیده شده.';
 	end,
 	act = function(s, w)
 		if s._moved then
-			return 'Put one table on another? No - I won\'t make it...';
+			return 'یه میز رو بذارم رو یکی دیگه؟ نه، از پسش برنمیام...';
 		end
 		inv():add('stol');
 
-		return [[Good furniture... But the table in my house is better - I've made it with my own hands. I hold the corner of a table.]];
+		return [[مبلمان خوبیه... اما میز خونه خودم بهتره - اونو با دست‌های خودم ساختم. گوشه‌ی یه میز رو می‌گیرم.]];
 	end
 };
 
 eroom = room {
-	nam = 'STR department',
+	nam = 'STR دپارتمان',
 	pic = function()
 		if not stoly._moved then
 			return 'gfx/sto.png';
@@ -784,27 +784,27 @@ eroom = room {
 		return 'gfx/sto3.png';
 
 	end, 
-	dsc = [[I am in the small room with beige walls.]],
+	dsc = [[توی یک اتاق کوچک با دیوارهای بژرنگ هستم.]],
 	enter = function(s, f)
 		if f == 'cor3' then
-			return [[I opened the door and looked inside. Whew... Empty! I think I may look around...]];
+			return [[در رو باز کردم و نگاهی به داخل انداختم. عجب... خالیه! فکر کنم یه سر و گوشی این اطراف آب بدم...]];
 		end
 		if f == 'toilet' then
-			return 'Well... I lift the iron lattice from the toilet floor and go into darkness... In some minutes I jump from the airing hole to the table and go to the floor.';
+			return 'خوب... توری فلزی کف توالت رو بلند می‌کنم و وارد تاریکی می‌شم... ظرف چند دقیقه از سوراخ تهویه هوا می‌پرم روی میز و میام روی زمین.';
 		end
 	end,
 	act = function(s, w)
 		if w == 1 then
-			return 'I move the louvers and look into outside darkness. I face my dim reflection in the window. Looking down I see the machine gun towers and the railways.';
+			return 'کرکره‌ها رو کنار می‌زنم و به تاریکی بیرون خیره می‌شم. انعکاس محو خودم رو روی شیشه می‌بینم. به پایین که نگاه می‌کنم برج‌های مسلسل و ریل‌های راه‌آهن رو می‌بینم.';
 		end
 		if w == 2 then
-			return 'It is just terminals. The client machines which connect to the institute servers. However, I\'m not interested in them. I have not used a computer for 10 years.';
+			return 'فقط یه ترمیناله. کلاینت‌هایی که به سرورهای موسسه وصل می‌شن. هرچند، من علاقه‌ای بهشون ندارم. ده ساله که دست به کامپیوتر نزدم.';
 		end
 	end,
 	obj = { 
-		vobj(1, 'window', 'A big {window} looks to the east.'),
+		vobj(1, 'window', 'یه {پنجره} شرقی.'),
 		'stoly',
-		vobj(2, 'terminals', 'On each table there is a {terminal} with a 17-inch display.'),
+		vobj(2, 'terminals', 'روی هر میز یه {ترمینال} با یه صفحه نمایش ۱۷ اینچی هست.'),
 		'vent',
 		'portrait',
 	},
@@ -815,41 +815,41 @@ eroom = room {
 };
 
 key = obj {
-	nam = 'key',
-	dsc = 'Someone has left the {key} in the door lock.',
-	tak = 'I carefully take out the key and put it in my pocket.',
-	inv = 'To my surprise - ordinary door locks are used in the institute along with complex electronic security!',
+	nam = 'کلید',
+	dsc = 'یکی {کلیدش} روی روی در جا گذاشته.',
+	tak = 'بادقت کلید رو می‌کشم بیرون و می‌ذارم توی جیبم.',
+	inv = 'در کمال تعجب قفل‌های در معمولی در کنار قفل‌های الکترونیکی پیچیده در موسسه بکار رفتن!',
 };
 
 room33 = room {
-	nam = 'room',
+	nam = 'اتاق',
 	pic = 'gfx/bholes.png',
-	dsc = [[I stand for some seconds near the door. Then I open it and go inside.]],
+	dsc = [[چند ثانیه‌ای کنار در مکث می‌کنم. بعد بازش می‌کنم و می‌رم داخل.]],
 	act = function(s, w)
 		if w == 1 then
-			return cat('A grey-haired man in thick glassed turns to me and for watches me for a second. - Who are you? Go outside immediately!!^^',back());
+			return cat('یه مرد موخاکستری می‌چرخه طرفم و من رو برای لحظه‌ای تماشا می‌کنه. - تو کی هستی؟ فورا برو بیرون!!^^',back());
 		end
 	end,
 	obj = { 
-		vobj(1, 'people', [[I see a group of {people} in white technical coats standing at the board in the middle of the room and having a great debate among theirselves.]]),
+		vobj(1, 'people', [[یه گروه {آدم} با روپوش‌های سفید فنی می‌بینم که کنار یک بورد وسط اتاق ایستادن و به شدت مشغول بحث هستند.]]),
 		'portrait',
 		'key' 
 		};
 	way = { 'cor3' },
-	exit = [[ I carefully leave the room.]];
+	exit = [[با دقت اتاق رو ترک می‌کنم.]];
 };
 
 room3x = room {
 	nam = 'room',
 	enter = function(s, f)
 		if s._num == 2 then
-			return [[I open the door a little and look inside. 
-			A square room with two windows.
-			A lot of people are sitting at terminals along the walls. 
-			I close the door in a hurry.]], false;
+			return [[لای در رو باز می‌کنم و داخل رو نگاه می‌کنم.
+			یع اتاق چهارگوش با دو پنجره.
+			کلی آدم در امتداد دیوار جلوی ترمینالها نشستن
+			با عجله در رو می‌بندم.]], false;
 		end
 		if s._num == 4 then
-			return [[I touch the cold metal handle and open the door carefully... - Simulation in progress!!! - I hear someone's angry voice from inside. I release the handle and the door closes...]],
+			return [[دستگیره فلزی سرد رو می‌گردم و در رو با دقت بازمی‌کنم... - شبیه‌سازی در حال اجراست!!! - صدای عصبانی یکی رو از داخل می‌شنوم. دستگیره رو رها می‌کنم و در بسته می‌شه...]],
 			false;
 		end
 		if s._num == 5 then
@@ -857,7 +857,7 @@ room3x = room {
 			return walk('eroom'), false;
 		end
 		if s._num == 6 then
-			return [[I start opening the door, but I begin to hear some strange sound which is becoming louder and louder. - What idiot hasn't closed the door?! - someone inside is very angry. I close the door in a hurry.]], 
+			return [[شروع به باز کردن در می‌کنم و همزمان صدایی می‌شنوم که دائم بلندتر می‌شه. - کدوم نادونی در رو نبسته؟! - یکی اون تو خیلی عصبانیه. در رو با عجله می‌بندم.]], 
 			false;
 		end
 	end,
@@ -868,44 +868,44 @@ switch = obj {
 	dsc = function(s)
 		local t
 		if vent._off then
-			t = ' in <<off>> state.';
+			t = ' در وضعیت <<وصل>>.';
 		else
-			t = ' in <<on>> state.';	
+			t = ' در وضعیت <<قطع>>.';	
 		end
-		return 'In the corner near the entrance there\'s a {switch}'..t;
+		return 'تو گوشه‌ی کنار در ورودی یه {سوئیچ} هست.'..t;
 	end,
 	act = function(s)
 		if vent._off then
 			vent._off = false;
-			return 'Switching ON!'
+			return 'روشن می‌کنم!'
 		end
 		if not cor3._locked then
-			return [[I turn the switch OFF and walk away. But suddenly one of the doors opens and some old voice screams to the corridor: What the...!!! This is impossible!!! No way to work!!! Turn it on back!!! - I need to return to the switch and to turn it ON.]];
+			return [[سوئیچ رو قطع می‌کنم و می‌رم. ولی یک دفعه یکی از درها باز می‌شه و یه صدای پیر تو کوریدور فریاد می‌زنه: این چه وضع فلان فلان شده‌ایه!!! غیرممکنه!!! اصلا نمی‌شه کار کرد!!! دوباره روشنش کن!!! - مجبورم برگرم سر سوئیچ و دوباره روشنش کنم.]];
 		end
 		vent._off = true;
-		return 'Switching OFF!';
+		return 'خاموش می‌کنم!';
 	end
 };
 
 cor3 = room {
-	nam = '3rd floor corridor',
+	nam = 'راهرو طبقه سوم',
 	pic = 'gfx/cor3.png',
 	enter = function(s, f)
 		if f == 'floor3' then
-			return 'I apply the card to a card reader... Red indicator blinks and then becomes green... The way is free!';
+			return 'کارت رو روی کارتخوان می‌کشم... چراغ قرمز چشمک می‌زنه و بعد سبز می‌شه... راه بازه!';
 		end
 	end,
-	dsc = 'The long corridor stretches to the end of the building. Fluorescent lamps bring some dim light from the ceiling. There\'s a green carpet walkway on the floor.',
+	dsc = 'راهرو طولانی تا انتهای ساختمان ادامه داره. لامپهای مهتابی نور کمی از سقف ساطع می‌کنن. کف راهرو یه فرش سبزرنگه.',
 	act = function(s, w)
 		if w == 1 then
-			return 'I walk to one of the doors and look in the door porthole... People in white are moving around some weird devices. Just like bees... I think these rooms are labs.';
+			return 'به طرف یکی از درها می‌رم و نگاهی توی سوراخ کلید می‌اندازم... آدم‌های لباس‌سفید دور یه دستگاه عجب حرکت می‌کنن. درست مثل زنبورها... به نظرم این اتاق‌ها آزمایشگاه هستن.';
 		end
 		if not tonumber(w) then
 			return nil, false
 		end
 		if w == 3 then
 			if s._locked then
-				return 'This room is locked... I hear some not loud but intense sounds. I do not want to open it.';
+				return 'این اتاق قفله... صدای نه چندان بلند ولی پرقدرتی می‌شنوم. دلم نمی‌خواد بازش کنم.';
 			end
 			return walk('room33');
 		end
@@ -914,30 +914,30 @@ cor3 = room {
 			return walk('room3x');
 		end
 		if w == 7 then
-			return 'The window looks to the south side... It\'s dark outside. Nothing to watch but snowflakes bumping the glass...';
+			return 'یه پنجره جنوبی... بیرون تاریکه. چیزی جز دونه‌های برفی که به پنجره می‌خورن نیست...';
 		end
 		if w == 8 then
-			return 'Visit?';
+			return 'سر بزنیم؟';
 		end
 	end,
 	used = function(s, w, ww)
 		if w == 1 or w == 2 or w == 4 or w == 5 or w == 6 then
-			return 'No way...';
+			return 'امکان نداره...';
 		end 
 		if w == 3 and ww == 'key' then
 			if s._locked then
-				return 'Already closed...';
+				return 'از قبل قفله...';
 			end
 			s._locked = true;
-			return 'I insert the key in the key hole and lock the door making two turns. I take out the key and put it back to the pocket.';
+			return 'کلید رو وارد سوراخ کلید می‌کنم و در رو دو قفله می‌کنم. کلید رو بیرون می‌کشم و می‌ذارمش توی جیب.';
 		end
 	end,
 	obj = {
-		vobj(1, 'white doors', 'On the right side there are white metal {doors} with windows.'),
-		vobj(2, 'gravity', 'On the left side there are several doors with labels: {gravity},'),
-		vobj(4, 'simulation', '{simulation}'),
-		vobj(5, 'STR effects','{STR effects},'),
-		vobj(3, 'black holes', '{black holes},'),
+		vobj(1, 'درهای سفید', 'سمت راست {درهای} سفید فلزی پنجره‌دار قرار دارن.'),
+		vobj(2, 'جاذبه', 'سمت چپ چندین در با برچسب قرار دارن: {جاذبه},'),
+		vobj(4, 'شبیه‌سازی', '{شبیه‌سازی}'),
+		vobj(5, 'اثرات STR','{اثرات STR},'),
+		vobj(3, 'سیاهچاله‌ها', '{سیاهچاله‌ها},'),
 		vobj(6, 'quasispace', '{quasispace}.'), 
 		vobj(7, 'window', 'I see the {window} in the end of the corridor.'),
 		vobj(8, 'toilet', '{Toilets} are near the window.'),

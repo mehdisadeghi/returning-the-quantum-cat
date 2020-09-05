@@ -1,6 +1,7 @@
 -- $Name:Returning the Quantum Cat$
 -- $Name(ru):Возвращение квантового кота$
 -- $Version: 1.6.1$
+-- $Language: fa$
 
 if stead.version < "1.5.3" then
 	walk = _G["goto"]
@@ -34,15 +35,15 @@ main = room {
 	nam = gam_title;
 	forcedsc = true;
 	dsc = txtc (
-		--txtb(gam_lang)..'^^'..
+		txtb(gam_lang)..'^^'..
 		img('gb.png')..' '..[[{en:English}^]]..
-		img('ir.png')..' '..[[{fa:فارسی}^]]--..
-		--img('ru.png')..' '..[[{ru:Русский}^]]
+		img('ir.png')..' '..[[{fa:فارسی }^]]..
+		img('ru.png')..' '..[[{ru:Русский}^]]
 		);
 	obj = {
 		xact("en", code [[ gamefile('main-en.lua', true); return walk 'main' ]]);
 		xact("fa", code [[ gamefile('main-fa.lua', true); return walk 'main' ]]);
-		--xact("ru", code [[ gamefile('main-ru.lua', true); return walk 'main' ]]);
+		xact("ru", code [[ gamefile('main-ru.lua', true); return walk 'main' ]]);
 	}
 }
 
