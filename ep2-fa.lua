@@ -629,13 +629,13 @@ lift = room {
 		return 'درهای آسانسور پشت سرم بسته می‌شن.';
 	end,
 	obj = {
-		vobj(1,'1', '{۱},'),
-		vobj(2,'2', '{۲},'),
-		vobj(3,'3', '{۳},'),
-		vobj(4,'4', '{۴},'),
-		vobj(5,'5', '{۵},'),
+		vobj(1,'1', '{۱} و'),
+		vobj(2,'2', '{۲} و'),
+		vobj(3,'3', '{۳} و'),
+		vobj(4,'4', '{۴} و'),
+		vobj(5,'5', '{۵} و'),
 		vobj(6,'stop','{توقف}'),
-		vobj(7,'go','и {حرکت}.'),
+		vobj(7,'go','و {حرکت}.'),
 		vobj(8,'mirror', 'دیواره‌ی پشتی آسانسور یه {آینه} است.'),
 		'pinlift',
 	},
@@ -933,14 +933,14 @@ cor3 = room {
 		end
 	end,
 	obj = {
-		vobj(1, 'درهای سفید', 'سمت راست {درهای} سفید فلزی پنجره‌دار قرار دارن.'),
-		vobj(2, 'جاذبه', 'سمت چپ چندین در با برچسب قرار دارن: {جاذبه},'),
-		vobj(4, 'شبیه‌سازی', '{شبیه‌سازی}'),
-		vobj(5, 'اثرات STR','{اثرات STR},'),
-		vobj(3, 'سیاهچاله‌ها', '{سیاهچاله‌ها},'),
-		vobj(6, 'quasispace', '{quasispace}.'), 
-		vobj(7, 'window', 'I see the {window} in the end of the corridor.'),
-		vobj(8, 'toilet', '{Toilets} are near the window.'),
+		vobj(1, 'white doors', 'سمت راست {درهای} سفید فلزی پنجره‌دار قرار دارن.'),
+		vobj(2, 'gravity', 'سمت چپ چندین در با برچسب قرار دارن: {جاذبه},'),
+		vobj(4, 'simulation', '{شبیه‌سازی}'),
+		vobj(5, 'STR effects','{اثرات STR},'),
+		vobj(3, 'black holes', '{سیاهچاله‌ها},'),
+		vobj(6, 'quasispace', '{شبه‌فضا}.'), 
+		vobj(7, 'window', '{پنجره} رو در انتهای راهرو می‌بینم.'),
+		vobj(8, 'مستراح', '{مستراح‌ها} نزدیک پنجره هستن.'),
 		'switch',
 		'portrait',
 	},
@@ -951,50 +951,50 @@ mylo = obj {
 	nam = 'soap',
 	inv = function(s)
 		if s._pena then
-			return 'A piece of soap with foam.';
+			return 'یک قالب صابون و مقداری کف.';
 		end
-		return 'A piece of soap.';
+		return 'یه قالب صابون.';
 	end,
-	dsc = 'A piece of {soap} lies on the basin.',
-	tak = 'I took the slippy soap... It fell down back to the basin, but I caught it up again and put it in the pocket...';
+	dsc = 'یه تکه {صابون} توی سینکه',
+	tak = 'صابون لیز رو گرفتم... دوباره افتاد توی سینک، اما دوباره گرفتمش و گذاشتمش توی جیبم...';
 };
 
 sushka = obj {
-	nam = 'dryer',
-	dsc = 'A hand {dryer} hangs nearby.',
+	nam = 'دست‌خشک‌کن',
+	dsc = 'یه {دست‌خشک‌کن} اون نزدیکی آویزونه.',
 	act = function(s,w)
-		return 'I bring my hands to the dryer and it starts working... Deja vu...';
+		return 'دست‌هام رو می‌گیرم نزدیک دست‌خشک‌کن و شروع می‌کنه به کار... دِجاوو...';
 	end,
 };
 
 umyvalnik = obj {
-	nam = 'basin',
-	dsc = 'The {basin} is located near the entrance.',
+	nam = 'روشویی',
+	dsc = '{روشویی} نزدیک ورودیه.',
 	act = function(s)
 		if me()._mylo then
 			me()._mylo = false;
-			return 'I wash away soap foam from my face...';
+			return 'کف صابون رو از صورتم می‌شورم...';
 		end
-		return 'I drink chlorinated water greedily... Yeah - this water is not the same as in my creek...'; 
+		return 'با ولع آب کلردار رو می‌نوشم... آره - این آب مثل آب نهر کلبه خودم نمی‌شه...'; 
 	end,
 	used = function(s, w)
 		if w == 'mylo' then
 			mylo._pena = true;
-			return 'I put the soap into warm water...';
+			return 'صابون رو می‌گیرم تو آب گرم...';
 		end
 	end
 };
 
 toilet3 = room {
-	nam = 'toilet',
+	nam = 'مستراح',
 	pic = 'gfx/toil3.png',
-	dsc = 'I am in a toilet. A standard architecture. No windows. White tile.',
+	dsc = 'تو مستراح هستم. یه ساختار استاندارد. بدون پنجره. سرامیک سفید.',
 	act = function(s, w)
 		if w == 2 then
-			return 'All are in use!';
+			return 'همشون اشغالن!';
 		end
 		if w == 3 then
-			return 'People are evenly distributed over the toilet. All closets are occupied. A couple of men are waiting for their turn.';
+			return 'ملت به شکل مساوی تو مستراح پخش شدن. همه اتاقک‌ها اشغالن. چند مرد منتظر نوبتشون هستن.';
 		end
 	end,
 	obj = { 
@@ -1002,39 +1002,39 @@ toilet3 = room {
 		'mylo',
 		'tzerkalo',
 		'sushka',
-		vobj(2, 'closets', 'There are 4 {closets} in this toilet.'),
-		vobj(3, 'people', 'Some {people} are present...'),
+		vobj(2, 'closets', 'تو این سرویس بهداشتی چهار تا {مستراح} هست.'),
+		vobj(3, 'people', 'چند نفر} اینجا هستن}...'),
 	},
 	way = { 'cor3' }, 
 	exit = function()
 		if me()._mylo then
-			return 'With soap on the face? No...', false
+			return 'با کف روی صورت؟ نه ...', false
 		end
 		objs():del('face');
 	end
 };
 
 floor3 = room {
-	nam = '3rd floor site',
+	nam = 'محوطه طبقه سوم',
 	pic = 'gfx/floor3.png',
-	dsc = [[The site of the third floor is large enough. Beige walls. High ceilings.]],
+	dsc = [[محوطه طبقه سوم به قدر کافی بزرگه. دیوارهای بژرنگ. سقف بلند.]],
 	act = function(s, w)
 		if w == 1 then
-			return 'I gaze at the window for a minute... A white desert flowing to the darkness... At this moment I realize what an alien place I am in...';
+			return 'یه دقیقه به پنجره خیره می‌شم... یه صحرای سفید در دل تاریکی... در در همین لحظه پی می‌برم تو چه ناکجا‌آبادی هستم...';
 		end
 		if w == 2 then
 			if not s._unlocked then
-				return 'Metal upholstered with leather. The door has a card reader. The door label says: <<Level: 3, Category: Applied Physics>>';
+				return 'فلز با روکش چرم. در یه کارتخوان داره. روی در نوشته: <<طبقه: ۳ رده: فیزیک کاربردی>>';
 			end
 			return walk('cor3');
 		end
 		if w == 3 then
-			return 'Strong doors I must admit... Much stronger than the door of my hut... The door has a card reader. The door label says: <<Level: 3, Category: Nanotechnologies>>';
+			return 'انصافا در محکمیه... از در کلبه‌ی من خیلی قوی‌تره... در یه کارتخوان داره. روی در نوشته: <<طبقه: ۳، رده: نانوتکنولوژی>>';
 		end
 	end,
 	used = function(s,w,ww)
 		if ww ~= 'card' then
-			return 'It won\'t help...';
+			return 'کمکی نمی‌کنه...';
 		end
 		if w == 2 then
 			s._unlocked = true;
@@ -1042,99 +1042,99 @@ floor3 = room {
 			return walk('cor3');
 		end
 		if w == 3 then
-			return 'I apply the card to the card reader. I hear an annoying beep - access denied.';
+			return 'کارت رو می‌کشم رو کارتخوان. یه صدای بیپ گوشخراش می‌شنوم - دسترسی ممنوع.';
 		end
 	end,
 	obj = { 
-		vobj(1, 'window', 'A wide {window} looks to the west.'),
-		vobj(2, 'brown door', 'There\'s a brown {door} to the right of the window.'),
-		vobj(3, 'white door', 'A white {door} - to the left.'),
+		vobj(1, 'پنجره', 'یه {پنجره} پهن غربی.'),
+		vobj(2, 'brown door', 'دست راست پنجره یه {در} قهوه‌ای هست.'),
+		vobj(3, 'white door', 'یه {در} سفید سمت چپ.'),
 	},
 	way = { 'lift' },
 };
 
 britva = obj {
-	nam = 'razor',
-	dsc = 'A {razor} lies on the basin.',
-	tak = 'I put the razor in pocket hoping no one notices it.',
-	inv = 'A razor, little bit rusty...',
+	nam = 'تیغ اصلاح',
+	dsc = 'یه {تیغ اصلاح} داخل سینکه.',
+	tak = 'تیغ رو می‌ذارم تو جیبم با این امید که کسی متوجه من نشده باشه.',
+	inv = 'یه تیغ کمی زنگ زده...',
 };
 
 face = obj {
 	nam = 'face',
-	dsc = 'The mirror reflects my {face}.',
+	dsc = 'آینه {صورتم} رو بازتاب می‌ده.',
 	act = function(s)
 		local st = '';
 		if me()._brit then
-			st = ' Well shaved.';
+			st = 'خوب اصلاح شده.';
 		elseif me()._mylo then
-			st = ' With soap foam on it.';
+			st = 'با کف صابون روش.';
 		end
 		if galstuk._wear then
-			st = st..' With a tie, by the way.';
+			st = st..'ضمنا با یه کراوات.';
 		end
-		return 'This is a reflection of my face.'..st;
+		return 'این انعکاس صورت منه.'..st;
 	end,
 	used = function(s, w)
 		if w == 'mylo' then
 			if me()._brit then
-				return 'I\'ve shaved already...';
+				return 'صورتم رو قبلا تراشیدم...';
 			end
 			if not mylo._pena then
-				return 'The soap is quite dry...';
+				return 'صابون خیلی خشکه...';
 			end
 			if not have('britva') then
-				return 'I put soap on the face and wash away the dirt... Ooh...';
+				return 'صابون رو می‌ذارم روی صورتم و کثافت رو می‌شورم... به به...';
 			end
 			me()._mylo = true;
-			return 'I put soap foam on the face...';
+			return 'به صورتم کف صابون می‌زنم...';
 		end
 		if w == 'britva' then
 			if me()._brit then
-				return 'I\'ve shaved already...';
+				return 'صورتم رو قبلا تراشیدم...';
 			end
 			if not me()._mylo then 
-				return 'I need foam on my face...';
+				return 'باید به صورتم کف صابون بزنم...';
 			end
 			me()._brit = true;
 			me()._mylo = false;
-			return 'I\'m shaving... Then I wash my face...';
+			return 'دارم صورتم رو می‌تراشم... بعد صورتم رو می‌شورم...';
 		end
 	end
 };
 
 tzerkalo = obj {
-	nam = 'mirror',
-	dsc = 'A {mirror} is placed where it should be - above the basin.',
+	nam = 'آینه',
+	dsc = 'یه {آینه} همونجایی که باید نصب شده - بالای سینک.',
 	act = function(s)
 		local st = '';
 		objs():add('face');
 		if galstuk._wear then
-			st = ' With a tie, besides...';
+			st = ' ضمنا با یه کراوات...';
 		end
 		if me()._brit then
-			return 'Sad, but well shaved face.' .. st;
+			return 'صورت غمگین اما خوب اصلاح شده.' .. st;
 		end
-		return 'Wild bearded face looks at me from the mirror.' .. st;
+		return 'صورت نتراشیده جنگلی از توی آینه به من خیره می‌شه.' .. st;
 	end,	
 };
 
 toilet = room {
-	nam = 'toilet',
+	nam = 'مستراح',
 
 	pic = 'gfx/toil4.png',
-	dsc = 'Quite large toilet, I should say. White tile. Yellow stains. Humidity and sounds of flowing water. A wooden door leads to the corridor.',
+	dsc = 'باید اعتراف کنم مستراحش حسابی بزرگه. سرامیک سفید. لکه‌های زرد. رطوبت و صدای جریان آب. یه در چوبی به راهرو باز می‌شه.',
 	enter = function(s, f)
 		if f == 'eroom' then
-			return 'I climb to the airing hole. It\'s dusty and quiet inside. I wander the airing system maze until at last I see the light over my head. A moment later I push the iron lattice in the toilet floor...';
+			return 'خودم رو می‌کشم بالا توی حفره‌ی تهویه هوا. داخل خاکی و ساکته. مدتی توی هزارتوی سیستم تهویه هوا می‌پلکم تا بالاخره یک چراغ بالای سرم پیدا می‌کنم. لحظه‌ای بعد توری فلزی کف مستراح رو هل می‌دم...';
 		end
 	end,
 	act = function(s, w)
 		if w == 2 then
-			return 'Yeah... I\'m lucky. I guess it\'s a men\'s toilet...';
+			return 'آره... خوش‌شانسم. به نظرم توالت مردونه است...';
 		end
 		if w == 3 then
-			return 'They have strange airing system. But thanks to it I am here!...';
+			return 'سیستم تهویه هوای عجیبی دارن. اما به برکت همون سیستم من اینجام!...';
 		end
 	end,
 	obj = { 
@@ -1143,16 +1143,16 @@ toilet = room {
 		'britva',
 		'tzerkalo',
 		'sushka',
-		vobj(3, 'lattice', 'There is an iron {lattice} on the floor.');
+		vobj(3, 'lattice', 'یه {توری فلزی} روی زمینه.');
 	},
 	way = { 'eroom', 'cor4'},
 	exit = function(s, t)
 		if me()._mylo then
-			return 'With foam on the face? No...', false
+			return 'با صورت کفی؟ نه...', false
 		end
 		objs():del('face');
 		if t ~= 'eroom' then
-			return 'I come outside the toilet carefully.';
+			return 'با دقت از مستراح میام بیرون.';
 		end
 	end
 };
@@ -1160,22 +1160,22 @@ toilet = room {
 toiletw = room {
 	nam = 'women closet',
 	enter = function(s, w)
-		return 'Whew... I was about making a mistake...', false;
+		return 'هیهات... چیزی نمونده بود که مرتکب یک اشتباه بشم...', false;
 	end
 };
 
 function room4x_hear()
 	local ph = {
-	[1] = '...According to the uncertainty principle it is impossible to know both the position and the momentum of a quantum particle...',
-	[2] = '...According to the theory of quantum mechanics, measurement causes an instantaneous collapse of the wave function describing the quantum system into an eigenstate of the observable state that was measured...',
-	[3] = '...The reduction of the wave packet is the phenomenon in which a wave function appears to reduce to a single one of those states after interaction with an observer...',
-	[4] = '...The theory predicts that both values cannot be known for a particle, and yet the EPR experiment shows that they can...',
-	[5] = '...The principle of locality states that physical processes occurring at one place should have no immediate effect on the elements of reality at another location...';
-	[6] = '...They claim that given a specific experiment, in which the outcome of a measurement is known before the measurement takes place, there must exist something in the real world, an "element of reality", which determines the measurement outcome...',
-	[7] = '...The many-worlds interpretation is a postulate of quantum mechanics that asserts the objective reality of the universal wavefunction, but denies the actuality of wavefunction collapse, which implies that all possible alternative histories and futures are real—each representing an actual "world" (or "universe")...',
-	[8] = '...Everett\'s original work contains one key idea: the equations of physics that model the time evolution of systems without embedded observers are sufficient for modelling systems which do contain observers; in particular there is no observation-triggered wave function collapse which the Copenhagen interpretation proposes...',
-	[9] = '...The particles are thus said to be entangled. This can be viewed as a quantum superposition of two states, which we call state I and state II...',
-	[10] = '...Alice now measures the spin along the z-axis. She can obtain one of two possible outcomes: +z or -z. Suppose she gets +z. According to quantum mechanics, the quantum state of the system collapses into state I. The quantum state determines the probable outcomes of any measurement performed on the system. In this case, if Bob subsequently measures spin along the z-axis, there is 100% probability that he will obtain -z. Similarly, if Alice gets -z, Bob will get +z...',
+	[1] = '...طبق اصل عدم قطعیت مکانیک کوانتومی، دانستن همزمان موقعیت و کنش یک ذره غیرممکن است...',
+	[2] = '...طبق نظریه مکانیک کوانتومی، مقدارسنجی باعث فروریزش آنی (رُمبش) تابع موجی سیستم کوانتومی به یکی از حالت‌های ویژه (eigenstate) از وضعیت قابل مشاهده‌ی سنجیده شده می‌شود...',
+	[3] = '...تقلیل بسته‌ی موج پدیده‌ایست که طی آن یک تابع موج پس از برهمکنش با مشاهده‌گر به یکی از حالت‌های خاص خود تغییر حالت می‌دهد...',
+	[4] = '...این تئوری پیش‌بینی می‌کند که هر دو مقدار برای یک ذره نمی‌توان معلوم باشد، با این وجود آزمایش EPR نشان می‌دهد که این امر امکانپذیر است...',
+	[5] = '...اصل محل مرجع عنوان می‌کند که فرآیندهایی روی داده در یک محل نمی‌باید هیچ تاثیری بر روی المان‌های واقعی در محلی دیگر داشته باشند...';
+	[6] = '...و ادعا می‌کند که با در نظر گرفتن یک آزمایش خاص، که طی آن نتیجه‌ی سنجش پیش از سنجش مشخص است، باید چیزی در جهان واقع وجود داشته باشد، یک «عنصر واقعیت»، که خروجی مقدارسنجی را تعیین می‌کند...',
+	[7] = '...تفسیر چندجهانی انگاره‌ای از مکانیک کوانتومی است که مدعی واقعیت عینی تابع موج کلی است، اما حقیقت فروریزش تابع موج را انکار می‌کند، که نتیجه می‌دهد که تمام تاریخچه‌ها و آتیه‌های آلترناتیو ممکن واقعی هستند و هریک یک جهان یا هستی واقعی را نمایندگی می‌کنند...',
+	[8] = '...اثر اصیل اِوِرِت حاوی یک نکته‌ی کلیدی است: معادلات فیزیکی که تغییر و تحول زمان یک سیستم را بدون مشاهده‌گر توکار مدلسازی می‌کنند، برای مدلسازی سیستم‌هایی با مشاهده‌کر نیز کافی هستند. به صور خاص، هیچ فروریزش تابع موجی که با مشاهده فعال بشود وجود ندارد که تفسیر کپنهاگن آن را پیشنهاد بدهد...',
+	[9] = '...بنابراین گفته می‌شود که ذرات در هم تنیده‌اند. این می‌تواند بعنوان یک ابروضعیت کوانتومی دو وضعیت در نظر گرفته شود، که ما وضعیت الف و وضعیت ب می‌نامیم...',
+	[10] = '...آلیس گردش حول محور z را اندازه‌گیری می‌کند. او می‌تواند یکی از دو حالت ممکن را بدست بیاورد: +z یا -z. فرض کنید که او +z بدست می‌آورد. بنابر مکانیک کوانتومی، حالت کوانتومی سیستم به وضعیت الف فرومی‌ریزد. حالت کوانتومی نتیجه احتمالی هر مقدارسنجی انجام شده روی سیستم را تغیین می‌کند. در این مورد، اگر در ادامه باب گردش حول محور z را اندازه بگیر، به احتمال ۱۰۰٪ او وضعیت -z را بدست می‌آورد. و همچنین اگر آلیس -z بگیرد، باب +z خواهد گرفت...',
 	};
 	return ph[rnd(10)];
 end
@@ -1184,18 +1184,18 @@ room4x = room {
 	nam = 'room',
 	enter = function(s, f)
 		if s._num == 1 then
-			return 'I carefully touch the handle and try to open the door. Closed...'
+			return 'با احتیاط دستگیره رو لمس می‌کنم و سعی می کنم داخل شوم. بسته است...'
 			, false;
 		elseif s._num == 2 then
-			return 'I come close to the door and listen... - '..room4x_hear()..
-			' — Ooh... I\'d better keep going...',
+			return 'به در نزدیک می‌شم و گوش می‌کنم... - '..room4x_hear()..
+			' — عجب... بهتره ادامه بدم...',
 			false;
 		elseif s._num == 3 then
-			return 'I come close to the door and listen... - I hear someone argue fiercly... - I\'d better go...', false;
+			return 'به در نزدیم می‌شم و گوش می‌کنم... - می‌شنوم که کسی با شدت مشغول بحث است... - بهتره برم...', false;
 		elseif s._num == 4 then
-			return 'I open the door and come inside. 12 pairs of eyes of guys sitting at desks look at me attentively. Another eye pair belongs to a man standing at a board. - Sorry, I must have missed the door... - this is all I can say in such situation. I quickly get outside...', false;
+			return 'در رو باز می‌کنم و داخل می‌شم. ۱۲ جفت چشم با دقت من رو نگاه می‌کنن. یک جفت دیگر از چشم‌ها متعلق به مردی است که پای تخته ایستاده. - ببخشید، فکر کنم متوجه در نشدم... - این تنها چیزیه که تو اون وضعیت می‌تونم بگم. سریع خارج می‌شم...', false;
 		elseif s._num == 5 then
-			return 'Closed...', false;
+			return 'بسته است...', false;
 		end
 	end,
 };
@@ -1203,95 +1203,95 @@ room4x = room {
 galstuk = obj {
 	nam = function(s)
 		if s._gal then
-			return 'tie';
+			return 'کراوات';
 		end
-		return 'rag';
+		return 'پارچه‌کهنه';
 	end,
 	inv = function(s, w)
 		if not s._gal then
 			s._gal = true;
-			return 'I examine the rag and I figure out that it used to be a tie some time ago.'
+			return 'پارچه‌کهنه رو وارسی می‌کنم و متوجه می‌شم زمانی کراوات بوده.'
 		end
 		if s._hot then
 			if not s._wear then
 				s._wear = true;
-				return 'I put the tie on with dignity...';
+				return 'با عزت کراوات رو می‌زنم...';
 			end
-			return 'I wear the tie...';
+			return 'کراوات رو می‌بندم...';
 		end
 		if s._mylo then
-			return 'It is all in soap!';
+			return 'همه‌اش تو صابونه!';
 		end
 		if not s._water then
-			return 'It is dirty! I won\'t put it on!';
+			return 'کثیفه! نمی‌بندمش!';
 		end
 		if not s._hot then
-			return 'It is wet! I won\'t wear it!';
+			return 'خیسه! نمی‌بندمش!';
 		end
 	end,
 	used = function(s, w)
 		if s._wear then
-			return 'I wear the tie...';
+			return 'کراوات رو می‌بندم...';
 		end
 		if w == 'mylo' then
 			if not mylo._pena then
-				return 'The soap is dry...';
+				return 'صابون خشکه...';
 			end
 			s._mylo = true;
 			if not s._gal then
 				s._gal = true;
-				return 'While putting soap to the rag, I understand that this rag use to be a tie once.';
+				return 'همینکه دارم به پارچه‌کهنه صابون می‌زنم، می‌فهمم که زمانی کراوات بوده.';
 			end
-			return 'I put some soap on the tie...';
+			return 'مقداری صابون به کراوات می‌زنم...';
 		end
 	end,
 	use = function(s, w)
 		if s._wear and w ~= 'hand' then
-			return 'I wear the tie...', false;
+			return 'کراوات رو می‌بندم...', false;
 		end
 		if w == 'umyvalnik' then
 			if not s._mylo  then
-				return 'Using just water? I doubt it washes chalk away...';
+				return 'با آب خالی؟ گمان نمی‌کنم بتونه گچ رو بشوره ببره...';
 			end
 			s._water = true;
 			s._mylo = false;
-			return 'I washed the tie in warm water...';
+			return 'کراوات رو تو آب گرم می‌شورم...';
 		end
 		if w == 'sushka' then
 			if not s._water then
-				return 'Why should I dry this?';
+				return 'چرا باید خشکش کنم؟';
 			end
 			s._hot = true;
 			s._water = false;
-			return 'In 5 minutes I dried the tie well...';
+			return 'تو پنج دقیقه کراوات رو خوب خشک می‌کنم...';
 		end
 	end
 };
 
 room46 = room {
-	nam = 'lecture room 6',
+	nam = 'اتاق سمینار شماره ۶',
 	pic = 'gfx/room4.png',
-	enter = 'I open the door and come inside... The room is empty...',
-	dsc = 'I am inside the lecture room... Several tables are placed in two rows towards the board.',
+	enter = 'در رو باز می‌کنم و داخل می‌شم... اتاق خالیه...',
+	dsc = 'داخل اتاق سمینار هستم... چندین میز در دو ردیف رو به تخته چیده شدن.',
 	act = function(s, w)
 		if w == 1 then
 			if not have('galstuk') then
 				inv():add('galstuk');
-				return 'I see a rag on the board. I take the rag.';
+				return 'یه پارچه‌کهنه روی تخته می‌بینم. برش می‌دارم.';
 			end
-			return 'Hmm... I do not understand a thing in this stuff...';
+			return 'عجب... حتی یه کلمه هم از این چیزها سر در نمیارم...';
 		end
 		if w == 2 then
-			return 'I see how spotlights are searching the snowy field down there...';
+			return 'می‌بینم چطور پرژکتورها دارند برف رو ان پایین جستجو می‌کنن...';
 		end
 		if w == 3 then
-			return 'I sit by the keyboard, but I recall that I\'m done with the past... I am not a hacker anymore - I am a forester.';
+			return 'کنار کیبورد می‌شنم، اما به یاد میارم که من گذشته‌ام رو پشت سر گذاشته‌ام... دیگه یه هکر نیستم - یه جنگلبانم.';
 		end
 	end,
 	obj = {
-		vobj(3,'terminal', 'Every table has a {terminal} placed on it.');
-		vobj(1,'board', 'Some weird formulas are written on the lecture {board}...'),
-		vobj(2,'window', 'The {window} looks to the east.'),
+		vobj(3,'terminal', 'روی هر میز یک {ترمینال} قرار گرفته.');
+		vobj(1,'board', 'روی {تخته} تعدادی معادله عجیب نوشته شده...'),
+		vobj(2,'window', 'یه {پنجره} شرقی.'),
 		'portrait',
 	},
 	way = { 'cor4' },
@@ -1300,32 +1300,32 @@ room46 = room {
 facectrl = dlg {
 	nam = 'face control',
 	pic = 'gfx/guard4.png',
-	dsc = 'I see the unpleasant and unfriendly face of the fat security guy.',
+	dsc = 'صورت نچسب و غیردوستانه مامور چاق امنیتی رو می‌بینم.',
 	obj = {
-		[1] = phr('I\'ve come to listen to the lecture of Belin...',
-		'— I don\'t know who you are, — the guard grins — but I was told to let only decent people in here.',
+		[1] = phr('اومدم تا به درس بلین گوش کنم...',
+		'— من نمی‌دونم تو کی هستی، — مامور نیشخند می‌زنه — اما به من گفته شده فقط افراد موجه رو اینجا راه بدم.',
 		[[pon(2);]]),
 
-		[2] = _phr('I have the invitation!', 
-		'— I do not damn care! Look at yourself! Used a mirror recently?! You\'ve come to listen to Belin himself! Be-lin! The right hand of ... - the guard paused for a second in respect - So... Get out of here!',
+		[2] = _phr('یه دعوتنامه دارم!', 
+		'— برام مهم نیست! نگاهی به خودت بنداز! اواخر اصلا یه آینه دیدی؟ اومدی به خود بلین گوش بدی! بـ-لـین! دست راست... - مامور لحظه‌ای با احترام تامل می‌کنه - خوب... بزن به چاک!',
 		[[pon(3,4)]]),
 
-		[3] = _phr('I\'m gonna kick you fat face!', '— Well, that\'s enough... - Powerful hands push me out to the corridor... I feel lucky to stay in one piece...',
+		[3] = _phr('داغونت می‌کنم صورت تپلی!', '— باشه، دیگه کافیه... - دستان قدرتمند من رو هل می‌دن توی راهرو... شانس آوردم که هنوز یه تیکه سرهم هستم...',
 		[[poff(4)]]),
 
-		[4] = _phr('You boar! I\'ve told you I have the invitation!',
-			'— Whaaat? - The guard\'s eyes are going red... The powerful kick sendsme to the corridor... It could be worse...',
+		[4] = _phr('گراز! بهت گفتم که دعوتنامه دارم!',
+			'— چـــی؟ چشمای مامور دارن قرمز می‌شن... اُردنگی پرزور من رو پرت می‌کنه توی راهرو... می‌تونست بدتر ازین باشه...',
 		[[poff(3)]]),
 
-		[5] = _phr('I want to listen to the lecture of Belin...',
-		'— First — Doctor Belin, and second — no way if no tie...',
+		[5] = _phr('می‌خوام به درس لنین گوش کنم...',
+		'— اولا — دکتر بلین، و ثانیا — کراوات نزنی هیچ راهی نداره...',
 		[[pon(2)]]),
 
-		[6] = _phr('I want to listen to the lecture of Dr. Belin very much!!!',
-		'The guard examines me with his suspicious eyes and says unwillingly: Your invitation...',
+		[6] = _phr('من با کمال میل می‌خوام به درس دکتر بلین گوش بدم!!!',
+		'مامور با چشمان بدگمانش من رو ورانداز می‌کنه و با اکرا می‌گه: دعوتنامه‌تون...',
 		[[pon(7)]]),
 
-		[7] = _phr('Here... you b... please...', 'Ok... Come in, hurry... The lecture has already begun...',
+		[7] = _phr('بفرمایید... ما... لطفا...', 'باشه... بیا تو، عجله کن... سمینار شروع شده...',
 		[[inv():del('invite'); return walk('hall42')]]);
 	},
 	exit = function(s,w)
@@ -1336,35 +1336,35 @@ facectrl = dlg {
 hall42 = room {
 	nam = 'Hall 2',
 	pic = 'gfx/hall2.png',
-	dsc = 'A lot of people. Silent. I guess the lecture is going on.',
+	dsc = 'کلی آدم. ساکت. به نظرم سمینار در حال اجراست.',
 	obj = {
-		vobj(1, 'Belin', 'A man stands at the board - it\'s {Belin}! The man who has stolen my cat.'),
-		vobj(2, 'seats', 'I see some free {seats} at the third row.'),
-		vobj(3, 'window', 'Three wide {windows} look to the west.'),
-		vobj(4, 'lamps', 'The hall is illuminated by fluorescent {lamps}.'), 
+		vobj(1, 'Belin', 'یه مرد کنار تخته ایستاده - {بلینه}! مردی که گربه‌ی من رو دزدیده.'),
+		vobj(2, 'seats', 'تعدادی {صندلی} خالی تو ردیف سوم می‌بینم.'),
+		vobj(3, 'window', 'سه تا {پنجره} پهن غربی.'),
+		vobj(4, 'lamps', 'سالن با نور {لامپ‌های مهتابی} روشن شده.'), 
 	},
 	act = function(s, w)
 		if w == 1 then
-			return 'Now he is without a coat and a hat, and I can see him in details... Quite fat but tall... A tricky smile but opened face... He runs the lecture. I\'ll wait till he finishes and try to have a talk with him...';
+			return 'الان کت و کلاه نداره و می‌تونم با دقت وراندازش کنم... حسابی چاق اما قدبلنده... یه لبخند فریبنده و صورت گشاده داره... داره درس می‌ده. منتظر می‌شم تا تموم کنه و سعی می‌کنم باهاش حرف بزنم...';
 		end
 		if w == 2 then
 			return walk('lection');
 		end
 		if w == 3 then
-			return 'It\'s dark outside... Only white snowflakes reveal theirselves in the fluorescent light from time to time.';
+			return ' بیرون تاریکه... تنها می‌شه گه گاه دونه‌های سفید برف رو تو نور فلورسنت دید.';
 		end
 		if w == 4 then
-			return 'Six lamps... I hate this blinking light...';
+			return 'شش تا لامپ... از این نور سوسوزن متنفرم...';
 		end
 	end,
 	exit = function(s, t)
 		if t == 'cor4' then
-			return 'I do not want to lose Belin again...', false;
+			return 'نمی‌خوام دوباره بلین رو گم کنم...', false;
 		end
 	end,
 	enter = function(s, f)
 		if f == 'facectrl' then
-			return 'I enter the lecture hall...';
+			return 'وارد تالار سمینار می‌شم...';
 		end
 		if not galstuk._wear then
 			facectrl:pon(5);
@@ -1372,7 +1372,7 @@ hall42 = room {
 		end
 		if not me()._brit or not galstuk._wear then
 			return cat(
-'I try to enter the hall, but a man in a uniform stops me. I read <<SECURITY>> on his label. He holds a shotgun.^^', walk('facectrl')), false;
+'سعی می‌کنم وارد تالار بشم، اما یه مرد یونیفرم‌پوش متوقفم می‌کنه. روی اتیکت لباسش نوشته: <<SECURITY>>. یه شاتگان دستشه.^^', walk('facectrl')), false;
 		end
 		facectrl:poff(1, 5);
 		facectrl:pon(6);
@@ -1383,24 +1383,24 @@ hall42 = room {
 
 hall41 = room {
 	nam = 'Hall 1',
-	dsc = [[I enter the empty hall. It seems to be one of lecture halls. Many rows of seats get higher and higher one after another till the ceiling.]],
+	dsc = [[وارد تالار خالی می‌شم. به نظر میاد یکی از کلاس‌های درس باشه. ردیف ردیف صندلی ارتفاعشون زیاد می‌شه تا در نهایت به سقف می‌رسن.]],
 	pic = 'gfx/hall1.png',
 	act = function(s, w)
 		if w == 1 then
 			return 
-'Watching the night darkness I remember Barsik with melancholy...';
+'در حال نگاه به تاریکی شب باریسک رو با غم مالیخولیایی به خاطر میارم...';
 		end
 		if w == 2 then
-			return 'We had just like these in our institute when I... Nevermind...';
+			return 'ما عین اینها رو یه زمانی تو موسسه‌مون داشتیم، من... ولش کن...';
 		end
 		if w == 3 then
-			return 'Everything I could remember - I\'ve forgotten.';
+			return 'هر چیزی که می‌تونستم به خاطر بیارم - فراموش کردم.';
 		end
 	end,
 	obj = {
-		vobj(1, 'windows', 'Three big {windows} look to the west side.'),
-		vobj(2, 'table', 'A long {table} takes place near the lecture board.'),
-		vobj(3, 'board', 'Some formulas of a previous lecture remain on the {board}.'),
+		vobj(1, 'windows', 'سه تا {پنجره} بزرگ غربی..'),
+		vobj(2, 'table', 'یه {میز} بلند کنار تخته قرار داره.'),
+		vobj(3, 'board', 'تعدادی معادله از درس قبلی روی {تخته} موندن.'),
 		'portrait',
 	},
 	way = {
@@ -1411,19 +1411,19 @@ hall41 = room {
 cor4 = room {
 	nam = '4th floor corridor',
 	pic = 'gfx/cor4.png',
-	dsc = 'I am in the corridor. Very high ceilings. I see toilets in the end of the corridor. There\'s a green carpet walkway on the floor.',
+	dsc = 'تو راهرو هستم. سقفش خیلی بلنده. سرویس بهداشتی رو تو انتهای راهرو می‌بینم. کف راهرو فرش سبزرنگه.',
 	act = function(s, w)
 		if not tonumber(w) then
 			return;
 		end
 		if w == 11 then
-			return 'Some of them are going to the hall 2.';
+			return 'بعضی‌هاشون می‌رن به تالار شماره دو.';
 		end
 		if w == 1 then
-			return 'I am melancholically looking in the night darkness... I realize how much I am tired... But I must keep going...';
+			return 'با حالتی مالیخولیایی به تاریکی نگاه می‌کنم... می‌فهمم که چقدر خسته‌ام... اما باید ادامه بدم...';
 		end
 		if w == 12 then
-			return 'This door like many others is provided with a smart-card reader. The red indicator is on.';
+			return 'این در هم مثل خیلی دیگه از درها یک کارتخوان داره. چراغ قرمز روشنه.';
 		end
 		if tonumber(w) >=5 and tonumber(w) <=9 then
 			room4x._num = w - 4;
@@ -1445,21 +1445,21 @@ cor4 = room {
 	used = function(s, w, ww)
 		if w == 12 and ww == 'card' then
 			return 
-			'I apply the card to the card reader... Beep... Access denied...';
+			'کارت رو می‌کشم رو کارتخوان... بیپ... دسترسی ممنوع...';
 		end
 	end,
 	obj = {
-	vobj(1, 'window', 'A {window} looks to the south.'),
-	vobj(2, 'hall 1','On the west side I see two wide doorways: {hall 1},'),
-	vobj(3, 'hall 2', '{hall 2}.'),
-	vobj(5, 'lecture room 1', 'On the east side there are less wide doors. The door labels: {lecture room 1},'),
-	vobj(6, 'lecture room 2', '{lecture room 2},'),
-	vobj(7, 'lecture room 3', '{lecture room 3},'),
-	vobj(8, 'lecture room 4', '{lecture room 4},'),
-	vobj(9, 'lecture room 5', '{lecture room 5},'),
-	vobj(10, 'lecture room 6', '{lecture room 6}.'),
-	vobj(11, 'people', 'From time to time {people} appear in the corridor.'),
-	vobj(12, 'front door', 'The front {door} is located at the north end of the corridor.'),
+	vobj(1, 'window', 'یه {پنجره} جنوبی.'),
+	vobj(2, 'hall 1','در ضلع غربی دو تا دروازه پهن می‌بینم: {تالار ۱},'),
+	vobj(3, 'hall 2', '{تالار ۲}.'),
+	vobj(5, 'lecture room 1', 'در ضلع شرقی درهایی با پهنای کمتر هستن. اتیکت روی درها: {اتاق درس ۱},'),
+	vobj(6, 'lecture room 2', '{اتاق درس ۲},'),
+	vobj(7, 'lecture room 3', '{اتاق درس ۳},'),
+	vobj(8, 'lecture room 4', '{اتاق درس ۴},'),
+	vobj(9, 'lecture room 5', '{اتاق درس ۵},'),
+	vobj(10, 'lecture room 6', '{اتاق درس ۶}.'),
+	vobj(11, 'people', 'گه‌گاه {آدم‌هایی} تو راهرو ظاهر می‌شن.'),
+	vobj(12, 'front door', '{درب} جلویی در منتها الیه شمالی راهرو قرار گرفته.'),
 	'portrait',
 	},
 	way = {
@@ -1470,30 +1470,30 @@ cor4 = room {
 floor4 = room {
 	nam = '4th floor site',
 	pic = 'gfx/floor4.png',
-	dsc = 'The fourth floor has high ceilings.',
+	dsc = 'طبقه چهارم سقف بلندی داره.',
 	act = function(s, w)
 		if w == 1 then
-			return 'Darkness... Not a single light... I can\'t even see the stars. Dim and heavy fluorescent light prevents me to see them...';
+			return 'تاریکی... بدون حتی یک چراغ... حتی ستاره‌ها رو نمی‌تونم ببینم. نور مهتابی سنگین و محو نمی‌ذاره ببینمشون...';
 		end
 		if w == 2 then
-			return 'I hate elevators...';
+			return 'از آسانسورها بدم میاد...';
 		end
 		if w == 3 or w == 4 then
-			return 'An ordinary door. One of many in this building. An electronic lock. I can\'t get in without a card.';
+			return 'یه در معمولی. یکی از بسیار درهای این ساختمان. یه قفل الکترونیکی. بدون کارت نمی‌تونم داخل بشم.';
 		end
 	end,
 	used = function(s, w, ww)
 		if ww == 'card' then
 			if w == 3 or w == 4 then
-				return [[I apply the card to a card reader... Beep. Access denied...]];
+				return [[کارت رو می‌کشم روی کارتخوان... بیپ. دسترسی ممنوع...]];
 			end
 		end
 	end,
 	obj = {
-		vobj(1, 'window','A wide {window} looks to the west.'),
-		vobj(2, 'elevators', 'The site with four {elevators} is dimly lit.'),
-		vobj(3, 'south door', 'Two doors lead to the north and south corridors. The south {door} label: <<Level:4, Category:Theoretical Physics>>'),
-		vobj(4, 'north door', 'The north {door} label: <<Level:4, Category:Biology>>'),
+		vobj(1, 'window','یه {پنجره} پهن غربی.'),
+		vobj(2, 'elevators', 'محوطه چهار {آسانسور} به زحمت روشنه.'),
+		vobj(3, 'south door', 'دو در به راهروهای شمالی و جنوبی منتهی می‌شن. اتیکت {درب} جنوبی: <<طبقه: ۴ رده:فیزیک نظری>>'),
+		vobj(4, 'north door', 'اتیکت {درب} شمالی: <<طبقه: ۴ رده:بیولوژی>>'),
 	},
 	way = { 'lift' },
 };
@@ -1501,22 +1501,22 @@ floor4 = room {
 floor5 = room {
 	nam = '5th floor site',
 	pic = 'gfx/floor5.png',
-	dsc = [[The ceilings on the fifth floor are very high.]],
+	dsc = [[سقف طبقه پنجم بسیار بلنده.]],
 	act = function(s, w)
 		if w == 1 then
-			return 'My legs are drowning in red velvet... I should be careful not to leave my footprints here...';
+			return 'پاهام تو مخمل قرمز داره غرق می‌شه... باید مواظب باشم رد پا اینجا از خودم باقی نذارم...';
 		end
 		if w == 2 then
-			return 'Yeah, made from crystal. Surely not glass.';
+			return 'آره، از کریستال ساخته شده. امکان نداره شیشه باشه.';
 		end
 		if w == 3 then
-			return 'I approach the window... Interesting. I see that the window looks at quite wide area of the roof, which streches through the front part of the building...';
+			return 'به طرف پنجره می‌رم... جالبه. می‌بینم که پنجره رو بخش وسیعی از سقفه که در بخش جلویی ساختمون امتداد داره...';
 		end
 		if w == 4 or w == 5 then
-			return 'I can\'t examine the doors because of the guard... My ID card is not valid here...';
+			return 'به خاطر نگهبان نمی‌تونم درها رو وارسی کنم... کارت شناسایی من اینجا معتبر نیست...';
 		end
 		if w == 6 then
-			return 'Though he does not pay any attention to me, still it is better not to bother him...';
+			return 'هرچند هیچ اهمیتی به من نمی‌ده، بازم بهتره که کاری به کارش نداشته باشم...';
 		end
 	end,
 	used = function(s, w)
@@ -1524,20 +1524,19 @@ floor5 = room {
 			return
 		end
 		if w == 6 then
-			return 'It\'s better not to bother him...';
+			return 'بهتره کاری به کارش نداشته باشم...';
 		end
 		if w >=1 and w <=5 then
-			return 'I won\'t do it while the guard is here,';
+			return 'وقتی که نگهبان اینجاست انجامش نمی‌دم،';
 		end
 	end,
 	obj = {
-	vobj(1, 'carpet', 'The floor is covered by the red {carpet}.'),
-	vobj(2, 'chandelier', 'A crystal {chandelier} hangs over my head.'),
-	vobj(3, 'window', 'A wide {window} looks to the west.'),
-	vobj(4, 'information', 'I see two doors leading to the south and north corridors. The south {door} label: <<Level:5, Category:Information>>.'),
-	vobj(5, 'red door', 'The north {door} does not have any labels. This is a massive door upholstered with red leather.'),
-	vobj(6, 'guard', 
-		'The passage to the doors are blocked by a checkpoint with a {guard}.');
+	vobj(1, 'carpet', 'کف با {فرش} قرمز پوشیده شده.'),
+	vobj(2, 'chandelier', 'یه {چلچراغ} کریستال بالای سرمه.'),
+	vobj(3, 'window', 'یه {پنجره} پهن غربی.'),
+	vobj(4, 'information', 'دو تا در می‌بینم که به راهروهای جنوبی و شمالی منتهی می‌شن. اتیکت {درب} جنوبی: <<طبقه: ۵ رده:اطلاعات>>.'),
+	vobj(5, 'red door', '{درب} شمالی هیچ اتیکتی نداره. یه در عظیمه که با چرم قرمز پوشونده شده.'),
+	vobj(6, 'guard', 'راه منتهی به درها توسط یک اتاقک نگهبانی و یک {نگهبان} مسدود شده.');
 	},
 	way = { 'lift' },
 };
