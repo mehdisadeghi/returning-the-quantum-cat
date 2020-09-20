@@ -455,7 +455,7 @@ wside = room {
 	obj = { vobj(3, 'entrance', '{دروازه اصلی} یه در گردان بزرگ فلزی داره.'),
 		vobj(4, 'people', ' می‌ذاره {مردم} داخل و خارج بشن.'), 
 		vobj(1, 'van', 'یه {ون} سیاه جلوی دره.'),
-		vobj(2, 'checkpoint', 'شصت متر اونورتر من به صختی می‌تونم {اتاقک نگهبانی} رو ببینم.'),
+		vobj(2, 'checkpoint', 'شصت متر اونورتر من به سختی می‌تونم {اتاقک نگهبانی} رو ببینم.'),
 		vobj(5, 'ladder', 'رو ضلع جنوبی دیوار یه {نردبون} اضطراری برای فرار از آتش‌سوزی می‌بینم. نردبون از طبقه دوم تا پنجم کشیده شده.' ),
 	}
 };
@@ -558,7 +558,7 @@ pinlift = obj {
 		return 'people';
 	end,
 	act = function(s)
-		return 'منظره‌ی خالی و محزون... سکوت دردآور.';
+		return 'چهره‌های تهی و محزون... سکوت دردآور.';
 	end,
 	dsc = function(s)
 		if s._num == 1 then
@@ -734,7 +734,7 @@ vent = obj {
 			end
 			inv():del('trap');
 			vent._trap = true;
-			return 'می‌رم بالای میز و تله‌ی طعمه‌گذاری شده رو روی لبه‌ی حفره جاسازی می‌کنم... لازم نیست مدت زیادی صبر کنم... صدای چفت شدن و آخرین جیع موش کافیه که بفهمم کار انجام شده!';
+			return 'می‌رم بالای میز و تله‌ی طعمه‌گذاری شده رو روی لبه‌ی حفره جاسازی می‌کنم... لازم نیست مدت زیادی صبر کنم... صدای چفت شدن و آخرین جیغ موش کافیه که بفهمم کار انجام شده!';
 		end
 	end,
 	obj = {
@@ -773,7 +773,7 @@ stoly = obj {
 };
 
 eroom = room {
-	nam = 'STR دپارتمان',
+	nam = 'دپارتمان STR',
 	pic = function()
 		if not stoly._moved then
 			return 'gfx/sto.png';
@@ -844,7 +844,7 @@ room3x = room {
 	enter = function(s, f)
 		if s._num == 2 then
 			return [[لای در رو باز می‌کنم و داخل رو نگاه می‌کنم.
-			یع اتاق چهارگوش با دو پنجره.
+			یه اتاق چهارگوش با دو پنجره.
 			کلی آدم در امتداد دیوار جلوی ترمینالها نشستن
 			با عجله در رو می‌بندم.]], false;
 		end
@@ -868,9 +868,9 @@ switch = obj {
 	dsc = function(s)
 		local t
 		if vent._off then
-			t = ' در وضعیت <<وصل>>.';
+			t = ' در وضعیت <<قطع>>.';
 		else
-			t = ' در وضعیت <<قطع>>.';	
+			t = ' در وضعیت <<وصل>>.';	
 		end
 		return 'تو گوشه‌ی کنار در ورودی یه {سوئیچ} هست.'..t;
 	end,
@@ -948,7 +948,7 @@ cor3 = room {
 };
 
 mylo = obj {
-	nam = 'soap',
+	nam = 'صابون',
 	inv = function(s)
 		if s._pena then
 			return 'یک قالب صابون و مقداری کف.';
@@ -1003,7 +1003,7 @@ toilet3 = room {
 		'tzerkalo',
 		'sushka',
 		vobj(2, 'closets', 'تو این سرویس بهداشتی چهار تا {مستراح} هست.'),
-		vobj(3, 'people', 'چند نفر} اینجا هستن}...'),
+		vobj(3, 'people', 'چند {نفر} اینجا هستن...'),
 	},
 	way = { 'cor3' }, 
 	exit = function()
@@ -1138,7 +1138,7 @@ toilet = room {
 		end
 	end,
 	obj = { 
-		vobj(2, 'closets', 'There are only 2 {closets} in this toilet.'),
+		vobj(2, 'closets', 'تنها دو تا {توالت} تو این سرویس بهداشتی هست.'),
 		'umyvalnik',
 		'britva',
 		'tzerkalo',
@@ -1158,7 +1158,7 @@ toilet = room {
 };
 
 toiletw = room {
-	nam = 'women closet',
+	nam = 'توالت خانم‌ها',
 	enter = function(s, w)
 		return 'هیهات... چیزی نمونده بود که مرتکب یک اشتباه بشم...', false;
 	end
@@ -1409,7 +1409,7 @@ hall41 = room {
 };
 
 cor4 = room {
-	nam = '4th floor corridor',
+	nam = 'راهرو طبقه چهارم',
 	pic = 'gfx/cor4.png',
 	dsc = 'تو راهرو هستم. سقفش خیلی بلنده. سرویس بهداشتی رو تو انتهای راهرو می‌بینم. کف راهرو فرش سبزرنگه.',
 	act = function(s, w)

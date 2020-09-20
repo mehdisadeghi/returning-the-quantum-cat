@@ -1,43 +1,41 @@
 lection = room {
-	nam = 'Belin\'s Lecture',
+	nam = 'سخنرانی بلین',
 	pic = 'gfx/lection.png',
-	dsc = [[I take my seat... I can hear everything clearly from this place. Let's listen to the famous physicist...
-	^^- So, in November 1935 Schrödinger published his paper in which the following experiment was described. So, what's the point of the experiment? - Belin paused for a second and put some strange box on the table. 
-- I like experiments! - Belin's white smile gave a shiny flash. -
-- So, as you can see, this is a box... - Belin tapped its plain surface by his hand.
-- This box has a built-in container with the poison gas. Besides, the box contains the radiation counter, the radioactive element and the timer. 
-The parameters of the experiment are set up so, that the probability of the radioactive element decay during 1 hour - equals to 50%.^^
-- If the decay occurs, the mechanism starts working and the poison gas is released from its container to the inner space of the box. So, gentlemen, I guess it's simple so far, isn't it? - Belin smiles again.
-- But the point is that in his experiment Schrödinger puts a cat inside the box - an alive being.^^
-
-- According to the quantum theory, if we are observing the nucleus - the state of the nucleus is described as a superposition (mixing) of two states - the state of decayed nucleus and the state of non-decayed nucleus. Therefore, the cat in the box is alive and dead simultaneously.
-- Belin raises his voice.
-- So we can say that it is just a mind game, but I will show and proove that it's not quite so...^^
-
-- So, if the experimenter opens the box - he will observe only one of the two states - <<decay occurred, the cat is dead>> or <<decay not occurred, the cat is alive>>. Schrödinger thought that this paradox proves the inconsistence of the quantum mechanics theory. But we all know that the quantum mechanics really IS the TRUE picture of our world!
-- Belin raises his voice again.
-- And so, independently of each other (and this partly proves the truth of the theory) - Hans Moravec in 1987 and Bruno Marchal in 1988 cosidered the situation from the cat's point of view!^^
-
-- If Everett's multi-world interpretation is true, every time when the cat experiment takes place - the Universe splits into two universes. In the first universe - the cat is alive, and in the second - dead. The cat stops existing in the worlds where it dies. On the other hand, from the alive cat's point of view - the experiment will be continued and will not lead to the cat's death. This is true because in any branch the cat is capable to observe the experiment only in that world where it stays alive. And if the multi-world interpretation is true, then the cat can only observes that it never dies...
-- Belin pauses and looks to the audience...^^
-
-- And so what does this mean, gentlemen? I ask you, what does this mean? Let us imagine that the observer of the experiment explodes an atomic bomb near himself. According to the multi-world interpretation, the observer will destroy himself almost in all parallel universes. But despite of this fact, some small set of alternative universes should exist where the observer somehow survives. And we come to the idea... - Belin raised his voice again. - The Idea of Quantum Immortality!!! ^^
-
-- The Idea of Quantum Immortality is that the observer stays alive and stays capable to observe the reality, at least in one of all set of universes, even if there are very few of these (happy) universes. Thus, eventually the observer will find out that he can live forever!!! ^^
-
-- We all have been working very hard for all this year, guided by the great leadership of...
-- at that moment Belin gave a glance to the portraits,
-- And I must tell you, gentlemen, that we have enough information in our media center...
-- Belin looked at the ceiling, 
-- Enough information to prove, I say it again, to prove scientifically by theory and by experiment - to prove the validity of the multi-world interpretation...^^
-
-- But what does it mean for us? You can't see it, but... - Belin looked at his watch
-- But in several minutes the train loaded with uranium arrives to the back gates of the institue... It will be enough uranium to provide everyone of you with a nuclear bomb. Since you will assure soon that the Quantum Immortality is the true reality, anyone of you may become an invincible terrorist!!! The Universe will split to many worlds where YOU - Belin points his finger to the audience, - YOU become its dictator and master!!! - Belin almost screamed...^^
-
-The audience could not resist to this speech. Everybody stood up and applauded... Their eyes were burning with some evil fire... O God! This is a kind of delusion! - I thought... My legs didn't obey me. I was sitting at my place and could not move...^^ 
-
-- But let's get back to the point. - Belin said. - Let's continue our experiment. - with these words he took out some alive object from under the table... It was my Barsik...
-- Ok, now I'll put this cat to the box and we all will see how she... - I feel red mist blurring my eyes...
+	dsc = [[می‌شنم سر جام... همه چیز رو به وضوع از اینجا می‌شنوم. بذار به فیزیکدان مشهور گوش کنیم...
+	^^- در نوامبر ۱۹۳۵ شرودینگر مقاله‌اش را که آزمایش زیر را در آن شرح داده بود منتشر کرد. هدف یک آزمایش چیست؟ - بلین برای لحظه‌ای مکث کرد و یک جعبه‌ی عجیب را روی میز گذاشت.
+	- من آزمایش را دوست دارم! - لبخند سفید بلین ناگهان پدیدار شد.
+	- همینطور که می‌بینید این یک جعبه است... - بلین با دستش ضربه‌ای به سطح صاف جعبه زد.
+	- این جعبه یک محفظه‌ی توکار حاوی گاز سمی دارد. علاوه بر این، این جعبه حاوی یک شمارشگر گایگر و یک ماده‌ی پرتوزا و یک تایمر است.
+	پارامترهای این آزمایش به گونه‌ای تنظیم شده‌اند تا احتمال واپاشی ماده‌ی پرتوزا طی یک ساعت ۵۰ درصد باشد.^^
+	- چنانچه واپاشی روی دهد، مکانیزم جعبه فعال می‌شود و گاز سمی آزاد شده و وارد فضای داخل جعبه  می‌شود. بنابراین، آقایان، به گمانم که قضیه تا اینجا ساده است. اینطور نیست؟ - بلین دوباره لبخند می‌زند.
+	- اما نکته اینجاست که طی این آزمایش شرودینگر یک گربه داخل جعبه قرار می‌دهد. - یک موجود زنده.^^
+	- بنابر نظریه‌ی کوانتوم، اگر ما مشغول تماشای هسته‌ی اتم باشیم - وضعیت هسته برابر است با برهم‌نهی (سوپرپوزیشن یا میکس) دو حالت مختلف - حالت اتم با واپاشی و حالت اتم بدون واپاشی. بنابراین، گربه‌ی درون جعبه همزمان هم زنده و هم مرده است.
+	- بلین صدایش را بلند می‌کند.
+	- البته ما می‌توانیم بگوییم که این تنها یک سرگرمی فکری است. اما من نشان خواهم داد و ثابت خواهم کرد که اینگونه نیست...^^
+	
+	- پس اگر آزمایشگر جعبه را باز کند، اون تنها یکی از دو حالت یاد شده را مشاهده خواهد کرد: «واپاشی روی داده و گربه مرده است» و یا «واپاشی روی نداده و گربه زنده است.» شرودینگر فکر می‌کرد که این تناقض ناپایداری نظریه مکانیک کوانتومی را ثابت می‌کند. اما ما همگی می‌دانیم که مکانیک کوانتومی فی‌الواقع چهره‌ی واقعی جهان ماست!
+	- بلین دوباره صدایش را بلند می‌کند.
+	- و بنابراین، مستقل از یکدیگر (که این تا حدودی صحت قضیه را اثبات می‌کند)، هانس موراوک در سال ۱۹۸۷ و نیز برونو مارشال در سال ۱۹۸۸ موقعیت را از منظر گربه مورد توجه قرار دادند!^^
+	
+	- چنانچه برداشت چندجهانی اِوِرِت صحیح باشد، هربار که آزمایش گربه انجام می‌شود، جهان به دو جهان مجزا تقسیم می‌شود. در جهان اول گربه زنده است و در جهان دوم مرده. گربه در جهانی که مرده است از بودن دست می‌کشد. از سوی دیگر، از نگاه گربه‌ای که زنده است آزمایش ادامه دارد و منجر به مرگ گربه نمی‌شود. این صحت دارد چرا که در هر یک از حالات گربه تنها قادر به مشاهده‌ی آزمایشی است که در آن جهانی جریان دارد که گربه در آن زنده مانده است. و چنانچه تفسیر چندجهانی صحت داشته باشد، گربه تنها می‌تواند ببیند که هرگز نمرده است...
+	- بلین مکث می‌کند و به حضّار نگاه می‌کند.^^
+	
+	- معنای این چه می‌تواند باشد آقایان؟ من از شما می‌پرسم، این چه معنایی دارد؟ بیایید تصور کنیم که مشاهده‌گر آزمایش یک بمب اتمی در نزدیکی خویش منفجر می‌کند. بنابر تفسیر چندجهانی مشاهده‌گر خودش را تقریبا در تمامی دنیاهای موازی نابود می‌کند. ولی علی‌رغم این واقعیت، تعداد اندکی جهان موازی باید وجود داشته باشد که آزمایشگر در آنها به شیوه‌ای زنده می‌ماند. و ما به این ایده می‌رسیم... - بلین صدایش را بار دیگر بلند می‌کند. - ایده‌ی جاودانگی کوانتومی!!!^^
+	
+	- ایده‌ی جاودانگی کوانتومی آنست که مشاهده‌گر زنده می‌ماند و قادر به مشاهده‌ی هستی است، حداقل در یکی از جمیع جهان‌ها، حتی اگر تعداد بسیار اندکی از این (خجسته) جهان‌ها وجود داشته باشد. بدین‌ترتیب، در نهایت مشاهده‌گر درخواهد یافت که او می‌تواند برای همیشه زنده بماند!!!^^
+	
+	- همه ما تمام سال را به سختی کار کرده‌ایم، تحت هدایت رهبریِ عالیِ...
+	- در این لحظه بلین نگاهی به پرتره‌ها انداخت.
+	- و من باید به شما بگویم، آقایان، که ما معلومات کافی در مرکز رسانه‌ای‌مان داریم...
+	- بلین نگاهی به سقف انداخت.
+	- معلومات کافی تا ثابت کنیم، تکرار می‌کنم، تا به صورت علمی چه در تئوری و چه در آزمایش درستی فرضیه‌ی چندجهانی را ثابت کنیم...^^
+	
+	- اما این برای ما چه معنایی خواهد داشت؟ شما قادر به مشاهده‌ی آن نیستید اما... - بلین نگاهی به ساعتش انداخت - اما در چند دقیقه‌ی آتی قطار حاوی اورانیوم به دروازه‌ی پشتی موسسه می‌رسد... به قدری اورانیوم خواهد بود که بتوان به هر یک از شما یک بمب هسته‌ای داد. از جایی که به زودی یقین حاصل خواهید کرد که جاودانگی کوانتومی حقیقت محض است، هر یک از شما به یک هراس‌افکن شکست‌ناپذیر تبدیل خواهد شد!!! جهان به چندین جهان منشعب خواهد شد، جایی که شما - بلین با انگشت به حضار اشاره می‌کند - شما به فرمانروای مطلق و ارباب آن تبدیل خواهید شد!!! - بلین تقریبا این را فریاد زد...^^
+	
+	حضار در برابر این خطابه تاب تحمل از کف دادند. همه بلند شدند و کف زدند... در چشمایشان شعله‌ای اهریمنی می‌سوخت... خدای من! این یک جور وهمه! - با خودم فکر کردم... پاهام در اختیار خودم نبودن. سر جام نشسته بودم و قادر به حرکت نبودم...^^
+	
+	- بگذارید به نکته اصلی برگردیم. - بلین گفت. - بیایید آزمایشمان را دنبال کنیم. - همزمان با گفتن این کلمات او یک موجود زنده را از زیر میز برداشت.. آن موجود باریسک من بود...
+	- خیلی خوب، حالا من این گربه را داخل جعبه می‌گذارم و ما همگی خواهیم دید که او چگونه... - جلو چشم‌هام رو خون گرفت...
 	]],
 	enter = function(s)
 	-- end of episode 2
