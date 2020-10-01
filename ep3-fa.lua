@@ -78,99 +78,99 @@ lection = room {
 profdlg = dlg {
 	nam = '!!!',
 	pic = 'gfx/me.png',
-	dsc = 'I grip my strength, stand up and scream as loud as I can...',
+	dsc = 'زورم رو جمع می‌کنم، بلند می‌شم و با همه وجودم فریاد می‌زنم...',
 	obj = {
-		[1] = phr('It\'s not SHE, it\'s HE!', 
-	'Belin stops his hand. His sight focuses on me. He recognizes me!! - Security! Unauthorized in the hall!!! Ge.. Get him out of here!!! - he screams.',
+		[1] = phr('دختر نیست، پسره!', 
+	'بلین دستش رو نگه می‌داره. نگاهش به منه. منو شناخته!! - حراست! فرد غیرمجاز داخل سالن!!! از اینجا بی... بیرونش کنید!!! - داد می‌زنه.',
 	[[poff(2);escape1.obj:add('guardian')]]),
-		[2] = phr('Don\'t touch my cat!', 
-	'Belin stops and looks me in the eyes. His face expresses a surprise. - Guards!!! Guards!!! Unauthorized in the hall!!!',
+		[2] = phr('به گربه‌ی من دست نزن!', 
+	'بلین دست نگه می‌داره و تو چشمام نگاه می‌کنه. صورتش بهت‌زده است. - نگهبان‌ها!!! نگهبان‌ها!!! فرد غیرمجاز داخل سالن!!!',
 	[[poff(1);escape1.obj:add('guardian')]]),
 	},
 };
 
 profdlg2 = dlg {
-	nam = 'Belin',
+	nam = 'بلین',
 	pic = 'gfx/prof2.png',
-	dsc = 'Belin came white. He stares at the shotgun with a lost sight.',
+	dsc = 'بلید مثل گچ سفید شد. مات و مبهوت به شاتگان خیره شد.',
 	obj = {
-		[1] = phr('I have come for my cat!', 
-	'I grab Barsik from Belin\'s hand and put him to my bosom.',
+		[1] = phr('به خاطر گربه‌ام اومدم!', 
+	'باریسک رو از دست بلین می‌گیرم و می‌ذارمش تو بغلم.',
 		[[inv():add('mycat'); lifeon('mycat')]]),
-		[2] = phr('Tell them to get out!!!',
-	'Belin is white faced. He does not seem to understand me...',
+		[2] = phr('بهشون بگو برن بیرون!!!',
+	'بلید صورتش سفیده سفیده. ظاهرا نمی‌فهمه من چی می‌گم...',
 		[[pon(3)]]),
-		[3] = _phr('Come on!!! Tell them to get out of here...', 
-		'I shake him. Belin does not feel anything. He just stares at the black barrels of the shotgun.',
+		[3] = _phr('زودباش!!! بهشون بگو ازینجا برن بیرون...', 
+		'تکونش می‌دم. بلین چیزی حس نمی‌کنه. فقط به لوله‌های سیاه شاتگان خیره شده.',
 		[[pon(3); back();]]);
 	},
 };
 gdlg1 = dlg {
-	nam = 'guard',
+	nam = 'نگهبان',
 	pic = 'gfx/guard42.png',
-	dsc = 'I scream at the guard and find my voice unnatural...',
+	dsc = 'سر نگهبان داد می‌زنم. صدام به نظرم غیرعادی میاد...',
 	obj = {
-	[1] = phr('Put your weapon upside down on the table and push it to me..',
-		'The guard stares on me with uncertainty..',
+	[1] = phr('اسلحه‌ات رو سر و ته بذار روی میز و هلش بده طرف من...',
+		'نگهبان با بی‌قراری به من نگه می‌کنه...',
 		[[pon(2)]]),
-	[2] = _phr('I said the gun on the table!!! — I push the barrels more hard to Belin\'s chest. He is very close to fainting.',
-	'The guard carefully puts the shotgun on the table and pushes it to me... I take it quickly. Now I\'ve got two guns in both hands.',
+	[2] = _phr('گفتم تفنگ روی میز!!! — لوله‌ها رو محکم‌تر به سینه‌ی بلین فشار می‌دم. چیزی نمونده از حال بره.',
+	'نگهبان خیلی با دقت تفنگش رو می‌ذاره روی میز و هلش می‌ده طرف من... سریع برش می‌دارم. حالا دو تا تفنگ تو هر دو دستم دارم.',
 		[[pon(3); inv():add('shotgun')]]),
-	[3] = phr('You didn\'t like my face? Right???',
-		'The guard keeps silence. The sweat comes out on his forehead...',
+	[3] = phr('از صورت من خوشت نیومد؟ نه؟؟؟',
+		'نگهبان سکوت می‌کنه. پیشونیش عرق کرده...',
 		[[pon(3); back();]]),
 	};
 };
 
 shotgun = obj {
-	nam = 'guard\'s shotgun',
-	inv = 'A pump-action shotgun... For 6 shells. Interesting, how much shells is left?',
-	dsc = 'The pump-action {shotgun} lies on the floor.',
+	nam = 'شاتگان نگهبان',
+	inv = 'یه شاتگان با گلنگدن دستی... برای شش فشنگ. جالبه، چند تا فشنگ توش هست؟',
+	dsc = '{شاتگان} افتاده روی زمین.',
 	tak = function(s)
 		if s._unloaded then
-			return 'I don\'t need it. It has no ammo.', false
+			return 'نیازی بهش ندارم. مهمات نداره.', false
 		end
-		return 'I take my shotgun back.';
+		return 'شاتگانم رو پس می‌گیرم.';
 	end,
 };
 
 guardian = obj {
-	nam = 'guard',
+	nam = 'نگهبان',
 	dsc = function(s, w)
 		if not professor._gun then
-			return 'I see how the {guard} with a shotgun slowly but surely moves towards me.';
+			return '{نگهبان} رو می‌بینم که با یه شاتگان آهسته و مصمم به طرفم میاد.';
 		end
 		if have('shotgun') then
-			return 'I see the {guard} with no weapon. He watches me attentively.';
+			return '{نگهبان} بی سلاح رو می‌بینم. با دقت داره من رو نگاه می‌کنه.';
 		end
-		return 'I see the {guard} holding his gun not confidently.';
+		return '{نگهبان} رو می‌بینم که تفنگش رو شل گرفته.';
 	end,
 	act = function(s, w)
 		if not professor._gun then
-			return 'He will get me soon...';
+			return 'به زودی گیرم می‌اندازه...';
 		end
 		return walk('gdlg1');
 	end,
 	used = function(s, w)
 		if w == 'shotgun' then
-			return 'No, I can\'t make me do it...';
+			return 'نه، نمی‌تونم خودم رو راضی به انجامش بکنم...';
 		end
 		if w == 'gun' then
 			if not professor._gun then
-				return 'My shortened shotgun is not for a distant battle...';
+				return 'شاتگان کوتوله‌ی من مناسب فواصل طولانی نیست...';
 			end
-			return 'I should point my gun on Belin in my situation. Besides, I will need to reload the gun if I fire...'; 
+			return 'تو این وضعیت باید تفنگم رو به طرف بلین نشونه برم. ضمنا اگه شلیک کنم باید دوباره پرش بکنم...'; 
 		end
 	end
 };
 
 professor = obj {
-	nam = 'Belin',
+	nam = 'بلین',
 	dsc = function(s, w)
 		if not s._gun then
-			return '{Belin} is standing at the board and holding my Barsik in his hand.';
+			return '{بلین} جلوی تخته ایستاده و باریسک من رو گرفته دستش.';
 		end
-		return 'I point both shotgun barrels to the chest of {Belin}.';
+		return 'هر دو لول شاتگان رو می‌گیرم رو سینه‌ی {بلین}.';
 	end,
 	act = function(s)
 		if not s._gun then
@@ -181,88 +181,88 @@ professor = obj {
 	used = function(s, w)
 		if w == 'gun' then
 			if s._gun then
-				return 'I push the Belin\'s chest with the shotgun even more hard.';
+				return 'سینه‌ی بلین رو با شاتگان با شدت بیشتری فشار می‌دم.';
 			end
 			s._gun = true;
 			objs():add('guardian');
 			gun._hidden = false;
-			return 'I take my shortened shotgun out of my coat, jump over the table and run to Belin.';
+			return 'شاتگان کوتوله‌ام رو از کتم درمیارم، می‌پرم روی میز و می‌دوم طرف بلین.';
 		end
 	end,
 };
 
 pdlg = dlg {
-	nam = 'people',
+	nam = 'حضار',
 	pic = 'gfx/me.png',
-	dsc = 'I look at the audience and scream...',
+	dsc = 'به حضار نگاه می‌کنم و فریاد می‌زنم...',
 	obj = {
-		[1] = phr('It\'s a lie!!! There\'s no scientific proof at all!!!',
-			'— no reaction...',[[pon(2)]]),
-		[2] = _phr('The World is unique!!! Everyone of you knows it since childhood!!! Get out of here!! Run from these sectarians!!!', 
-		' - the silence was the answer...'),
-		[3] = phr('A herd of stupid sheep!!! You can be deceived so easy???',
-			'- they keep silence, and I don\'t like their sights...',
+		[1] = phr('دروغه!!! هیچ سند علمی برای اثبات این ادعا نیست!!!',
+			'— بهت...',[[pon(2)]]),
+		[2] = _phr('جهان یکتاست!!! هر یک از شما این رو از بچکی می‌دونه!!! از اینجا برین!! از این کالت خودتون رو نجات بدین!!!', 
+		' - جواب سکوت بود...'),
+		[3] = phr('یه گله گوسفند نادون!!! چطور می‌تونید به این سادگی خام بشید؟',
+			'- صدا ازشون درنمیاد و من هم از نگاهشون خوشم نمیاد...',
 			[[pon(3); back();]]),
 	},
 };
 
 narod = obj {
-	nam = 'people',
+	nam = 'حضار',
 	dsc = function(s)
 		if not professor._gun then
 			if seen('guardian') then
-				return '{People} in the hall are looking at me questionably. They are in hesitation.';
+				return '{افراد} داخل سالن نگاه‌های پرسشگرشون رو دوختن به من. تو شک و تردید هستن.';
 			end
-			return '{People} in the hall are watching for Belin.';
+			return '{افراد} داخل سالن دارن بلین رو نگاه می‌کنن.';
 		end
-		return '{People} in the hall froze. Their sights are all on me. If I make a mistake - I\'m dead... And the whole world... is dead...';
+		return '{افراد} تو سالن سر جاشون خشکشون می‌زنه. همه به من خیره شدن. دست از پا خطا کنم مردم... و همه‌ی دنیا هم... مرده...';
 	end,
 	act = function(s)
 		if professor._gun then
 			return walk('pdlg');
 		end
 		if seen('guardian') then
-			return 'They haven\'t assaulted me so far... So far so good...';
+			return 'فعلا که به من حمله نکردن... تا اینجا که خوبه...';
 		end
-		return 'Fanatics! They all are fanatics...';
+		return 'متعصبین دیوانه! همشون دیوانه هستن...';
 	end,
 	used = function(s, w)
 		if w == 'gun' or w =='shotgun' then
-			return 'I think I have not enough shells.';
+			return 'به گمونم فشنگ کافی ندارم.';
 		end
-		return 'Alas...';
+		return 'هیهات...';
 	end
 };
 
 win = obj {
-	nam = 'window',
+	nam = 'پنجره',
 	dsc = function(s)
 		local st = '';
 		if s._broken then
-			st = ' One window is broken.';
+			st = 'یه پنجره شکسته.';
 		end
-		return 'Three wide {windows} look to the west.'..st;
+		return 'سه {پنجره‌ی} پهن غربی.'..st;
 	end,
-	act = 'It\'s dark outside. Nothing to watch but snowflakes bumping the glass.';
+	act = 'بیرون تاریکه. هیچی به جز دونه‌های برف که به پنجره می‌خورن نیست.';
 	used = function(s, w)
 		if w ~= 'gun' and w ~= 'shotgun' then
-			return 'Won\'t help...';
+			return 'دردی رو دوا نمی‌کنه...';
 		end
 		if s._broken then
-			return 'Broken already...';
+			return 'از قبل شکسته...';
 		end
 		if not have('shotgun') then
-			return 'The guard will shoot me.';
+			return 'نگهبان بهم شلیک می‌کنه.';
 		end
 		s._broken = true;
 		ways():add('window');
-		return 'I break the nearest window by the shotgun butt...';
+		return 'با قنداق شاتگان نزدیکترین پنجره رو می‌شکنم...';
 	end	
 };
 
 escape1 = room {
-	nam = 'Hall 2',
-	dsc = 'I am in the hall. The people here are waiting for the experiment to continue.',
+	nam = 'سالن ۲',
+	dsc = 'داخل سالنم. حضار اینجا منتظر ادامه‌ی آزمایش هستن.',
 	pic = function()
 		if professor._gun then
 			return 'gfx/meandgun.png';
@@ -271,39 +271,39 @@ escape1 = room {
 	end,
 	obj = {
 		'win',
-		vobj(4, 'lamps', 'The hall is lit by fluorescent {lamps}.'), 
+		vobj(4, 'lamps', 'سالن توسط نور {مهتابی} روشن شده.'), 
 		'professor',
 		'narod',
-		vobj(5, 'box', 'The {box} is placed on the table.'),
+		vobj(5, 'box', '{جعبه} روی میزه.'),
 		'portrait',
 	},
 	act = function(s, w)
 		if w == 5 then
-			return 'Damned box...';
+			return 'جعبه‌ی لعنتی...';
 		end
 		if w == 4 then
-			return 'Six lamps... I hate this blinking light...';
+			return 'شش تا لامپ... از این نور سوسوزن متنفرم...';
 		end
 	end,
 	used = function(s, w, ww)
 		if ww == 'gun' or ww == 'shotgun' then
 			if not professor._gun then
-				return 'I\'d better not...';
+				return 'بهتره اینکار رو نکنم...';
 			end
 			if w == 4 then
-				return 'The darkness will help not only me, but them too... And they are in a greater number.';
+				return 'تاریکه فقط به من نیست که کمک می‌کنه، بلکه به اونها هم. و اونها تعدادشون بیشتره.';
 			end
 			if w == 5 then
-				return 'The poison is still there. I don\'t want to hurt my Barsik.';
+				return 'سم هنوز اونجاست. نمی‌خوام باریسکم چیزیش بشه.';
 			end
 		end
 	end,
 	exit = function(s, t)
 		if t == 'window' and not have('mycat') then
-			return 'And what about Barsik?', false
+			return 'پس باریسک چی می‌شه؟', false
 		end
 		if t == 'cor4' then
-			return 'I must do something immediately!', false;
+			return 'باید فورا کاری بکنم!', false;
 		end
 	end,
 	way = { 'cor4' },
@@ -311,44 +311,44 @@ escape1 = room {
 lest = obj {
 	nam = function(s, w)
 		if s._seen then
-			return 'ladder';
+			return 'نردبان';
 		else
-			return 'some thing';
+			return 'یه چیز';
 		end
 	end,
 	dsc = function(s, w)
 		if s._seen then
-			return 'Looking through the snowstorm I hardly can distinguish the fire-escape {ladder}!';
+			return 'توی بوران به سختی می‌تونم {نردبان} فرار اضطراری رو تشخیص بدم!';
 		end
-		return 'Looking through the snowstorm I see outlines of some {construction}.';
+		return 'توی بوران می‌تونم شبح یک {سازه‌ای} رو تشخیص بدم.';
 	end,
 	act = function(s, w)
 		if not s._seen then
 			ways():add('ladder');
 			s._seen = true;
-			return 'It is the fire-escape ladder!!!';
+			return 'نردبون فرار اضطراریه!!!';
 		end
-		return 'Jump or not? This is the question...';
+		return 'پریدن یا نپریدن، مسئله اینست...';
 	end,
 };
 
 window = room {
 	nam = function(s)
 		if here() == window then
-			return 'on the window sill';
+			return 'رو آستانه‌ی پنجره';
 		end
-		return 'to the window';
+		return 'به طرف پنجره';
 	end,
 	pic = 'gfx/fromwin1.png',
-	enter = "I know I am mad, but I run to the window... I hear the roar of the crowd behind...";
-	dsc = 'I stand on the window sill and look inside the night darkness.',
+	enter = "می‌دونم که زده به سرم، اما می‌دوم به طرف پنجره... همهمه‌ی جمعیت رو پشت سرم می‌شنوم...";
+	dsc = 'رو آستانه‌ی پنجره می‌ایستم و زل می‌زنم به دل سیاهی شب.',
 
 	obj = {
 		'lest',
 	},
 	exit = function(s, t)
 		if t == 'escape1' then
-			return 'I can\'t get back... There are fanatics there...', false;
+			return 'نمی‌تونم برگردم... پُخ‌مغزها اونجان...', false;
 		end
 	end,
 	way = { 'escape1',},
