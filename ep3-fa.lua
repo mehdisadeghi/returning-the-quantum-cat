@@ -186,7 +186,7 @@ professor = obj {
 			s._gun = true;
 			objs():add('guardian');
 			gun._hidden = false;
-			return 'شاتگان کوتوله‌ام رو از کتم درمیارم، می‌پرم روی میز و می‌دوم طرف بلین.';
+			return 'شاتگان کوتاه‌شده‌ام رو از کتم درمیارم، می‌پرم روی میز و می‌دوم طرف بلین.';
 		end
 	end,
 };
@@ -340,7 +340,7 @@ window = room {
 		return 'به طرف پنجره';
 	end,
 	pic = 'gfx/fromwin1.png',
-	enter = "می‌دونم که زده به سرم، اما می‌دوم به طرف پنجره... همهمه‌ی جمعیت رو پشت سرم می‌شنوم...";
+	enter = 'می‌دونم که زده به سرم، اما می‌دوم به طرف پنجره... همهمه‌ی جمعیت رو پشت سرم می‌شنوم...';
 	dsc = 'رو آستانه‌ی پنجره می‌ایستم و زل می‌زنم به دل سیاهی شب.',
 
 	obj = {
@@ -348,7 +348,7 @@ window = room {
 	},
 	exit = function(s, t)
 		if t == 'escape1' then
-			return 'نمی‌تونم برگردم... پُخ‌مغزها اونجان...', false;
+			return 'نمی‌تونم برگردم... دیوانه‌ها اونجان...', false;
 		end
 	end,
 	way = { 'escape1',},
@@ -360,26 +360,26 @@ down = room {
 };
 
 window5 = obj {
-	nam = 'window',
+	nam = 'پنجره',
 	dsc = function(s, w)
 		if s._broken then
-			return 'A broken {window} is to the left of me.';
+			return 'یه {پنجره} شکسته سمت چپ منه';
 		end
-		return 'There is a yellow light coming from a {window} to the left of me.';
+		return 'یه نور زرد از یه {پنجره} کنارم داره میاد.';
 	end,
 	act = function(s)
 		if not s._broken then
-			return 'The window is closed...';
+			return 'پنجره بسته است...';
 		end
 		return walk('room5');
 	end,
 	used = function(s, w)
 		if w == 'gun' or w == 'shotgun' then
 			if s._broken then
-				return 'Already broken...';
+				return 'از قبل شکسته...';
 			end
 			s._broken = true;
-			return 'I break out the glass with the shotgun butt... Pieces of the broken glass fall into the night...';
+			return 'با قنداق شاتگان شیشه رو می‌شکنم... خرده شیشه‌ها تو دل شب پخش می‌شن...';
 		end
 	end
 };
@@ -387,52 +387,58 @@ window5 = obj {
 
 up = room {
 	_num = 0;
-	nam = 'up',
+	nam = 'بالا',
 	enter = function(s, w)
 		s._num = s._num + 1;
 		if s._num == 2 then
 			lifeon('ladder');
-			return 'Suddenly the night darkness is cut by a ray of spotlight and the silence is broken by a howl of a siren... It seems I was noticed from down there...', false;
+			return 'ناگهان سیاهی شب رو نور پروژکتورها کنار می‌زنن و سکوت هم با صدای آژیر شکسته می‌شه... ظاهرا از پایین من رو دیدن...', false;
 		end
 		if s._num > 4 then
 			ladder.way:del('up');
 			ladder.obj:add('window5');
 		end
-		return 'I am slowly climbing up...', false;
+		return 'دارم آروم می‌رم بالا...', false;
 	end
 };
 
 ladder = room {
-	nam = 'ladder',
+	nam = 'نردبان',
 	pic = 'gfx/ladder.png',
-	dsc = [[I am on the cold ladder. Sharp icy snowflakes hurt my face.]],
+	dsc = [[
+	روی نردبون سرد هستم. دونه‌های تیز برف صورتم رو خراش می‌دن.]],
 
 	act = function(s, w)
 		if w == 1 then
-			return 'I will get frozen soon if I don\'t start moving...';
+			return [[
+			اگه نجنبم به زودی یخ می‌زنم...]];
 		end
 	end,
 	obj = {
-		vobj(1, 'ladder rails', 'I hold iron ladder {rails}.'),
+		vobj(1, 'ladder rails', '{پله‌های} آهنی نردبون رو گرفتم.'),
 	};
 	enter = function(s)
 		inv():del('gun');
-		return [[I make a run and jump... My heart collapses for some seconds, but I feel the warmth of Barsik in my bosom and in the next moment my hands catch the black steel... The shotgun falls from my shoulder and flies down...]];
+		return [[
+		دورخیز می‌کنم و می‌پرم... برای چند ثانیه دلم هرّی می‌ریزه، اما گرمای باریسک رو تو بغلم حس می‌کنم و فورا فولاد سیاه رو می‌گیرم... شاتگان از رو دوشم می‌افته پایین...]];
 	end,
 	way = { 'up', 'down' },
 	life = function(s)
 		if rnd(2) == 1 then
-			return 'I hear rattle of machine guns fire - several bullets hit very close...';
+			return 'سر و صدای شلیک مسلسل‌ها رو می‌شنوم - چندین گلوله به نزدیکی من می‌خورن...';
 		end
 	end,
 	exit = function(s, t)
 		if t == 'down' then
 			if s._shoot then
-				return 'They will kill me... And they will kill Barsik too... And they will destroy the whole world...', false;
+				return [[
+هم من رو می‌کشن... و هم باریسک من رو... و دنیا رو نابود می‌کنن...]], false;
 			end
 			lifeon('ladder');
 			s._shoot = true;
-			return 'I start to come down when suddenly the night darkness is cut by a ray of a spotlight and the silence is broken by a howl of a siren... It seems I was noticed from down there...', false;
+			return [[
+			
+			I start to come down when suddenly the night darkness is cut by a ray of a spotlight and the silence is broken by a howl of a siren... It seems I was noticed from down there...]], false;
 		end
 		if t ~= 'up' then
 			lifeoff('ladder');
