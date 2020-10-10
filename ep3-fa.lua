@@ -437,8 +437,8 @@ ladder = room {
 			lifeon('ladder');
 			s._shoot = true;
 			return [[
-			
-			I start to come down when suddenly the night darkness is cut by a ray of a spotlight and the silence is broken by a howl of a siren... It seems I was noticed from down there...]], false;
+			همینکه مشغول پایین اومدن شدم، پرتو یک نورافکن سیاهی شب رو شکافت و زوزه‌ی یک آژیر آرامش شب رو به هم ریخت... ظاهرا از پایین من رو دیدن...]]
+			, false;
 		end
 		if t ~= 'up' then
 			lifeoff('ladder');
@@ -447,194 +447,205 @@ ladder = room {
 };
 
 hand = obj {
-	nam = 'bloody hand',
-	inv = 'My hand is bleeding... I think I will lose my conscience...',
-	life = 'Blood drops are falling on the floor from my hand...',
+	nam = 'دست خونی',
+	inv = 'دستم داره خونریزی می‌کنه... فکر کنم از هوش برم...',
+	life = 'قطره‌های خون داره از دستم روی زمین می‌چکه...',
 	used = function(s, w)
 		if w == 'galstuk' then
 			inv():del('galstuk');
 			inv():del('hand');
 			lifeoff('hand');
-			return 'I bandage my hand with the tie... It\'s ok so far...';
+			return 'با کراوات دستم رو باندپیچی می‌کنم... تا اینجا که خوبه...';
 		end
 	end
 };
 
 computers = obj {
-	nam = 'computers',
-	dsc = 'The most space is occupied by the tall racks with computer {hardware}. Quiet hum of fans. The network indicators blink nervously.';
+	nam = 'کامپیوترها',
+	dsc =[[
+	بیشتر فضا رو رک‌های بلند حاوی {سخت‌افزار} کامپیوتر اشغال کردن. وزوز آروم فن‌ها به گوش می‌رسه. لامپ‌های کوچک شبکه با هول و ولا چشمک می‌زنن.
+	]];
 	act = function(s)
 		if kover._fire then
-			return 'So... Burn, evil machines!!! Burn!!! It\'s time to get out of here.';
+			return 'عجالتا بسوزید ماشینهای خبیث!!! بسوزید!!! دیگه وقتشه بزنم به چاک.';
 		end
-		return 'This hardware stores evil... I need to destroy it all, but how? I know from the past that the most reliable way to destroy information on magnetic storage - is to bring it through the Curie point. In other words - I should BURN all these damned things!!! But where can I get the fire?';
+		return [[
+		این سخت‌افزارها شرارت انبار می‌کنن... باید همه رو نابود کنم، اما چطور؟ از زندگی سابقم می‌دونم که بهترین روش برای از بین بردن دیسک‌های مغناطیسی اینه که درجه حرارتش رو برسونیم به نقطه کوری. به عبارت دیگه باید همه این کامپیوترهای لعنتی رو بسوزونم!!! اما چطور آتش درست کنم؟
+		]];
 	end,
 	used = function(s, w)
 		if w == 'shotgun' then
-			return 'Shoot the servers? Not reliable... I must burn this evil...';
+			return 'به سرورها شلیک کنم؟ خیلی قابل اطمینان نیست... باید این خباثت رو بسوزونم...';
 		end
 	end
 };
 
 poroh = obj {
-	nam = 'gun powder',
-	inv = 'This gun powder should help me.',
+	nam = 'باروت',
+	inv = 'این باروت باید بدردم بخوره.',
 };
 
 trut = obj {
-	nam = 'tinder',
-	inv = 'A piece of paper with gun powder. I think I\'ve got a tinder!!!',
+	nam = 'آتشزنه',
+	inv = 'یه تیکه کاغذ و باروت. به گمونم آتشزنه ساختم!!!',
 	use = function(s, w)
 		if w == 'ibp' and ibp._knife and not ibp._trut then
 			ibp._trut = true;
 			inv():del('trut');
-			return 'I put the tinder on the UPS.';
+			return 'آتشزنه رو می‌ذارم روی منبع برق بی وقفه.';
 		end
 	end
 };
 
 fire = obj {
-	nam = 'fire',
-	inv = 'The paper burns fast... I must do something right now!!!',
+	nam = 'آتش',
+	inv = 'کاغذ فورا آتش می‌گیره... باید بی درنگ کاری بکنم!!!',
 
 	use = function(s, w)
 		if w == 'poroh' then
-			return 'It will explode in my hand.';
+			return 'تو دستم می‌ترکه.';
 		end
 		if w == 'news' then
-			return 'I tear another piece from the newspaper. The flame starts burning it.';
+			return 'یه تکه دیگه از روزنامه رو پاره می‌کنم. از شعله آتش می‌گیره..';
 		end
 		inv():del('fire');
 		if w ~= 'kover' then
-			return 'The paper burns out and disappears...';
+			return 'کاغذ خاکستر می‌شه و از بین می‌ره...';
 		end
 		if kover._fire then
-			return 'I throw the paper on the burning carpet...';
+			return 'کاغذ رو پرت می‌کنم روی فرش شعله‌ور...';
 		end
 		kover._fire = true;
-		return 'I put the paper on the carpet... The nap of the carpet starts burning... I guess the fire is starting...';
+		return 'کاغذ رو می‌ذارم روی فرش... تار و پود فرش شروع به سوختن می‌کنه... مثل اینکه داره آتیش می‌گیره...';
 	end
 };
 
 ibp = obj {
 	nam = 'UPS',
-	dsc = 'One disassembled {UPS} lies on the floor.',
+	dsc = 'یه {UPS} باز شده روی زمینه.',
 	inv = function(s)
 		if not s._knife then
-			return 'This is uninterruptible power supply unit. What should I do with it?';
+			return 'این یه واحد برق بدون وقفه است. باهاش چی کار کنم؟';
 		end
 		local st = '';
 		if s._trut then
-			st = ' There\'s the paper with gunpowder on the battery.';
+			st = ' کاغذ و باروت روی باطریه.';
 		end
-		return 'Disassembled UPS. I see contacts leading to the battery...'..st;
+		return 'یو‌پی‌اس پیاده شده. اتصالات منتهی به باطری رو می‌بینم...'..st;
 	end,
 	act = function(s)
 		if not have('ibp') then
 			if not have('fire') and not kover._fire then
 				take('ibp');
-				return 'I take UPS again.';
+				return 'یو‌پی‌اس رو دوباره برمی‌دارم.';
 			end
-			return 'I don\'t need it anymore.';
+			return 'دیگه بهش احتیاج ندارم.';
 		end
 		return s:inv();
 	end,
 	used = function(s, w)
 		if not have('ibp') then
-			return 'It will not do...';
+			return 'این کار نمی‌کنه...';
 		end
 		if w == 'knife' then
 			s._knife = true;
-			return 'I unscrew the screws and disassemble UPS. Now I see the contacts leading to the battery...';
+			return 'پیچ‌ها رو باز می‌کنم و یو‌پی‌اس رو پیاده می‌کنم. حالا اتصالات منتهی به باطری رو می‌بینم...';
 		end
 		if w == 'provodki' and s._knife then
 			if not provodki._knife then	
-				return 'The wires are not bare.';
+				return 'سیم‌ها لخت نیستن.';
 			end
 			if not s._trut then
-				return 'I connect the wires to the contacts and make a short circuit. The spark comes out. I need a tinder...';
+				return 'سیم‌ها رو به ترمینال‌های باطری وصل می‌کنم و یه اتصال کوتاه می‌سازم. جرقه می‌زنه. یه آتشزنه لازم دارم...';
 			end
 			drop('ibp');
 			ibp._trut = false;
 			inv():add('fire');
-			return 'I connect the wires to the contacts and make a short circuit. The spark comes out. The tinder begins to burn! I\'ve got a fire!!!';
+			return 'سیم‌ها رو به ترمینال‌های باطری وصل می‌کنم و یه اتصال کوتاه می‌سازم. جرقه می‌زنه و آتشزنه آتش می‌گیره! حالا آتیش دارم!!!';
 		end
 		if w == 'provod' then
-			return 'I inserted the wire to the UPS and took it back... Hmm...';
+			return 'کابل رو وارد UPS کردم و بیرون کشیدم... عجب...';
 		end
 	end,
 };
 
 provodki = obj {
-	nam = 'thin wires',
+	nam = 'سیم نازک',
 	inv = function(s)
 		if s._knife then
-			return 'A pair of thin wires with bared edges.'
+			return 'یک جفت سیم نازک با لبه‌های برش خوره.'
 		end
-		return 'A pair of thin wires.'
+		return 'یک جفت سیم نازک.'
 	end,
 	used = function(s, w)
 		if w == 'knife' and not s._knife then
 			s._knife = true;
-			return 'I cut the insulation of wire edges and releasing the bare wires.';
+			return 'عایق لبه‌های سیم رو می‌چینم و سیم لخت رو آزاد می‌کنم.';
 		else
-			return 'It won\'t work...';
+			return 'نمی‌شه...';
 		end
 	end
 };
 
 provod = obj {
-	nam = 'wire from UPS',
-	inv = 'This is the wire from UPS.',
+	nam = 'سیم UPS',
+	inv = 'این سیم UPS است.',
 	used = function(s, w)
 		if w == 'knife' then
 			if not knife._oster then
-				return 'The knife blade is too blunt...';
+				return 'لبه چاقو خیلی کنده...';
 			end
 			inv():del('provod');
 			inv():add('provodki');
-			return 'I cut the main insulation and take out two wires.'
+			return 'لایه عایق اصلی رو می‌برم و دو تا سیم بیرون می‌کشم'
 		end
 	end
 };
 
 ups = obj {
 	nam = 'ups',
-	dsc = '{Uninterruptible power supply units} are placed near every rack.',
+	dsc = 'در مجاورت هر رک یک {منبع برق بی وقفه} قرار گرفته.',
 	act = function(s)
 		if have('hand') then
-			return 'My hand is wounded. Bleeding much. I can\'t take an UPS.';
+			return 'دستم زخمی شده. بدجور خونریزی می‌کنه. نمی‌تونم یه UPS بردارم.';
 		end
 		if not have('ibp') and not seen('ibp') then
 			inv():add('ibp');
 			inv():add('provod');
-			return 'After some work I disconnect one of the UPSes and take it...';
+			return [[
+			بعد از کلی زحمت یکی از UPSها رو قطع می‌کنم و برش می‌دارم...
+			]];
+
 		end
-		return 'I have one already.';
+		return 'از قبل یکی دارم.';
 	end,
 };
 
 kover = obj {
-	nam = 'carpet',
+	nam = 'فرش',
 	dsc = function(s)
 		if s._fire then
-			return 'The {carpet} on the floor is burning more and more.';
+			return '{فرش} روی زمین بیشتر و بیشتر داره می‌سوزه.';
 		end
-		return 'The floor is covered with the red {carpet}.';
+		return 'زمین با یه {فرش} قرمز پوشیده شده.';
 	end,
-	act = 'Useless luxury.',
+	act = 'تجملات بی‌مصرف.',
 };
 
 room5 = room {
-	nam = 'information center';
+	nam = 'مرکز داده‌ها';
 	pic = 'gfx/servers.png',
-	dsc = [[I am in the big room which occupies all of the south part of the institute.]],
+	dsc = [[
+	داخل اتاق بزرگی هستم که کل محوطه‌ی جنوبی موسسه رو اشغال کرده.
+	]],
 	enter = function(s, f)
 		if f == 'ladder' then
 			set_music('mus/hybrid.xm');
 			lifeon('hand');
 			inv():add('hand');
-			return 'I jump and catch the window frame. My right hand is in blood. Despite of the pain I jump to the room floor...';
+			return [[
+			می‌پرم و قاب پنجره رو می‌گیرم. دست راستم غرق خونه. علیرغم درد می‌پرم کف اتاق...
+			]];
 		end
 	end,
 	exit = function(s, f)
@@ -642,12 +653,12 @@ room5 = room {
 	end,
 	act = function(s, w)
 		if w == 1 then
-			return 'I will not go back... It is cold and too much shooting outside...';
+			return 'برنمی‌گردم... بیرون سرده و تیراندازی هم فراوان...';
 		end
 	end,
 
 	obj = { 'computers', 'ups',
-		vobj(1, 'window', 'Cold winter wind blows through the broken {window}.'),
+		vobj(1, 'window', 'باد سرد زمستون از توی {پنجره} می‌وزه.'),
 		'kover',
 		'dout',
 		'portrait',
@@ -657,41 +668,47 @@ room5 = room {
 dout = obj {
 	nam = 'door',
 	dsc = function(s)
-		return 'Far ahead I can see the exit {door}.';
+		return 'در دوردست می‌تونم {درب} خروج رو ببینم.';
 	end,
 	act = function(s)
 		if not kover._fire then
-			return 'This is the information processing center. I must destroy it to save the world from this infection which resides inside its storages...';
+			return [[
+			اینجا مرکز پردازش داده‌هاست. باید نابودش کنم تا بتونم دنیا رو از شر این عفونتی که درون این مخازن انبار شده نجات بدم...
+			]];
 		end
-		return 'I run to the door. It leads to elevators. But it has electronic lock!!! This means I need a card with appropriate access level to open the door. Will I burn in fire?';
+		return [[
+		می‌دوم به طرف در. به آسانسورها منتهی می‌شه. اما قفل الکترونیکی داره!!! معنیش اینه که من یه کارت با دسترسی مناسب نیاز دارم تا بتونم بازش کنم. یعنی تو آتیش می‌سوزم؟
+		]];
 	end,
 	used = function(s, w)
 		if not kover._fire then
 			return s:act();
 		end
 		if w == 'card' then
-			return 'I bring the card to the door. Beep. Access denied! I\'ll die here!!!';
+			return 'کارت رو می‌کشم روی در. بیپ. دسترسی غیرمجاز! همینجا می‌میرم!!!';
 		end
 		if w == 'shotgun' then
 			return walk('escape2');
 		end
-		return 'Won\'t help...';
+		return 'کمکی نمی‌کنه...';
 	end
 };
 
 handgdlg = dlg {
-	nam = 'guard',
+	nam = 'نگهبان',
 	pic = 'gfx/handhoh.png',
-	dsc = 'The guard - a young guy of age 30 - looks at me. He is confused.',
+	dsc = 'نگهبان - یه مرد جوون حدودا سی ساله - بهم نگاه می‌کنه. گیج شده.',
 
 	obj = {
-	[1] = phr('Give me your weapon!', 
-		'- I have no weapon... - the guard shakes his head... I don\'t know if I can trust him, but I don\'t want to search him...'),
+	[1] = phr('سلاحت رو بده من!',
+	'- من اسلحه ندارم... - نگهبان سرش رو تکون می‌ده... نمی‌دونم که می‌تونم بهش اعتماد کنم یا نه، اما نمی‌خوام بازرسیش کنم...'),
 
-	[2] = phr('I need the key for the red door.', 
-		'The guard goes white. - No one has the key for THIS door. - he says. - What a nonsense... - I think.'),
+	[2] = phr('کلید در قرمز رو لازم دارم.',
+	'نگهبان رنگش می‌پره. «هیچکس کلید این در رو نداره.» با خودم فکر می‌کنم که چرند می‌گه...'),
 
-	[3] = phr('Okay! Just stand still and do not move.', 'The guard watches me silently.',
+	[3] = phr(
+	'باشه! فقط بی‌حرکت بمون و از جات تکون نخور.',
+	'نگهبان ساکت من رو نگاه می‌کنه.',
 		[[pon(3);back();]]),
 	},
 };
@@ -700,15 +717,15 @@ win5 = obj {
 	nam = 'window',
 	dsc = function (s)
 		if s._broken then
-			return 'The winter wind is howling through the broken {window}. Snowflakes whirl on the floor.';
+			return 'باد سرد زمستون از توی {پنجره} زوزه می‌کشه. دونه‌های برف روی زمین فر می‌خورن.';
 		end
-		return 'The wide {window} looks to the west.';
+		return 'یه {پنجره‌ی} پهن غربی.';
 	end,
 	act = function(s)
 		if not s._broken then
-			return 'I come to the window... Interesting. I see that the window looks at quite wide area of the roof, which streches through the front part of the building...';
+			return 'میام سمت پنجره... جالبه. می‌بینم که پنجره مشرف به بخش وسیعی از سقفه که تا بخش جلوی ساختمان امتداد داره...';
 		end
-		return 'The window is broken... The third one for today.';
+		return 'پنجره شکسته... سومین برای امروز.';
 	end,
 	used = function(s, w)
 		if s._broken then
@@ -717,20 +734,26 @@ win5 = obj {
 		if w == 'shotgun' then
 			s._broken = true;
 			ways():add('krysha');
-			return 'Oohh.... The third window for today... I swing with all my strength and pieces of the broken glass fly to the roof...'; 
+			return [[
+			ای دریغ... سومین پنجره برای امروز... با تمام توانم تاب می‌خورم و شیشه شکسته‌ها به طرف پشت‌بام به پرواز درمیان...
+			]];
 		end
 	end,
 };
 
 escape2 = room {
 	_timer = 0,
-	nam = '5th floor site',
+	nam = 'محوطه‌ی طبقه پنجم',
 	pic = 'gfx/floor5e.png',
-	dsc = [[The ceilings are very high on the fifth floor.]],
+	dsc = [[
+	سقف طبقه پنجم خیلی بلنده.
+	]],
 	enter = function(s, f)
 		if f == 'room5' then
 			lifeon('escape2');
-			return 'With no strength left I hit the hated door with the shotgun butt. But suddenly, in a second I hear someone comes to the door from outside... It is a guard!!! The card reader beeps and the door opens. The guard steps back - his chest is pushed by the pump-action gun of mine. We exit to the elevators site.';
+			return [[
+			در حالی که جونی در بدنم نمونده با قنداق شاتگان می‌کوبم به در منفور. اما یکهو می‌شنوم که کسی از بیرون به طرف در میاد... یه نگهبانه!!! کارتخوان بیپ بیپ می‌کنه و در باز می‌شه. نگهبان عقب می‌ایسته - سینه‌اش رو تفنگ دست‌کش من داره به عقب فشار می‌ده. به طرف محوطه‌ی آسانسورها خارج می‌شیم.
+			]];
 		end
 		if f == 'krysha' then
 			lifeon('escape2');
@@ -739,25 +762,27 @@ escape2 = room {
 	life = function(s)
 		s._timer = s._timer + 1;
 		if s._timer == 3 then
-		return 'Suddenly a siren sound rang out. - Attention!!! Zero access level individual on the fifth floor! I repeat... - the voice flows from the radio.';
+		return [[
+		یکهو صدای یه آژیر بلند شد. - توجه!!! توجه!!! فردی با سطح حفاظتی صفر در طبقه پنجم! تکرار می‌کنم... - صدا از رادیو پخش می‌شه.
+		]];
 		end
 		if s._timer > 3 then
-			return '— Zero access level individual on the fifth floor!!! - I\'m getting sick of the siren howling.';
+			return '— فردی با سطح حفاظتی صفر در طبقه پنجم!!! - حالم داره از صدای وزوز آژیر بد می‌شه.';
 		end
 	end,
 	act = function(s, w)
 		if w == 1 then
-			return 'My legs are drowning in the red velvet... Damned luxury!';
+			return 'پاهام داره توی مخمل قرمز فرو می‌ره... تجملات لعنتی!';
 
 		end
 		if w == 2 then
-			return 'Still, it is made of crystal...';
+			return 'بازم، جنسش کریستاله...';
 		end
 		if w == 4 then
-			return 'The fire is going on...';
+			return 'آتیش داره گسترش پیدا می‌کنه...';
 		end
 		if w == 5 then
-			return 'I don\'t think my pass works here.';
+			return 'فکر نکنم کارتم اینجا کار کنه.';
 		end
 		if w == 6 then
 			return walk('handgdlg');
@@ -765,27 +790,29 @@ escape2 = room {
 	end,
 	used = function(s, w, ww)
 		if w == 6 then
-			return 'I keep targeting the guard.';
+			return 'همچنان نگهبان رو نشونه می‌رم.';
 		end
 		if w == 5 then
-			return 'Won\'t help.';
+			return 'کمکی نمی‌کنه.';
 		end
 	end,
 	obj = {
-	vobj(1, 'carpet', 'The elevator site is covered with a red {carpet}.'),
-	vobj(2, 'chandelier', 'A crystal {chandelier} hangs on the high ceiling.'),
+	vobj(1, 'carpet', 'محوطه آسانسور با یک {فرش} قرمز پوشونده شده.'),
+	vobj(2, 'chandelier', 'یه {چلچراغ} کریستال از سقف بلند آویزونه.'),
 	'win5',
-	vobj(4, 'information', 'The {door} to the information processing center is wide opened. The smoke starts to come out from there.');
-	vobj(5, 'red door', 'The opposite {door} has no label. This is a massive door upholstered with red leather.'),
-	vobj(6, 'guard', 'The {guard} stands in the center of the site with hands up.');
+	vobj(4, 'information', '{درب} منتهی به مرکز پردازش داده‌ها کاملا بازه. دود داره از اونجا بیرون می‌زنه.');
+	vobj(5, 'red door', '{در} مخالف هیچ عنوانی نداره. یه در عظیم چرمی قرمزه.'),
+	vobj(6, 'guard', '{نگهبان} وسط محوطه ایستاده و دستهاش رو بالا گرفته.');
 	},
 	way = { 'lift','room5' },
 	exit = function(s, t)
 		if t == 'room5' then
-			return 'There\'s the flame!', false
+			return 'شعله است!', false
 		end
 		if t == 'lift' then
-			return 'I notice that all elevator indicators are on. I\'m quite sure that this means the guard troops are coming up here... I should hurry!', false;
+			return [[
+			متوجه می‌شم که نشانگر همه‌ی آسانسورها روشنه. مطمئنم که این یعنی همه نگهبان‌ها دارن میان این طرف... باید عجله کنم!
+			]], false;
 		end
 		if t == 'krysha' then
 			lifeoff('escape2');
@@ -794,31 +821,31 @@ escape2 = room {
 };
 
 swin = obj {
-	nam = 'south window',
-	dsc = 'Smoke is coming out from the south {window}.',
-	act = 'Yes, it is one of the windows of the information center. I look at the window and see the flame.',
+	nam = 'پنجره جنوبی',
+	dsc = 'دود داره از {پنجره} جنوبی بیرون می‌زنه.',
+	act = 'بله، یکی از پنجره‌های مرکز پردازش داده‌هاست. به پنجره نگاه می‌کنم و شعله رو می‌بینم.',
 };
 
 nwin = obj {
-	nam = 'north window',
+	nam = 'پنجره شمالی',
 	dsc = function(s)
 		local st = '';
 		if s._broken then
-			st = ' The window is broken.';
+			st = 'پنجره شکسته.';
 		end
-		return 'The north {window} shines to the darkness with yellow light.'..st;
+		return '{پنجره} شمالی با نور زردرنگ رو به تاریکی می‌درخشه.'..st;
 	end,
 	act = function(s)
 		if s._broken then
 			return walk('hall5');
 		end
-		return 'Hmm... I look at the window and see a nice hall.';
+		return 'عجب... به پنجره نگاه می‌کنم و یه سالن دلپذیر می‌بینم.';
 	end,
 	used = function(s, w)
 		if w == 'shotgun' then
 			s._broken = true;
 			ways():add('hall5');
-			return 'Oohh... I hope it\'s the last one??? I swing with my shotgun and break the glass.';
+			return 'هیهات... امیدوارم که آخریش باشه؟؟؟ یه تاب به شاتگانم می‌دم و شیشه رو خورد می‌کنم.';
 		end
 	end,
 };
@@ -828,24 +855,24 @@ hall5 = room {
 	pic = 'gfx/hall5.png',
 	enter = function(s, f)
 		if f == 'krysha' then
-			return 'I jump to the hall and look around...';
+			return 'می‌پرم توی سالن و اطراف رو نگاه می‌کنم...';
 		end
 	end,
 	act = function(s, w)
 		if w == 1 then
-			return 'Useless luxury.';
+			return 'تجملات بی‌مصرف.';
 		end
 		if w == 2 then
-			return 'I run my hand across the surface of one of the columns... Marble!';
+			return 'روی سطح یکی از ستون‌ها دست می‌کشم... مرمره!';
 		end
 		if w == 3 then
-			return 'I guess this chandelier made of mountain crystal.';
+			return 'به نظرم این چلچراغ از جنس کوارتزه.';
 		end
 		if w == 4 then
-			return 'Dark... But... What is it? It seems that some train arrived to the back side of the institute.';
+			return 'تاریک... اما... این دیگه چیه؟ انگار یه قطار رسید به محوطه پشتی موسسه.';
 		end
 		if w == 5 then
-			return 'Snowflakes wirl through the broken window.';
+			return 'دونه‌های برف از توی پنجره‌ی شکسته فر می‌خورن.';
 		end
 		if w == 6 then
 			if s.way:srch('escape3') then
@@ -854,78 +881,81 @@ hall5 = room {
 			return walk('gudlg');
 		end
 		if w == 7 then
-			return 'This door is closed. I don\'t think I can open it with my key.';
+			return 'این در بسته است. فکر نمی‌کنم بتونم با کلیدم بازش کنم.';
 		end
 		if w == 8 then
-			return 'Hmmm... Picasso?';
+			return 'عجب... پیکاسو؟';
 		end
 		if w == 9 then
-			return 'Terrible weakness posesses all me... No! I must not sleep...';
+			return 'ضعف شدیدی همه وجودم رو گرفته... نه! نباید بخوابم...';
 		end
 	end,
 	used = function(s, w, ww)
-		return 'What for?';
+		return 'برای چی؟';
 	end,
-	dsc = 'The huge and magnificent hall occupies almost all north part of the building!',
+	dsc = 'سالن سترگ و باشکوه تقریبا بخش شمالی ساختمان رو اشغال کرده!',
 	obj = {
-		vobj(1,'carpet', 'My feet feel the depth of the red velvet {carpet}.'),
-		vobj(2,'columns', 'Eight marble {columns} form a corridor.'),
-		vobj(3,'chandelier', 'The great {chandelier} hangs from the ceiling.'),
-		vobj(4,'east windows', 'Four {windows} look to the east.'),
-		vobj(5,'west windows', 'A broken {window} is to the left of me.'),
-		vobj(6,'small door', 'At the north end of the hall I see a small wooden {door}.'),
-		vobj(7,'entry door', 'There is the entry {door} behind me.'),
-		vobj(8,'paintings', 'Nice framed {paintings} hang on the walls.'),
-		vobj(9,'sofas', 'Soft {sofas} are placed along the perimeter.'),
+		vobj(1,'carpet', 'پاهام عمق {فرش} مخمل قرمز رو حس می‌کنن.'),
+		vobj(2,'columns', 'هشت ستون {مرمرین} یک دالان تشکیل دادن.'),
+		vobj(3,'chandelier', '{چلچراغ} عظیم از سقف آویزونه.'),
+		vobj(4,'east windows', 'چهار {پنجره} شرقی.'),
+		vobj(5,'west windows', 'یه {پنجره} شکسته سمت چپ منه.'),
+		vobj(6,'small door', 'در منتهی الیه شمالی سالن یک {در} کوچک چوبی می‌بینم.'),
+		vobj(7,'entry door', '{درب} ورودی پشت سرمه.'),
+		vobj(8,'paintings', '{نقاشی‌های} زیبای قاب شده به دیوارها آویخته شدن.'),
+		vobj(9,'sofas', '{کاناپه‌های} نرم دورتادور محوطه قرار گرفتن.'),
 	},
 	way = { 'krysha' },
 };
 
 krysha = room {
-	nam = 'roof',
+	nam = 'سقف',
 	pic = 'gfx/krysha.png',
 	enter = function(s, f)
-		return 'I quickly approach the broken window and a moment later I am on the roof...';
+		return 'به سرعت به طرف پنجره شکسته می‌رم و در یه چشم برهم زدن روی سقف هستم...';
 	end,
-	dsc = 'It seems that the fifth floor was built after the rest four. Walking on the roof I can reach the first windows of the south and north building parts.',
+	dsc = [[
+	ظاهرا طبقه پنجم بعد از ساخت چهار طبقه دیگر ساخته شده. با راه رفتن روی سقف می‌تونم به اولین پنجره‌های بخش‌های جنوبی و شمالی ساختمان برسم.
+	]],
 	obj = {'nwin', 'swin'},
 	way = {'escape2'},
 };
 
 gudlg2 = dlg {
-	nam = 'portrait man',
+	nam = 'مرد توی پرتره',
 	pic = 'gfx/pmanb.png',
-	dsc = 'I watch his drooping face. It is calm as already.',
+	dsc = 'صورت آویزونش رو نگاه می‌کنم. به نظر آرومه.',
 	obj = {
-		[1] = phr('You got it, freak?',
-		'The answer is a hardly heard groan.',
+		[1] = phr('گرفتی، خُله؟',
+		'جواب یه ناله است که به زحمت می‌شه شنید.',
 		[[pon(1); back();]]),
-		[2] = phr('But why? Why all this?',
-		'He raised his head and looked at me. - I just did my job...',
+		[2] = phr('اما چرا؟ چرا این بساط؟',
+		'سرش رو بالا گرفت و به من نگاه کرد. - من فقط وظیفه‌ام رو انجام دادم...',
 		[[pon(3);poff(1);]]),
-		[3] = _phr('What a bullshit?',
-		'- And then I became of no use... So - I thought... - The world will pay for this mistake...',
+		[3] = _phr('چه چرندیاتی؟',
+		'- بعدش به هیچ دردی نمی‌خوردم... خوب - فکر کردم... - جهان باید تقاص این اشتباه رو پس بده...',
 		[[pon(4)]]),
-		[4] = _phr('What\'re you saying?',
-		'- I worked as a professor... But I was of no use.. I... I could not stand this...',
+		[4] = _phr('چی می‌گی؟',
+		'- به عنوان یک استاد کار می‌کردم... اما به هیچ دردی نمی‌خوردم... من... نمی‌تونستم این رو تحمل کنم...',
 		[[pon(5)]]),
-		[5] = _phr('What a scoundrel...',
-		'— But I will make them... Make them... I, I, I - I will live forever... Myself... Alone.',
+		[5] = _phr('چه آدم پستی...',
+		'— اما مجبورشون می‌کنم... مجبورشون می‌کنم... من، من، من - من برای ابد زندگی می‌کنم... خودم... به تنهایی...',
 		[[pon(6)]]),
-		[6] = _phr('I think you got crazy...',
-		'His body shakes in the corner like in chill.',
+		[6] = _phr('به نظرم دیوانه شدی...',
+		'بدنش اون گوشه مثل توی سردی می‌لرزه.',
 		[[pon(1); back()]]),
 	}
 };
 
 gudlg = dlg {
-	nam = 'portrait man',
+	nam = 'مرد توی پرتره',
 	pic = 'gfx/pman.png',
 	enter = function(s)
 		lifeoff('mycat');
 		inv():del('shotgun');
-		return [[Strange... The door is not closed... I carefully open the door and enter the room. 
-^^Suddenly I find that a revolver barrel looks me in the face. - Bravo, bravo! Well done - says a man in an armchair - the owner of the revolver. - I was waiting for you for too long. You are that forester? Well, let's wait for guards. And now - throw your shotgun on the floor. - I cannot do anything, but obey him.]];
+		return [[
+		عجیبه... در بسته نیست... با احتیاط در رو باز می‌کنم و وارد اتاق می‌شم.
+		^^یکهو متوجه می‌شم که لوله‌ی یک هفت‌تیر توی صورتمه. - براوو، براوو! احسنت - مرد توی صندلی راحتی این رو می‌گه - صاحب هفت‌تیر. - مدت زیادی منتظرت بودم. تو همون جنگلبان هستی؟ خوب، بیا منتظر نگهبان‌ها باشیم. الان هم شاتگانت رو بنداز روی زمین. - کاری جز اطاعت ازم ساخته نیست.]];
 	end,
 	dsc = [[I see that face - the face from the portraits which hang almost in all rooms of this building. The face is calm and expressing nothing. A slight smile. I need to extend the time... And I ask him:]],
 
