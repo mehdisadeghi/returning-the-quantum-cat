@@ -957,37 +957,47 @@ gudlg = dlg {
 		عجیبه... در بسته نیست... با احتیاط در رو باز می‌کنم و وارد اتاق می‌شم.
 		^^یکهو متوجه می‌شم که لوله‌ی یک هفت‌تیر توی صورتمه. - براوو، براوو! احسنت - مرد توی صندلی راحتی این رو می‌گه - صاحب هفت‌تیر. - مدت زیادی منتظرت بودم. تو همون جنگلبان هستی؟ خوب، بیا منتظر نگهبان‌ها باشیم. الان هم شاتگانت رو بنداز روی زمین. - کاری جز اطاعت ازم ساخته نیست.]];
 	end,
-	dsc = [[I see that face - the face from the portraits which hang almost in all rooms of this building. The face is calm and expressing nothing. A slight smile. I need to extend the time... And I ask him:]],
+	dsc = [[
+	دارم صورتش رو می‌بینم - صورتی که توی تمام پرتره‌های آویزان شده از در و دیوار این ساختمان هست. صورت آرومیه و رد هیچ احساسی توش نیست. یه لبخند ملایم رو لبشه. باید وقت بخرم... پس ازش می‌پرسم:]],
 
 	obj = {
-	[1] = phr('Have a talk?',
-	'Hmm... So what can we have a talk about? What a talk may be there between me and a... a forester?',
+	[1] = phr('گپ بزنیم؟',
+	'عجب... در مورد چه چیزی می‌تونیم حرف بزنیم؟ چه صحبتی ممکنه بین من و یه... یه جنگلبان وجود داشته باشه؟',
 	[[pon(2)]]),
-	[2] = _phr('For example, is the Everett interpretation really true?',
-	'- Hah hah hah!!! - the man from the portrait laughs unexpressively, - It is not, of course... This is a tale for idiots to make them believe in their own immortality... And maybe...',
+	[2] = _phr('مثلا، اینکه آیا واقعا تفسیر اِوِرِت درست بود؟',
+	[[
+	- ها ها ها!!! - مرد توی پرتره‌ها لبخندی بی‌معنی می‌زنه، - البته که صحیح نیست... اون فقط یه قصه است واسه نادونها تا وادارشون کنه به جاودانگی خودشون ایمان بیارن... و ممکنه...
+	]],
 	[[pon(3)]] ),
-	[3] = _phr('...So, there is no scientific proof at all?',
-	'The man stops laughing - ...And maybe... Maybe still it is true? - says the man mysteriously. - So what is true? What do YOU think?',
+	[3] = _phr('...که اینطور، پس اصلا هیچ اثبات علمی براش وجود نداره؟',
+	[[
+	مرد دست از خندیدن می‌کشه - ... و ممکنه... ممکنه که واقعا صحت داشته باشه؟ - مرد به شکل مرموزی اضافه می‌کنه. - پس چی درسته؟ تو چی فکر می‌کنی؟
+	]],
 	 [[pon(4)]]),
-	[4] = _phr('I know it\'s a lie!',
-	'Do you really know? - the empty eyes look at me - Yes or now? - Suddenly the panic knocks me down.'
+	[4] = _phr('می‌دونم که دروغه!',
+	'آیا واقعا می‌دونی؟ - چشم‌های تهی به من نگاه می‌کنن - بلی یا خیر؟ - ناگهان وحشت من رو از پا می‌اندازه.'
 	,[[pon(5,9)]]),
-	[5] = _phr('IT\'S A LIE!', 
-	'And what if? Imagine, what if?... You\'re a hacker, right? You like to predict and to think ahead...',
+	[5] = _phr('یه دروغه!!!', 
+	'اگه باشه چطور؟ تصور کن که باشه؟... تو یه هکری، مگه نه؟ تو دوست داری پیش‌بینی کنی و جلو جلو فکر کنی...',
 [[pon(6);poff(9)]]),
 
-	[6] = _phr('No! This cannot be the truth! If it is the truth - then the world is doomed! Sooner or later! Then...',
-	'— Yes, you understand correct... Then there is only YOU!!! Listen to yourself. Who gave you this answer? Don\'t you crave it? Doesn\'t your YOU crave it? - I am falling in his abysmal sight.',
+	[6] = _phr('نه! امکان نداره که این راست باشه! اگه این راست باشه - اونوقت جهان دیر یا زود محکوم به فناست! اونوقت...',
+	[[
+	ـ بله، درست فهمیدی... اونوقت فقط تو وجود داری!!! به خودت گوش کن. چه کسی این پاسخ رو به تو داد؟ آیا همین رو آرزو نمی‌کنی؟ آیا منِ درونت این رو آرزو نمی‌کنه؟ - تو بینش عمیقش دارم فرو می‌ریزم.
+	]],
 	 [[pon(7)]]),
-	[7] = _phr('If... If... Then why?',
-	'— Right... Right... — says the portrait man suavely... A new wave of fear knocks me down, I fall down on the knees... The heart beats madly and tries to jump out from the chest...',
-
+	[7] = _phr('اگه... اگه.. اونوقت چرا؟',
+	[[
+	ـ درسته... درسته... ـ مرد پرتره‌ها شیک و تر و تمیز می‌گه... یه موج وحشت دیگه من رو گیج می‌کنه... به زانو می‌افتم... قلبم دیوانه‌وار می‌تپه و داره از قفسه‌ی سینه‌ام بیرون می‌زنه...
+	]],
 	[[pon(8)]]),
-	[8] = _phr('I can\'t... No...',
-	'- And if it is all true, then you have nothing to be afraid of. - he purrs. My heart beats faster. And at last, my chest blows and the soft ball of fur repels by his paws and flies just in the face of the portrait man. A shot rings out. Sharp pain in the left shoulder sobers me and I jump on my feet and rush forward...',
+	[8] = _phr('من نمی‌تونم... نه...',
+	[[
+	- و اگر همه اینها درست باشه، در اونصورت تو دلیلی برای ترسیدن نداری. - با خرخر می‌گه. قلبم تندتر می‌زنه. و دست آخر، سینه‌ام می‌ترکه و یه توپ نرم خز با پنجه‌هاش ازش مستقیم تو صورت مرد پرتره‌ها بیرون می‌جهه. صدای یه شلیک تو فضا طنین می‌اندازه. شونه‌ی چپم از درد تیر می‌کشه و هشیارم می‌کنه و می‌پرم روی پنجه‌هام و به طرف جلو خیزبرمی‌دارم...
+	]],
 	[[return walk('escape3')]]),
-	[9] = _phr('Let\'s assume it is true.',
-		'— Well... Right... Think, think... You\'re a hacker, right? — whispers the portrait man to me.',
+	[9] = _phr('بیا فرض کنیم که درست باشه.',
+		'ـ خوب... درسته... فکر کنم... فکر کنم تو یه هکری، درسته؟ ـ مرد توی پرتره‌ها تو گوشم زمزمه می‌کنه.',
 		[[pon(6);poff(5)]])
 	},
 };
@@ -998,60 +1008,60 @@ gudlg = dlg {
 --};
 
 shkaf = obj {
-	nam = 'bookcase',
-	inv = 'I hold the corner of the bookcase with my hands.',
+	nam = 'قفسه کتاب',
+	inv = 'گوشه‌ی قفسه‌ی کتاب‌ها رو با دست‌هام می‌گیرم.',
 	dsc = function(s)
 		if s._fall then
-			return 'The door is blocked by the {bookcase}.';
+			return '{قفسه کتاب} راه در ورودی رو سد کرده.';
 		end
-		return 'One {bookcase} stands beside the door.';
+		return 'یک {قفسه کتاب} کنار دره.';
 	end,
 	act = function(s)
 		if not escape3._guards or s._fall then
-			return 'Some books on philosophy... And physics.';
+			return 'چند کتاب در مورد فلسفه... و فیزیک.';
 		end
 		inv():add('shkaf');
-		return 'I gripped the bookcase corner tightly.';
+		return 'گوشه‌ی قفسه کتاب رو محکم می‌گیرم.';
 	end,
 };
 
 fromw5 = room {
-	nam = 'on window sill',
-	dsc = 'I stand on the window sill. Icy wind blocks my breathing.',
+	nam = 'روی آستانه‌ی پنجره',
+	dsc = 'روی لبه‌ی پنجره می‌ایستم. باد سرد مانع تنفسم می‌شه.',
 	pic = 'gfx/fromwin2.png',
-	enter = 'Well, I hope it\'s the last time...',
+	enter = 'خوب، امیدوارم که آخریش باشه...',
 	act = function(s, w)
 		if w == 1 then
 			return walk('nwall');
 		end
 	end,
 	obj = {
-		vobj(1, 'drainpipe', 'I hardly can distinguish a {drainpipe} to the right of me.'),
+		vobj(1, 'drainpipe', 'به زحمت متوجه یه {ناودون} سمت راستم می‌شم.'),
 	},
 	way = { 'escape3' },
 	exit = function(s, t)
 		if t == 'escape3' then
-			return 'I must hurry up!', false;
+			return 'باید عجله کنم!', false;
 		end
 	end
 };
 
 winr5 = obj {
-	nam = 'window',
+	nam = 'پنجره',
 	dsc = function(s)
 		if s._broken then
-			return 'Winter wind breathes through the broken {window}.';
+			return 'باد زمستونی از توی {پنجره‌ی شکسته} می‌وزه.';
 		else
-			return 'A {window} looks to the north side.';
+			return 'یه {پنجره} رو به محوطه شمالی.';
 		end
 	end,
 	act = function(s, w)
 		if escape3._guards then
 			if not shkaf._fall then
-				return 'No time to enjoy landscapes... I need to delay the guards.';
+				return 'وقت لذت بردن از منظره نیست... باید نگهبان‌ها رو معطل کنم.';
 			end
 			if not have('mycat') then
-				return 'Without Barsik? It\'s better to die together!';
+				return 'بدون باریسک؟ ترجیح می‌دم باهم بمیریم.';
 			end
 --			if not have('revol') then
 --				return 'Лучше поднять с пола пистолет, на всякий случай.';
@@ -1060,42 +1070,46 @@ winr5 = obj {
 				ways():add('fromw5');
 				return walk('fromw5');
 			else
-				return 'The window is closed.';
+				return 'پنجره بسته است.';
 			end
 		end
 		escape3._guards = true;
 		lifeon('escape3');
-		return 'There is a pure darkness outside the window. I look in the dark, but then I hear the muted noise of someone\'s steps behind... The noise is coming from the hall. I guess the guards are already here! I must do something!';
+		return 	[[
+	بیرون پنجره سیاهی مطلق حکمفرماست. به تاریکی خیره می‌شم اما بعدش پشت سرم صدای خفه‌ی کسی رو می‌شنوم... صدا از داخل سالن میاد. به نظرم نگهبان‌ها از قبل اینجان! باید کاری بکنم!
+	]];
 	end,
 	used = function(s, w)
 		if escape3._guards and not shkaf._fall then
-			return 'No time... The guards will break in here soon...';
+			return 'وقتی نمونده... نگهبان‌ها بزودی می‌ریزن تو...';
 		end
 		if w == 'shotgun' then
 			if not s._broken then
 				s._broken = true;
-				return 'Again? Well... I swing my shotgun and break the glass. The pieces fly to the dark.';
+				return 'بازم؟ چه کنیم... یه تاب به شاتگانم می‌دم و شیشه رو خرد می‌کنم. خرده‌شیشه‌ها پر می‌کشن به سوی تاریکی.';
 			end
-			return 'This window is already broken.';
+			return 'این پنجره قبلا شکسته.';
 		end
 	end,
 };
 
 revol = obj {
-	nam = 'revolver',
-	dsc = 'The {revolver} lies on the floor.',
-	inv = 'Six bullets.',
-	tak = 'I take the revolver from the floor.',
+	nam = 'هفت‌تیر',
+	dsc = '{هفت‌تیره} افتاده روی زمین.',
+	inv = 'شش فشنگ.',
+	tak = 'هفت‌تیر رو از روی زمین برمی‌دارم.',
 };
 
 escape3 = room {
-	nam = 'in the room',
+	nam = 'داخل اتاق',
 	pic = 'gfx/manroom.png',
 	enter = function(s, f)
 		if f == 'gudlg' then
 			inv():del('mycat');
 			hall5.way:add('escape3');
-			return 'I hear the noise of a falling gun... Then I hit someone\'s face with all my power. Again and again. Barsik runs around back and forth and anxiously meows.';
+			return 	[[
+	صدای افتادن یک تفنگ رو می‌شنوم... بعدش با تمام قوتم می‌کوبم تو صورت یکی. پشت سر هم. باریسک هی عقب و جلو می‌دوه و با نگرانی میو میو می‌کنه.
+	]];
 		end
 	end,
 	act = function(s, w)
@@ -1103,31 +1117,35 @@ escape3 = room {
 			return walk('gudlg2');
 		end
 		if w == 2 then
-			return 'Abstract art is not to my taste.';
+			return 'هنر انتزاعی راست کار من نیست.';
 		end
 		if w == 3 then
 			local st = '';
 			if shkaf._fall then
-				st = ' It is blocked by the bookcase.';
+				st = 'قفسه‌کتاب جلوش رو گرفته.';
 			end
-			return 'The door to the hall.'..st;
+			return 'در راهرو.'..st;
 		end
 	end,
 	used = function(s, w, ww)
 		if w == 1 and ww == 'shotgun' or ww == 'revol' then
-			return 'Yes - this is evil. But I can\'t shoot a helpless human.';
+			return 'بله - این شرارته. اما من نمی‌تونم به یه انسان بی‌دفاع شلیک کنم.';
 		end
 		if w == 3 and ww == 'shkaf' then
 			shkaf._fall = true;
 			inv():del('shkaf');
-			return 'I push the bookcase and it falls down blocking the door.';
+			return 'قفسه کتاب رو هل می‌دم و می‌افته روی زمین و جلوی در رو سد می‌کنه.';
 		end
 	end,
-	dsc = [[I am in a small, but cozy room. A table is placed to the center. A fallen armchair lies near. A small chandelier brings some soft light. Two small bookcases stand along the walls.]],
+	dsc = [[
+	توی یه اتاق کوچک و دنج هستم. یه میز وسط اتاقه. یه صندلی افتاده کنارش. یه لوستر کوچک فضا رو روشن کرده. دو تا قفسه کتاب کوچک سینه‌ی دیوارهاست.
+	]],
 	obj = {
-		vobj(1, 'man', 'The {man} from the portraits sits on the floor leaning against the table. A trickle of blood comes down from his lips. He groans.'),
-		vobj(2, 'paintings', 'The walls carry some {paintings}.'),
-		vobj(3, 'door', 'The {door} is behind me.'),
+		vobj(1, 'man', 	[[
+	{مرد} توی پرتره‌ها نشسته روی زمین و به میز تکیه داده. قطرات خون از لبش پایین می‌چکه. ناله می‌کنه.
+	]]),
+		vobj(2, 'paintings', 'تعدادی {تابلو نقاشی} روی دیوارهاست.'),
+		vobj(3, 'door', '{در} پشت سرمه.'),
 		'revol',
 		'shkaf',
 		'shotgun',
@@ -1136,20 +1154,22 @@ escape3 = room {
 	},
 	life = function(s)
 		if rnd(3) == 1 then
-			return 'I hear shots... Bullets break through the door... I must do something...';
+			return 'صدای چند شلیک می‌شنوم... گلوله‌ها از در رد می‌شن... باید کاری بکنم...';
 		end
 	end,
 	exit = function(s,t)
 		if t == 'hall5' then
 			if shkaf._fall then
-				return 'The passage is blocked by the bookcase.', false;
+				return '{قفسه کتاب} راه عبور رو سد کرده.', false;
 			end
 			if s._guards then
-				return 'I\'ll be shot there...', false;
+				return 'اینجا تیر می‌خورم...', false;
 			end
 			s._guards = true;
 			lifeon('escape3');
-			return 'I\'m going to go to the hall when suddenly the door on the opposite side opens and the guards run in. I quickly shut the door.', false;
+			return 	[[
+	دارم به طرف سالن می‌رم که یکهو در طرف مخالف باز می‌شه و نگهبان‌ها می‌ریزن تو. به سرعت در رو می‌بندم.
+	]], false;
 		end
 		lifeoff('escape3');
 	end,
@@ -1159,61 +1179,66 @@ escape3 = room {
 };
 
 nwall = room {
-	nam = 'north side',
-	dsc = 'I am at the north wall of the institute building.',
+	nam = 'ضلع شمالی',
+	dsc = 'کنار دیوار ضلع شمالی موسسه هستم.',
 	pic = 'gfx/nside.png',
 	way = {'eside2','wside' },
 	act = function(s, w)
 		if w == 1 then
-			return 'Yes - a drainpipe... Strong enough. But I doubt I can climb it up.';
+			return 'بله - یه ناودون... به قدر کفایت مستحکم. اما گمان نمی‌کنم بتونم ازش بالا برم.';
 		end
 	end,
 	enter = function(s, f)
 		if f == 'fromw5' then
-			return 'Overcoming the pain in the left shoulder I jump of the sill and catch the drainpipe... My heart beats madly in my chest while Barsik and I fall into the winter darkness. But in the next moment I slide the drainpipe hurting my palms...';
+			return 	[[
+	با غلبه به درد شونه‌ی چپم از آستانه پنجره می‌پرم و ناودون رو می‌گیرم... همینکه من و باریسک توی تاریکی زمستون سقوط می‌کنیم قلبم توی سینه دیوانه‌وار می‌تپه. اما یه لحظه بعد دارم از ناودون سر می‌خورم پایین و کف دست‌هام رو زخمی می‌کنم...
+	]];
 		end
 	end,
 	obj = { vobj(1, 'drainpipe',
-		'The {drainpipe} stretches along the east corner of the building.')},
+		'{ناودون} در گوشه‌ی شرقی ساختمون امتداد داره.'
+		)},
 	exit = function(s, t)
 		if t == 'wside' then
 			if not s._guards then
 				s._guards = true;
-				return 'I look around the corner and see the crowd of guards running out of the checkpoint and moving towards me. - There he is! - I hear them screaming... The rattle of shots makes me to step backward.',
-				false;
+				return 	[[
+	دور و بر گوشه ساختمون رو نگاه می‌کنم و نگهبان‌ها رو می‌بینم که از ایست بازرسی بیرون می‌دون و به طرف من میان. - اونجاست! - صدای فریادشون رو می‌شنوم... ترق ترق صدای شلیک باعث می‌شه عقب بکشم.
+	]], false;
 			end
-			return 'They will get me there...', false;
+			return 'من رو اونجا گیر می‌اندازن...', false;
 		end
 	end
 };
 
 eside2 = room {
-	nam = 'behind the institute',
+	nam = 'پشت موسسه',
 	pic = 'gfx/esidee.png',
-	dsc = [[ I am at the back wall of the institute building. There's the railway here.]],
+	dsc = [[
+	کنار دیوار پشتی موسسه هستم. خط راه‌آهن اینجاست.]],
 	act = function(s,w)
 		if w == 1 then
-			return 'The machine guns are turned to the south side of the institute perimeter. It\'s better to stay far from them.';
+			return 'مسلسل‌ها به طرف ضلع جنوبی موسسه نشانه رفتن. بهتره تا می‌تونم ازشون دوری کنم.';
 		end
 		if w == 2 then
-			return 'Hmm... It seems it is that train I\'ve heard about... The unloading haven\'t begun yet. But the gates are already opened.';
+			return 'عجب... ظاهرا همون قطاره است. در موردش شنیدم... تخلیه بار هنوز شروع نشده. اما دروازه‌ها باز شدن.';
 		end
 		if w == 3 then
-			return 'Four railroad vehicles. The type of locomotive - ChME3. The whole train fits to the institute area.';
+			return 'چهار وسیله نقلیه ریلی. از جنس لوکوموتیو - ChME3. کل قطار توی محوطه‌ی موسسه جا می‌شه.';
 		end
 	end,
 	obj = {
-	vobj(1,'gun towers', 'The railway entrance is guarded by the gun {towers}.'),
-	vobj(3,'train', 'I distinguish a black outline of some {train}.'),
-	vobj(2,'gates', 'The big iron {gates} in the institute wall are opened. I see the light pouring out from the doorway.'),
+	vobj(1,'gun towers', 'ورودی قطار توسط {برج‌های مسلسل} پوشش داده شده.'),
+	vobj(3,'train', 'شبح سیاه یک {قطار} رو تشخیص می‌دم.'),
+	vobj(2,'gates', '{دروازه‌های} بزرگ فلزی توی دیوارهای موسسه باز شدن. می‌بینم که نور از دروازه بیرون می‌پاشه.'),
 	},
 	exit = function(s, t)
 		if t == 'sside' then
-			return 'The machine guns on the south side make me nervous. Too risky.',
+			return 'مسلسل‌های ضلع جنوبی نگرانم می‌کنن. خیلی خطرناکه.',
 			false
 		end
 		if t == 'nwall' and nwall._guards then
-			return 'No way back...', false;
+			return 'راه برگشتی نیست...', false;
 		end
 	end,
 	way = {'nwall','train','sside'},
@@ -1247,13 +1272,13 @@ end
 
 p1 = obj {
 	_off = false,
-	nam = 'disconnector',
+	nam = 'سوئیچ',
 	dsc = function(s)
 		local st = 'on.';
 		if s._off then
 			st = 'off.';
 		end
-		return 'The VB battery {disconnector} is: ' .. st;
+		return 'کلید قطع باطری وی‌بی: ' .. st;
 	end,
 	act = function(s)
 		if s._off then
@@ -1262,19 +1287,19 @@ p1 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...';
+		return 'در حال سوئیچ کردن...';
 	end
 };
 
 p2 = obj {
 	_off = true;
-	nam = 'key',
+	nam = 'کلید',
 	dsc = function(s)
-		local st = 'turned down.';
+		local st = 'رو به پایین.';
 		if s._off then
-			st = 'turned up.';
+			st = 'رو به بالا.';
 		end
-		return 'The button switches {key} is: '..st;
+		return 'وضعیت دگمه سوئیچ {کلید}: '..st;
 	end,
 	act = function(s)
 		if s._off then
@@ -1283,22 +1308,22 @@ p2 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'I turn the key.';
+		return 'کلید رو می‌چرخونم.';
 	end
 };
 p3 = obj {
 	_off = true,
-	nam = 'electro-manometer',
+	nam = 'فشارسنج الکتریکی',
 	dsc = function(s)
-		local st = 'on.';
+		local st = 'روشن.';
 		if s._off then
-			st = 'off.';
+			st = 'خاموش.';
 		end
-		return '{Electro-manometer}: '..st;
+		return '{فشارسنج الکتریکی}: '..st;
 	end,
 	act = function(s)
 		if p1._off or p2._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1306,23 +1331,23 @@ p3 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p4 = obj {
 	_off = false,
-	nam = 'electro-thermometer',
+	nam = 'دماسنج الکتریکی',
 	dsc = function(s)
-		local st = 'on.';
+		local st = 'روشن.';
 		if s._off then
-			st = 'off.';
+			st = 'خاموش.';
 		end
-		return '{Electro-thermometer}: '..st;
+		return '{دماسنج الکتریکی}: '..st;
 	end,
 	act = function(s)
 		if p1._off or p2._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1330,23 +1355,23 @@ p4 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p5 = obj {
 	_off = true,
-	nam = '2nd section pump',
+	nam = 'دومین پمپ بخش',
 	dsc = function(s)
-		local st = 'on.';
+		local st = 'روشن.';
 		if s._off then
-			st = 'off.';
+			st = 'خاموش.';
 		end
-		return 'The 2nd section fuel {pump}: '..st;
+		return 'دومین {پمپ} سوخت بخش: '..st;
 	end,
 	act = function(s)
 		if p1._off or p2._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1354,23 +1379,23 @@ p5 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p6 = obj {
 	_off = true,
-	nam = 'control',
+	nam = 'کنترل',
 	dsc = function(s)
 		local st = 'on.';
 		if s._off then
 			st = 'off.';
 		end
-		return 'The {control}: '..st;
+		return '{کنترل}: '..st;
 	end,
 	act = function(s)
 		if p1._off or p2._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1378,23 +1403,23 @@ p6 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p7 = obj {
 	_off = true,
-	nam = '2nd section diesel engine start',
+	nam = 'استارت دومین موتور دیزل بخش',
 	dsc = function(s)
 		local st = 'on.';
 		if s._off then
 			st = 'off.';
 		end
-		return 'The 2nd section diesel engine {start}: '..st;
+		return 'وضعیت {استارت} دومین موتور دیزل بخش: '..st;
 	end,
 	act = function(s)
 		if p3._off or p4._off or p5._off or p6._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1402,23 +1427,23 @@ p7 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p51 = obj {
 	_off = true,
-	nam = '1st section pump',
+	nam = 'اولین پمپ بخش',
 	dsc = function(s)
-		local st = 'on.';
+		local st = 'روشن.';
 		if s._off then
-			st = 'off.';
+			st = 'خاموش.';
 		end
-		return 'The 1st section fuel {pump}: '..st;
+		return 'وضعیت اولین {پمپ} بخش: '..st;
 	end,
 	act = function(s)
 		if p1._off or p2._off then
-			return 'Strange... Not working.'
+			return 'عجبیه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1426,23 +1451,23 @@ p51 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p71 = obj {
 	_off = true,
-	nam = '1st section diesel start',
+	nam = 'استارت دیزل بخش اول',
 	dsc = function(s)
-		local st = 'on.';
+		local st = 'روشن.';
 		if s._off then
-			st = 'off.';
+			st = 'خاموش.';
 		end
-		return 'The 1st section diesel engine {start}: '..st;
+		return '{استارت} موتور دیزل بخش اول: '..st;
 	end,
 	act = function(s)
 		if p3._off or p4._off or p5._off or p6._off or p7._off then
-			return 'Strange... Not working.'
+			return 'عجیبه... کار نمی‌کنه.'
 		end
 		if s._off then
 			s._off = false;
@@ -1450,36 +1475,36 @@ p71 = obj {
 			s._off = true;
 		end
 		checkloc();
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p8 = obj {
 	_num = 1,
-	nam = 'reverser',
+	nam = 'معکوس کننده',
 	dsc = function(s)
 		local st;
 		if s._num == 1 then
-			st = 'neutral.';
+			st = 'خنثی.';
 		elseif s._num == 2 then
-			st = 'backword.';
+			st = 'به پس.';
 		elseif s._num == 3 then
-			st = 'forward.';
+			st = 'به پیش.';
 		end
-		return 'The {reverser} handle: ' .. st;
+		return '{دسته‌ی} معکوس کننده: ' .. st;
 	end,
 	act = function(s)
 		s._num = s._num + 1;
 		if s._num == 4 then
 			s._num = 1;
 		end
-		return 'Switching...'
+		return 'در حال سوئیچ کردن...'
 	end
 };
 
 p9 = obj {
 	_num = 1,
-	nam = 'controller',
+	nam = 'کنترلر',
 	dsc = function(s)
 		local st;
 		if s._num == 1 then
@@ -1489,7 +1514,7 @@ p9 = obj {
 		elseif s._num == 3 then
 			st = '2.';
 		end
-		return 'The {controller} handle: '..st;
+		return 'دسته‌ی {کنترلر}: '..st;
 	end,
 	act = function(s)
 		s._num = s._num + 1;
@@ -1497,12 +1522,12 @@ p9 = obj {
 			s._num = 1;
 		end
 		if s._num == 1 then
-			return 'Switching...'
+			return 'در حال سوئیچ کردن...'
 		end
 		if not p71._off and not p7._off then
 			if p8._num == 2 then
 				s._num = 1;
-				return 'The locomotive trembles and starts moving backwards. I switch the controller to 0.';
+				return 'لوکوموتیو می‌لرزه و شروع به عقب رفتن می‌کنه. کنترلر رو روی صفر تنظیم می‌کنم.';
 			elseif p8._num == 3 then
 				lifeoff('mycat');
 				set_music('mus/liberty.s3m');
@@ -1510,61 +1535,62 @@ p9 = obj {
 			end
 		end
 		s._num = 1;
-		return 'Nothing happens... I switch the controller to 0.';
+		return 'هیچ اتفاقی نمی‌افته... کنترلر رو روی صفر تنظیم می‌کنم.';
 	end
 };
 	
 train = room {
 	nam = function(s)
 		if here() == train then
-			return 'in the locomotive';
+			return 'داخل لوکوموتیو';
 		end
-		return 'to the train';
+		return 'به طرف قطار';
 	end,
 	pic = 'gfx/cab.png',
-	dsc = 'So, I am in the locomotive. The thick iron reliably saves me from bullets. The engineer cabin seems to be abandoned. I see lots of devices and controls.',
+	dsc = 'خوب، من داخل لوکوموتیو هستم. بدنه‌ی ضخیم فلزی من رو از گلوله‌ها محافظت می‌کنه. اتاق مهندسی ظاهرا به حال خودش رها شده. کلی تجهیزات و کنترل می‌بینم.',
 	act = function(s, w)
 		if w == 2 then
 			if p1._off or p2._off then
-				return 'I pressed the horn button, but I heard nothing.';
+				return 'دگمه‌ی شیپور رو فشار می‌دم، اما صدایی نمی‌شنوم.';
 			end
-			return 'I hear a dull whistle. I am a railroad engineer!';
+			return 'یه سوت بی‌حال می‌شنوم. من یه مهندس راه‌آهنم!';
 		end
 		if w == 1 then
-			return 'I really need to start this thing... And no gates will stop me.';
+			return 'جدی جدی باید این وسیله رو روشن کنم... و هیچ دروازه‌ای سد راهم نخواهد شد.';
 		end
 	end,
 	life = function(s)
 		local st = '';
 		if not p7._off or not p71._off then
-			st = 'I feel how the locomotive trembles. The diesel engine is working. ';
+			st = 'قشنگ حس می‌کنم که لوکوموتیو چطور مرتعش می‌شه. موتور دیزلی داره کار می‌کنه. ';
 		end
 		if rnd(10) < 5 then
-			st = st..'I hear bullets hitting the metal.';
+			st = st..'صدای برخورد گلوله‌ها به بدنه‌ی فلزی رو می‌شنوم.';
 		end
 		return st;
 	end,
 	exit = function(s,t)
 		if t == 'eside2' then
-			return 'No... It\'s better to stay here! We will resist to the last.',
+			return 'نه... بهتره همینجا بمونم. تا آخرین نفس ایستادگی می‌کنیم.',
 				false;
 		end
 		lifeoff('train');
 	end,
 	enter = function(s, f)
 		if f == 'eside2' and not guards1._broken then 
-			return cat('Hunched over I run to the train.^^', 
+			return cat('همینکه سرم رو می‌دزم به طرف قطار می‌دوم.^^', 
 				walk('vorota')), false;
 		end
 		lifeon('train');
 		set_music('mus/hispeed.s3m');
-		return 'Hunched over I run to the train... Running past the vehicles I manage to notice the signs <<Beware! High Radiation!>>. A little bit more running and I get to the locomotive. I hear the shot sounds behind. The machine guns on the towers are turning to my direction. I open the heavy door and... I am inside!' 
-
+		return [[
+		همینکه سرم رو می‌دزم به طرف قطار می‌دوم... از ماشین‌ها که رد می‌شم موفق می‌شم که تابلو رو بخونم: «هشدار! تشعشع بالا». یه کم دیگه می‌دوم و می‌رسم به لوکوموتیو. صدای شلیک گلوله‌ها پشت سرم رو می‌شنوم. مسلسل‌های روی برجک‌ها دارن به طرف من می‌چرخن. در سنگین رو باز می‌کنم و... داخل هستم!
+		]]
 	end,
 	obj = {
 		'p2', 'p1', 'p4', 'p3',  'p71','p51', 'p7', 'p5', 'p9', 'p8', 'p6',
-		vobj(2, 'horn', 'The locomotive {horn}.');
-		vobj(1, 'window', 'I see the closed gates through the {windows}.'),
+		vobj(2, 'horn', '{شیپور} لوکوموتیو.');
+		vobj(1, 'window', 'دروازه‌های بسته رو از توی {پنجره‌ها} می‌بینم.'),
 	},
 	way = { 'eside2' },
 };
@@ -1573,50 +1599,50 @@ guards1 = obj {
 	nam = 'guards',
 	dsc = function(s, w)
 		if s._broken then
-			return 'The {guards} at the tourniquets are trying to get out from under the fallen chandelier.';
+			return '{نگهبان‌های} کنار گیت‌ها سعی می‌کنن که از زیر چلچراغ فروافتاده رد بشن.';
 		end
 		if s._shoot then
-			return 'I see the {guards} hiding from my fire behind the tourniquets.';
+			return '{نگهبان‌ها} رو می‌بینم که از ترس شلیک‌های من پشت گیت‌ها پناه گرفتن.';
 		end
-		return 'I see the {guards} with machine guns moving towards me through the first floor hall.';
+		return '{نگهبان‌ها} رو با مسلسل می‌بینم که دارن از طریق سالن اول به طرفم میان.';
 	end,
 	act = function(s, w)
 		if s._broken then
-			return 'It seems they are stunned...';
+			return 'ظاهرا شوکه شدن...';
 		end
 		if s._shoot then
-			return 'What a bastards!';
+			return 'چه حرومزاده‌ای!';
 		end
-		return 'It\'s amazing I am still alive...';
+		return 'شگفت‌آوره که هنوز زنده‌ام...';
 	end,
 	used = function(s, w)
 		if w == 'shotgun' or w == 'revol' then
 			if s._shoot then
-				return 'It\'s useless. The guards are protected by the metal tourniquets.';
+				return 'بیهوده است. نگهبان‌ها پشت گیت‌های فلزی پناه گرفتن.';
 			end
 			s._shoot = true;
-			return 'I look out from the wall and shoot several times by guess.';
+			return 'از دیوار بیرون رو نگاه می‌کنم و همینطوری چند بار شلیک می‌کنم.';
 		end
 	end,
 };
 
 lustra1 = obj {
-	nam = 'chandeliers',
+	nam = 'چلچراغ‌ها',
 	dsc = function(s, w)
 		if s._broken then
-			return 'The ceiling carries one {chandelier}.';
+			return '{چلچراغ} از سقف آویزونه.';
 		end
-		return 'Two shiny {chandeliers} hang on the ceiling.';
+		return 'دو تا {چلچراغ} پر زرق و برق از سقف آویزونه.';
 	end,
 	act = function(s, w)
 		if guards1._shoot then
-			return 'One of the chandeliers hang just above the tourniquets.';
+			return 'یکی از چلچراغ‌ها درست بالای گیت‌هاست.';
 		end
-		return 'I can\'t help watching them... Perhaps, they are made of crystal?';
+		return 'نمی‌تونم نگاه ازشون وردارم... شاید از کریستال ساخته شدن؟';
 	end,
 	used = function(s, w)
 		if w == 'revol' then
-			return 'I doubt this revolver brings any significant damage to the chandeliers.';
+			return 'شک دارم که این هفت‌تیر صدمه‌ی قابل توجهی به چلچراغ‌ها بزنه.';
 		end
 		if w == 'shotgun' then
 			shotgun._unloaded = true;
@@ -1624,40 +1650,42 @@ lustra1 = obj {
 			guards1._broken = true;
 			lifeoff('vorota');
 			drop('shotgun');
-			return 'I look out from the wall and fire the shotgun. The shot sound and a loud crash hit my ears. I see one of the chandeliers breaks away the ceiling and slowly starts falling down on the screaming guards. I throw away the useless and unloaded shotgun.';
+			return [[
+			از دیوار بیرون رو نگاه می‌کنم و با شاتگان شلیک می‌کنم. صدای شلیک و یه برخورد شدید گوشم رو کر می‌کنه. یکی از چلچراغ‌ها رو می‌بینم که داره از سقف کنده می‌شه و پایین روی سر نگهبان‌هایی که دارند فریاد می‌کشن می‌افته. شاتگان بی‌مصرف و خالی رو دور می‌اندازم.
+			]];
 		end
 	end,
 	
 };
 
 vorota = room {
-	nam = 'near the gates',
+	nam = 'نزدیک گیت‌ها',
 	pic = 'gfx/shooting.png',
 	enter = function(s, f)
 		if f == 'eside2' and not guards1._broken then
 			lifeon('vorota');
-			return 'Reaching the gates I hear the rattle of shots and push myself to the wall.';
+			return 'با رسیدن به گیت‌ها ترق ترق صدای شلیک می‌شنونم و خودم رو به دیوار می‌چسبونم.';
 		end
 	end,
 	life = function(s)
 		if rnd(6) < 4 then
-			return 'Shots ring out. I push myself to the wall.';
+			return 'صدای شلیک طنین می‌اندازه تو فضا. خودم رو می‌چسبونم به دیوار.';
 		end 
 	end,
 	act = function(s, w)
 		if w == 1 then
-			return 'Those tourniquets which had let me inside today. Now I see them from the other side.';
+			return 'اون گیت‌ها من رو امروز راه دادن داخل. الان دارم از اونطرف می‌بینمشون.';
 		end
 	end,
-	dsc = 'I am at the opened gates. They open the way to the first floor of the institute.',
+	dsc = 'کنار گیت‌های باز هستم. اونها راه رو به طرف طبقه اول موسسه باز می‌کنن.',
 	obj = {
-	vobj(1, 'tourniquets', 'I see the row of the {tourniquets}.'),
+	vobj(1, 'tourniquets', 'ردیف {گیت‌ها} رو می‌بینم.'),
 	'lustra1',
 	'guards1',
 	},
 	exit = function(s, t)
 		if not guards1._broken and t == 'train' then
-			return 'I rush ahead, but the machine gun shots make me return back.',
+			return 'خیز برمی‌دارم به جلو اما شلیک‌های مسلسل من رو به عقب می‌فرستن.',
 			false;
 		end
 	end,
@@ -1665,18 +1693,18 @@ vorota = room {
 };
 
 theend = room {
-	nam = 'the epilogue',
+	nam = 'گفتار پایانی',
 	pic = 'gfx/chme3.png',
-	dsc = [[I moved the controller handle to the most forward position and the locomotive shaked and started moving ahead. I heard screams and machine gun shots started bumping the cabin walls with new power... But the train moved faster and faster. And soon there was a great clash! It was the gates which could not stand 1350 horsepowers of my train! They broke out of their hinges and were pulled several tens of meters along the railroad...^^
+	dsc = [[
+	دسته‌ی کنترلر رو تا آخر می‌دم جلو و لوکوموتیو می‌لرزه و راه می‌افته به طرف جلو. صدای فریاد شنیدم و رگبار مسلسل با جدیتی نو شروع کرد به سوراخ سوراخ کردن دیواره‌های کابین... اما قطار سریع‌تر و سریع‌تر حرکت کرد. و در فاصله‌ای کوتاه یه برخورد مهیب روی داد! از دروازه‌هایی بود که توان ایستادگی در برابر ۱۳۵۰ اسب بخار قدرت لوکوموتیو من رو نداشتن! از لولاهاشون کنده شدن و ده‌ها متر روی ریل‌ها کشیده شدن...^^
 
-Barsik showed his face out and looked around. I petted his ears as I always did. 
-When the bullet sound had disappeared I looked out from the window and watched the institute for the last time. It was burning like a torch. The fire had already captured the whole fifth floor. I looked in the sky... And now - almost in complete darkness - I could see millons of stars shining like dimonds.^^
+باریسک صورتش رو بیرون آورد و اطراف رو نگاه کرد. گوش‌هاش رو نوازش کردم، همونطوری که همیشه می‌کنم. وقتی که صدای شلیک محو شده بود، از پنجره به بیرون نگاه کردم و موسسه رو برای بار آخر دیدم. مثل یک مشغل داشت می‌سوخت. آتش به تمام محوطه‌ی طبقه‌ی پنجم سرایت کرده بود. به آسمان نگاه کردم... و حالا - تقریبا در تاریکی مطلق - می‌تونستم میلیونها ستاره‌ی رخشان الماس‌وار رو ببینم.^^
 
-Very soon, the fields outside were followed by taiga and I could see the friendly outlines of pines and firs changing one another in the rhythm of wheel sound. The wound in the shoulder hurted much and I felt how hard I was tired... I sat on the floor and leaned against the cold iron of the cabin. I was listening the hum of the locomotive and petting my Barsik...^^
+خیلی زود زمین‌های اطراف به تایگا منتهی شدن و من می‌تونستم خط افق دوستانه‌ی درختان کاج و صنوبرها رو در حالی که هی جا عوض می‌کردن در پس زمینه‌ی ریتم صدای گردش چرخ‌ها ببینم. زخم شونه‌ام خیلی آزارم می‌داد و حسی می‌کردم چقدر خسته‌ام... نشستم روی زمین و به بدنه سرد فلزی کابین تکیه دادم. به آوای لوکوموتیو گوش می‌کردم و باریسکم رو نوازش می‌کردم...^^
 
-Barsik looked at me with his clever eyes and purred like asking me a question. - Back home... - I answered him - We are going back home...^^
+باریسک با چشم‌های زیرکش نگاهم کرد و طوری پِرر پِرر کرد انگار که از من سوالی می‌پرسید. - برمی‌گردیم خونه... - و من جوابش رو دادم - داریم برمی‌گردیم خونه...^^
 
-THE END^^
+پایان^^
 
  ---^^
 
