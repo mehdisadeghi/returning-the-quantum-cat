@@ -1,7 +1,7 @@
 -- $Name:Returning the Quantum Cat$
 -- $Name(ru):Возвращение квантового кота$
 -- $Version: 1.6.1$
--- $Language: fa$
+-- $Direction: auto
 
 if stead.version < "1.5.3" then
 	walk = _G["goto"]
