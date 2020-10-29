@@ -12,7 +12,7 @@ Former hacker. He left to live in the forest. But he's back. Back for his cat.^^
 
 --require "dbg";
 
-me().nam = 'Oleg';
+me().nam = 'اولِگ';
 main = room {
 	nam = 'نجات گربه‌ی کوانتومی',
 	pic = 'gfx/thecat.png',
